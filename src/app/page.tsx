@@ -69,8 +69,38 @@ const DATA = {
     },
   ],
   education: [
-    { institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)", degree: "Bachelor of Science in Computer Science & Engineering [CGPA: 3.67]", period: "Jun 2025 – Present" },
-    { institution: "GRAPHIC ARTS INSTITUTE (GAI)", degree: "Diploma in Engineering (Graphic Design) [CGPA: 3.60]", period: "Jun 2020 – Dec 2024" },
+    { 
+      institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)",
+      degree: "B.Sc. in Computer Science & Engineering (Evening) [CGPA: 3.43/4.00]",
+      period: "Jan 2024 – Present",
+      location: "Rupnogor Road, Mirpur, Dhaka",
+      coursework: "DSA · Probability & Statistics · Competitive Programming · Computer Networking · System Design · OOP"
+    },
+    { 
+      institution: "GRAPHIC ARTS INSTITUTE (GAI)",
+      degree: "Diploma in Engineering (Graphic Design & Software Tech) [CGPA: 3.60/4.00]",
+      period: "Jun 2020 – Dec 2024",
+      location: "Satmosjid Road, Mohammadpur, Dhaka",
+      coursework: "Web Development · JS · TS · Python · React · Node.js · Django · REST API · UI Design · Figma · Photoshop"
+    },
+  ],
+  references: [
+    {
+      name: "Md. Faisal Amir Mostafa",
+      role: "Senior Software Architect, W3 Engineers Ltd.",
+      phone: "+880 1758-522846",
+      email: "faisalamirmostafa@gmail.com",
+      location: "Dhaka, Bangladesh"
+    },
+    {
+      name: "Mohammad Faisal",
+      role: "Co-founder & CEO, RajTech BD Ltd.",
+      phone: "01758-522846",
+      email: "rajtechbdt@gmail.com",
+      website: "rajtechbd.com",
+      location: "Mirpur-12, Dhaka",
+      address: "Block-C, Road No. 5, House No. 13, 1st Floor, Mirpur-12, Dhaka, Bangladesh"
+    }
   ],
   projects: [
     { name: "AINOS", desc: "AI-POWERED ECOMMERCE PLATFORM", tech: "NestJS / React / PostgreSQL / Prisma / Redis / AI APIs", meta: "Secure Payments", icon: "◈" },
@@ -94,7 +124,7 @@ const DATA = {
 function SectionLabel({ label }: { label: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-      <span style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500 }}>// </span>
+      <span style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500 }}>{"// "}</span>
       <span style={{ color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase" as const }}>{label}</span>
     </div>
   );
@@ -141,7 +171,7 @@ function Header() {
       else clearInterval(t);
     }, 50);
     return () => clearInterval(t);
-  }, []);
+  }, [full]);
 
   return (
     <header style={{ borderBottom: "1px solid var(--border)" }}>
@@ -281,6 +311,7 @@ function ExperienceEducation() {
             {DATA.experience.map((exp, i) => (
               <motion.div key={i} variants={fadeUp} custom={i + 1}
                 style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 whileHover={{ borderColor: "var(--accent)" } as any}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
@@ -302,14 +333,62 @@ function ExperienceEducation() {
           <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             {DATA.education.map((edu, i) => (
               <motion.div key={i} variants={fadeUp} custom={i + 1}
-                style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)" }}
+                style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                whileHover={{ borderColor: "var(--accent)" } as any}
               >
-                <p style={{ fontSize: "13px", letterSpacing: "0.06em", fontWeight: 500, color: "var(--accent)", marginBottom: "6px" }}>&gt; {edu.institution}</p>
-                <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginBottom: "6px" }}>{edu.degree}</p>
-                <p style={{ fontSize: "12px", color: "var(--text-muted)" }}>{edu.period}</p>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
+                  <p style={{ fontSize: "13px", letterSpacing: "0.06em", fontWeight: 500, color: "var(--accent)" }}>&gt; {edu.institution}</p>
+                  <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.period}</span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                  <p style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{edu.degree}</p>
+                  <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.location}</span>
+                </div>
+                <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>
+                  <span style={{ color: "var(--text-primary)" }}>Coursework:</span> {edu.coursework}
+                </p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+// ─── References ───────────────────────────────────────────────────────────────
+
+function References() {
+  return (
+    <motion.section
+      style={{ borderBottom: "1px solid var(--border)", padding: "4rem 0" }}
+      initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+    >
+      <div className="container-max">
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="REFERENCES" /></motion.div>
+        <div className="grid-cols-1-2" style={{ gap: "2rem", marginTop: "2rem" }}>
+          {DATA.references.map((ref, i) => (
+            <motion.div key={i} variants={fadeUp} custom={i + 1}
+              style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              whileHover={{ borderColor: "var(--accent)" } as any}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
+                <p style={{ fontSize: "13px", letterSpacing: "0.08em", fontWeight: 500, color: "var(--accent)" }}>&gt; {ref.name.toUpperCase()}</p>
+                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0 }}>{ref.phone}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{ref.role}</p>
+                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{ref.location}</span>
+              </div>
+              <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "4px" }}>
+                <span><span style={{ color: "var(--text-primary)" }}>Email:</span> {ref.email}</span>
+                {ref.website && <span><span style={{ color: "var(--text-primary)" }}>Website:</span> {ref.website}</span>}
+                {ref.address && <span><span style={{ color: "var(--text-primary)" }}>Address:</span> {ref.address}</span>}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>
@@ -450,14 +529,16 @@ export default function Home() {
 
   useEffect(() => {
     const wasLoaded = sessionStorage.getItem("home_loaded");
-    if (wasLoaded === "true") {
-      setLoadingComplete(true);
-      setHasCheckedSession(true);
-    } else {
-      setLoadingComplete(false);
-      setHasCheckedSession(true);
-      setShouldAnimate(true);
-    }
+    setTimeout(() => {
+      if (wasLoaded === "true") {
+        setLoadingComplete(true);
+        setHasCheckedSession(true);
+      } else {
+        setLoadingComplete(false);
+        setHasCheckedSession(true);
+        setShouldAnimate(true);
+      }
+    }, 0);
   }, []);
 
 
@@ -566,6 +647,7 @@ export default function Home() {
             <Ticker />
             <ProfileExpertise />
             <ExperienceEducation />
+            <References />
             <Ticker reversed />
             <Projects />
             <Connect />

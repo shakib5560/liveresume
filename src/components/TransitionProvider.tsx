@@ -29,13 +29,15 @@ export default function TransitionProvider({ children }: { children: React.React
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
-    if (savedTheme === "light") {
-      setTheme("light");
-      document.documentElement.classList.add("light");
-    } else {
-      setTheme("dark");
-      document.documentElement.classList.remove("light");
-    }
+    setTimeout(() => {
+      if (savedTheme === "light") {
+        setTheme("light");
+        document.documentElement.classList.add("light");
+      } else {
+        setTheme("dark");
+        document.documentElement.classList.remove("light");
+      }
+    }, 0);
   }, []);
 
   const toggleTheme = () => {
@@ -58,9 +60,9 @@ export default function TransitionProvider({ children }: { children: React.React
   // When pathname changes, trigger opening animation
   useEffect(() => {
     if (animationState === "closing") {
-      setAnimationState("opening");
+      setTimeout(() => setAnimationState("opening"), 0);
     }
-  }, [pathname]);
+  }, [pathname, animationState]);
 
   const handleClosingComplete = () => {
     if (targetHref.current) {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { PROJECTS_DATA, ProjectDetails } from "@/data/projects";
+import { PROJECTS_DATA } from "@/data/projects";
 import TransitionLink from "@/components/TransitionLink";
 import ThemeToggle from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 function SectionLabel({ label }: { label: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-      <span style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500 }}>// </span>
+      <span style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500 }}>{"// "}</span>
       <span style={{ color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase" }}>{label}</span>
     </div>
   );
@@ -30,6 +30,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.05 } },
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ProjectDetailsPage({ params }: { params: any }) {
   const [slug, setSlug] = useState<string | null>(null);
   const [loadingComplete, setLoadingComplete] = useState(false);
