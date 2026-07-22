@@ -8,12 +8,15 @@ interface TransitionLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorEleme
   children: React.ReactNode;
 }
 
-export default function TransitionLink({ href, children, ...props }: TransitionLinkProps) {
+export default function TransitionLink({ href, onClick, children, ...props }: TransitionLinkProps) {
   const { navigateTo } = useTransitionNavigation();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    navigateTo(href);
+    if (onClick) onClick(e);
+    if (!e.defaultPrevented && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      e.preventDefault();
+      navigateTo(href);
+    }
   };
 
   return (

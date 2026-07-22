@@ -8,6 +8,7 @@ export interface ProjectDetails {
   longDescription: string;
   github: string | { frontend?: string; backend?: string };
   live: string;
+  liveLabel?: string;
   client: {
     name: string;
     industry: string;
@@ -22,6 +23,55 @@ export interface ProjectDetails {
 }
 
 export const PROJECTS_DATA: Record<string, ProjectDetails> = {
+  idea2system: {
+    slug: "idea2system",
+    name: "IDEA2SYSTEM",
+    desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR",
+    tech: "NestJS / TypeScript / OpenAI / PostgreSQL / Prisma / Docker",
+    meta: "Idea to Blueprint",
+    icon: "🧠",
+    longDescription: "Idea2System is an AI-powered platform that transforms raw software ideas into complete, buildable technical blueprints. The system leverages advanced AI planning capabilities to automatically generate software requirements, design database schemas and ERDs, recommend scalable system architectures, generate API contracts, create development roadmaps with task breakdowns, and export comprehensive technical documentation. Built on a solid NestJS backend foundation, Idea2System streamlines the gap between ideation and implementation for developers and engineering teams.",
+    github: "https://github.com/shakib5560/Idea2System",
+    live: "https://hub.docker.com/r/shakib106/idea2system-api",
+    liveLabel: "DOCKERHUB_IMAGE",
+    client: {
+      name: "Idea2System (Open Source)",
+      industry: "AI Developer Tools & Software Engineering",
+      duration: "Ongoing",
+      deliverables: [
+        "AI-powered software requirements generation from ideas",
+        "Automated database schema & ERD design",
+        "Scalable system architecture recommendations",
+        "API contract generation engine",
+        "Development roadmap & task breakdown generator",
+        "Complete technical blueprint export system",
+        "Dockerized production deployment",
+        "Scalable NestJS backend architecture"
+      ]
+    },
+    problems: [
+      {
+        title: "Transforming Ambiguous Ideas into Structured Requirements",
+        description: "Raw software ideas are often vague and unstructured, making it extremely difficult for AI to generate precise, actionable technical requirements without losing the original intent.",
+        solution: "Engineered a multi-stage AI planning pipeline that progressively refines ambiguous inputs through contextual analysis, requirement extraction, and structured output generation to produce detailed software specifications."
+      },
+      {
+        title: "Generating Consistent & Scalable Architecture Blueprints",
+        description: "Producing system architectures that are both technically sound and scalable across different project types required handling diverse technology constraints and design patterns.",
+        solution: "Built a modular architecture recommendation engine that evaluates project scope, tech stack preferences, and scalability requirements to generate tailored system designs with appropriate patterns and infrastructure layouts."
+      },
+      {
+        title: "API Contract & Schema Coherence Across Generated Artifacts",
+        description: "Ensuring that generated database schemas, API contracts, and system architecture documents remain consistent and reference each other correctly was a complex orchestration challenge.",
+        solution: "Implemented a centralized artifact registry with cross-referencing validation logic that maintains coherence between generated schemas, endpoints, and architecture components throughout the blueprint generation pipeline."
+      },
+      {
+        title: "Containerized Deployment & Reproducible Environments",
+        description: "Ensuring consistent runtime behavior across development, staging, and production environments while managing AI service integrations and database connections.",
+        solution: "Containerized the entire platform using Docker with multi-stage builds, environment-based configuration management, and published production-ready images to Docker Hub for seamless deployment."
+      }
+    ]
+  },
   ainos: {
     slug: "ainos",
     name: "AINOS",

@@ -103,6 +103,7 @@ const DATA = {
     }
   ],
   projects: [
+    { name: "IDEA2SYSTEM", desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR", tech: "NestJS / TypeScript / OpenAI / PostgreSQL / Docker", meta: "Idea to Blueprint", icon: "🧠" },
     { name: "AINOS", desc: "AI-POWERED ECOMMERCE PLATFORM", tech: "NestJS / React / PostgreSQL / Prisma / Redis / AI APIs", meta: "Secure Payments", icon: "◈" },
     { name: "TOYGALAXY", desc: "E-COMMERCE PLATFORM", tech: "Django / JavaScript / PostgreSQL / Redis / Tailwind", meta: "2,000+ daily users", icon: "◫" },
     { name: "GYAANBD", desc: "LMS PLATFORM", tech: "Next.js / TypeScript / NestJS / PostgreSQL / i18n", meta: "Multi-language support", icon: "◬" },
@@ -522,139 +523,22 @@ function Footer() {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const [loadingComplete, setLoadingComplete] = useState(false);
-  const [hasCheckedSession, setHasCheckedSession] = useState(false);
-  const [shouldAnimate, setShouldAnimate] = useState(false);
-  const [logLines, setLogLines] = useState<string[]>([]);
-
-  useEffect(() => {
-    const wasLoaded = sessionStorage.getItem("home_loaded");
-    setTimeout(() => {
-      if (wasLoaded === "true") {
-        setLoadingComplete(true);
-        setHasCheckedSession(true);
-      } else {
-        setLoadingComplete(false);
-        setHasCheckedSession(true);
-        setShouldAnimate(true);
-      }
-    }, 0);
-  }, []);
-
-
-  useEffect(() => {
-    if (loadingComplete || !hasCheckedSession) return;
-
-    const lines = [
-      "[SYS] INITIATING DIRECTORY SCAN: ~/shakib/portfolio",
-      "[SYS] COMPILING STYLESHEETS & GRAPHICS... [OK]",
-      "[SYS] LOADING CORE EXPERTISE SCHEMATICS... [OK]",
-      "[SYS] RESOLVING EXPORTS: PROJECTS & DATA LAYERS...",
-      "[SYS] ESTABLISHING VISITOR HANDSHAKE... [OK]",
-      "[SYS] MOUNTING PROFILE INTERFACE MODULES...",
-      "[SYS] SYSTEM READY. WELCOME TO THE WORKSPACE."
-    ];
-
-    let currentLine = 0;
-    const interval = setInterval(() => {
-      if (currentLine < lines.length) {
-        const lineToAdd = lines[currentLine];
-        setLogLines((prev) => [...prev, lineToAdd]);
-        currentLine++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          sessionStorage.setItem("home_loaded", "true");
-          setLoadingComplete(true);
-        }, 300);
-      }
-    }, 110);
-
-    return () => clearInterval(interval);
-  }, [loadingComplete, hasCheckedSession]);
-
-  if (!hasCheckedSession) {
-    return (
-      <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative" }}>
-        <div className="grid-bg" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />
-      </div>
-    );
-  }
-
-  const showLoader = !loadingComplete && hasCheckedSession;
-
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative" }}>
       {/* Grid background */}
       <div className="grid-bg" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />
 
-      <AnimatePresence mode="wait">
-        {showLoader ? (
-          <motion.div
-            key="console-loader"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: 99,
-              background: "var(--bg)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "20px"
-            }}
-          >
-            <div style={{
-              width: "100%",
-              maxWidth: "600px",
-              background: "var(--surface)",
-              border: "1px solid var(--border)",
-              padding: "25px",
-              fontFamily: "'JetBrains Mono', monospace",
-              boxShadow: "0 0 40px rgba(0,0,0,0.8)"
-            }}>
-              <div style={{ display: "flex", gap: "6px", marginBottom: "15px", borderBottom: "1px solid var(--border)", paddingBottom: "10px" }}>
-                <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ff5f56" }} />
-                <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ffbd2e" }} />
-                <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#27c93f" }} />
-                <span style={{ color: "var(--text-muted)", fontSize: "10px", marginLeft: "10px", letterSpacing: "0.05em" }}>SYSTEM_BOOT.SH</span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", minHeight: "160px" }}>
-                {logLines.map((line, idx) => (
-                  <div key={idx} style={{
-                    fontSize: "12px",
-                    letterSpacing: "0.05em",
-                    color: line && line.includes("[OK]") ? "var(--accent)" : "var(--text-secondary)"
-                  }}>
-                    {line}
-                  </div>
-                ))}
-                <span className="cursor-blink" style={{ color: "var(--accent)", fontSize: "12px" }}>▋</span>
-              </div>
-            </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="page-content"
-            initial={shouldAnimate ? { opacity: 0 } : { opacity: 1 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            style={{ position: "relative", zIndex: 1 }}
-          >
-            <Header />
-            <Ticker />
-            <ProfileExpertise />
-            <ExperienceEducation />
-            <References />
-            <Ticker reversed />
-            <Projects />
-            <Connect />
-            <Footer />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Header />
+        <Ticker />
+        <ProfileExpertise />
+        <ExperienceEducation />
+        <References />
+        <Ticker reversed />
+        <Projects />
+        <Connect />
+        <Footer />
+      </div>
     </div>
   );
 }
