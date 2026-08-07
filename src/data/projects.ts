@@ -20,6 +20,7 @@ export interface ProjectDetails {
     description: string;
     solution: string;
   }[];
+  video?: string; // YouTube video ID
 }
 
 export const PROJECTS_DATA: Record<string, ProjectDetails> = {
@@ -31,9 +32,10 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
     meta: "Idea to Blueprint",
     icon: "🧠",
     longDescription: "Idea2System is an AI-powered platform that transforms raw software ideas into complete, buildable technical blueprints. The system leverages advanced AI planning capabilities to automatically generate software requirements, design database schemas and ERDs, recommend scalable system architectures, generate API contracts, create development roadmaps with task breakdowns, and export comprehensive technical documentation. Built on a solid NestJS backend foundation, Idea2System streamlines the gap between ideation and implementation for developers and engineering teams.",
-    github: "https://github.com/shakib5560/Idea2System",
+    github: "https://github.com/shakib5560/Idea2System-API-V2.0",
     live: "https://hub.docker.com/r/shakib106/idea2system-api",
     liveLabel: "DOCKERHUB_IMAGE",
+    video: "8qNOPrrWJXo",
     client: {
       name: "Idea2System (Open Source)",
       industry: "AI Developer Tools & Software Engineering",

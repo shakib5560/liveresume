@@ -280,6 +280,96 @@ export default function ProjectDetailsPage({ params }: { params: any }) {
           </div>
         </div>
 
+        {/* Video Section */}
+        {project.video && (
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            style={{ borderBottom: "1px solid var(--border)", background: "var(--surface)" }}
+          >
+            <div className="container-max" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
+              {/* Label */}
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
+                <span style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500 }}>{"// "}</span>
+                <span style={{ color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.18em" }}>PRODUCT INTRODUCTION</span>
+                <div style={{ flex: 1, height: "1px", background: "var(--border)", marginLeft: "12px" }} />
+                <span style={{ fontSize: "10px", letterSpacing: "0.14em", color: "var(--accent)", border: "1px solid var(--border)", padding: "3px 10px" }}>DEMO VIDEO</span>
+              </div>
+
+              {/* Video Frame */}
+              <div style={{
+                position: "relative",
+                borderRadius: "2px",
+                overflow: "hidden",
+                border: "1px solid var(--border)",
+                boxShadow: `0 0 60px rgba(253,203,110,0.08), 0 0 0 1px var(--border)`,
+                background: "#000",
+                maxWidth: "860px",
+                margin: "0 auto",
+              }}>
+                {/* Aspect ratio wrapper 16:9 */}
+                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${project.video}?rel=0&modestbranding=1&color=white`}
+                    title={`${project.name} — Introduction Video`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    style={{
+                      position: "absolute",
+                      top: 0, left: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                    }}
+                  />
+                </div>
+                {/* Bottom caption bar */}
+                <div style={{
+                  display: "flex", justifyContent: "space-between", alignItems: "center",
+                  padding: "12px 18px",
+                  borderTop: "1px solid var(--border)",
+                  background: "var(--surface)",
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <span style={{ fontSize: "20px" }}>{project.icon}</span>
+                    <div>
+                      <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "0.06em" }}>{project.name}</p>
+                      <p style={{ fontSize: "11px", color: "var(--text-muted)", letterSpacing: "0.1em" }}>{project.desc}</p>
+                    </div>
+                  </div>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${project.video}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex", alignItems: "center", gap: "6px",
+                      fontSize: "11px", letterSpacing: "0.1em",
+                      color: "var(--text-muted)",
+                      textDecoration: "none",
+                      border: "1px solid var(--border)",
+                      padding: "5px 12px",
+                      background: "var(--bg)",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
+                      (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+                      (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
+                    }}
+                  >
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    WATCH ON YOUTUBE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.section>
+        )}
+
         {/* Content Body Grid */}
         <motion.section
           initial="hidden"
