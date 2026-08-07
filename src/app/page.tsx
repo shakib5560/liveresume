@@ -21,6 +21,135 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.06 } },
 };
 
+// ─── Experience Data ──────────────────────────────────────────────────────────
+
+interface ExperienceEntry {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  type: string;
+  tech: string[];
+  responsibilities: string[];
+  impact: { metric: string; label: string }[];
+  challenges: { title: string; problem: string; solution: string }[];
+  keyLearnings: string[];
+}
+
+const EXPERIENCE_DATA: ExperienceEntry[] = [
+  {
+    role: "Backend Software Engineer",
+    company: "RAJTECH BD",
+    period: "Jan 2026 – Present",
+    location: "Dhaka, Bangladesh",
+    type: "Full-Time",
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "Prisma ORM", "FastAPI", "JWT", "Docker", "CI/CD"],
+    responsibilities: [
+      "Designed and developed scalable backend services for an enterprise AI-powered SaaS platform using NestJS, TypeScript, PostgreSQL, and Prisma ORM, following modular software architecture and clean coding principles.",
+      "Built secure REST APIs and FastAPI microservices with JWT authentication, Role-Based Access Control (RBAC), request validation, rate limiting, background jobs, and asynchronous processing.",
+      "Optimized database performance through query optimization, indexing strategies, caching, and efficient data modeling to reduce API response latency.",
+      "Collaborated with cross-functional teams and international clients to design technical architecture, define API contracts, manage Docker-based deployments, and maintain CI/CD pipelines throughout the software development lifecycle.",
+    ],
+    impact: [
+      { metric: "20%", label: "AI Workflow Efficiency ↑" },
+      { metric: "Modular", label: "Microservice Architecture" },
+      { metric: "RBAC", label: "Secure Multi-Tenant APIs" },
+      { metric: "CI/CD", label: "Automated Deployments" },
+    ],
+    challenges: [
+      {
+        title: "Designing a Scalable Multi-Tenant SaaS Backend",
+        problem: "Building an enterprise SaaS that isolates tenant data, enforces role-based access, and scales horizontally without leaking context between users or organizations.",
+        solution: "Implemented a modular NestJS architecture with tenant-scoped guards, JWT-based RBAC middleware, and Prisma data models that enforce row-level isolation, allowing the system to scale confidently across clients.",
+      },
+      {
+        title: "Optimizing AI Workflow Response Times",
+        problem: "AI-driven pipeline endpoints were synchronous and caused high latency under concurrent load, degrading user experience significantly.",
+        solution: "Refactored AI-heavy operations into background jobs using NestJS Bull queues and Redis, decoupling request/response cycles and improving throughput by 20% under production traffic.",
+      },
+    ],
+    keyLearnings: [
+      "How to architect clean, multi-tenant NestJS backends that remain maintainable as teams grow.",
+      "Practical trade-offs between synchronous REST and async queue-driven processing for AI workloads.",
+      "Collaborating with international clients to define API contracts and manage expectations across time zones.",
+    ],
+  },
+  {
+    role: "Full-Stack Software Engineer",
+    company: "DEVNEXT",
+    period: "Feb 2025 – Dec 2025",
+    location: "Karachi, Pakistan (Remote)",
+    type: "Project-Based (Contract)",
+    tech: ["Django", "JavaScript", "PostgreSQL", "Redis", "TailwindCSS", "REST APIs", "Docker"],
+    responsibilities: [
+      "Developed and maintained production-grade full-stack web applications supporting more than 1,500 daily active users, including enterprise e-commerce platforms such as ToyGalaxy Australia.",
+      "Designed scalable backend architecture, relational database schemas, REST APIs, and reusable frontend components using Django, JavaScript, and modern web development practices.",
+      "Improved application performance by optimizing SQL queries, reducing database bottlenecks, implementing caching strategies, and minimizing server response time.",
+      "Managed the complete software development lifecycle, including client communication, requirement analysis, development, testing, deployment, production support, and continuous system improvements.",
+    ],
+    impact: [
+      { metric: "1,500+", label: "Daily Active Users" },
+      { metric: "30%", label: "Server Response Time ↓" },
+      { metric: "Redis", label: "Caching Layer Implemented" },
+      { metric: "E2E", label: "Full SDLC Ownership" },
+    ],
+    challenges: [
+      {
+        title: "Scaling a Django Backend to 1,500+ Daily Users",
+        problem: "The existing application experienced degraded performance under increasing traffic — slow database queries, N+1 ORM issues, and unoptimized session handling were the main culprits.",
+        solution: "Profiled the application with Django Debug Toolbar, rewrote critical ORM queries using select_related and prefetch_related, introduced Redis caching for hot data paths, and reduced average response time by 30%.",
+      },
+      {
+        title: "Remote Client Communication & Requirement Clarity",
+        problem: "Working remotely with international clients meant requirements were sometimes ambiguous, leading to rework and delivery delays.",
+        solution: "Introduced structured requirement documentation, API contract-first design using OpenAPI specs, and weekly sync calls to align expectations — cutting mid-sprint scope changes significantly.",
+      },
+    ],
+    keyLearnings: [
+      "How to systematically identify and resolve Django ORM performance bottlenecks in production.",
+      "Managing a full SDLC independently — from requirement gathering to production support.",
+      "Effective remote collaboration patterns with asynchronous communication and contract-first API design.",
+    ],
+  },
+  {
+    role: "Web Developer Intern",
+    company: "TECHONFY IT LTD",
+    period: "Apr 2024 – Sep 2024",
+    location: "Dhaka, Bangladesh",
+    type: "Internship",
+    tech: ["HTML/CSS", "JavaScript", "Git", "REST APIs", "CI/CD", "AWS/GCP", "Unit Testing"],
+    responsibilities: [
+      "Engineered and maintained scalable production web applications within an Agile environment, collaborating with senior developers to deliver high-quality software solutions for 10+ clients.",
+      "Architected database schemas and developed full-stack features, including secure authentication, REST API integrations, and automated unit testing.",
+      "Managed version control (Git), rigorous code reviews, and CI/CD workflows, streamlining automated deployment pipelines to AWS/GCP.",
+      "Participated in sprint planning, daily standups, retrospectives, and pair programming sessions to accelerate learning and contribute to team goals.",
+    ],
+    impact: [
+      { metric: "10+", label: "Client Projects Delivered" },
+      { metric: "20%", label: "Post-Release Bugs ↓" },
+      { metric: "AWS/GCP", label: "Cloud Deployments" },
+      { metric: "Agile", label: "Sprint-Based Delivery" },
+    ],
+    challenges: [
+      {
+        title: "Learning Production Standards as a First-Time Engineer",
+        problem: "Transitioning from personal projects to production codebases with strict code review, testing requirements, and CI/CD pipelines was an immediate steep learning curve.",
+        solution: "Adopted a growth mindset — studying senior engineers' code reviews, writing unit tests for every feature, and proactively asking for feedback on architecture decisions to internalize production-grade standards quickly.",
+      },
+      {
+        title: "Reducing Post-Release Bug Rate Across Client Projects",
+        problem: "Several client projects had a pattern of bugs surfacing post-deployment, damaging client confidence and consuming engineering time on hotfixes.",
+        solution: "Introduced automated unit testing for authentication and API integration layers and tightened the pre-deployment review checklist, contributing to a 20% reduction in post-release reported bugs.",
+      },
+    ],
+    keyLearnings: [
+      "How to write production-quality code with tests, reviews, and CI/CD from day one.",
+      "The value of Agile practices — sprint planning, standups, and retrospectives — in structuring collaborative work.",
+      "Building confidence through code review feedback loops and learning to give and receive technical critique professionally.",
+    ],
+  },
+];
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const DATA = {
@@ -28,7 +157,7 @@ const DATA = {
   title: "SOFTWARE ENGINEER",
   tagline: "Building systems that scale.",
   profile: [
-    { label: "1.5+ YRS PRODUCTION EXPERIENCE", color: "var(--text-primary)", bar: "var(--accent)" },
+    { label: "2+ YRS PRODUCTION EXPERIENCE", color: "var(--text-primary)", bar: "var(--accent)" },
     { label: "B.SC. CSE & DIPLOMA GRAPHIC DESIGN", color: "var(--text-secondary)", bar: "var(--border-hover)" },
     { label: "SPECIALIZED: AI-POWERED WEB APPS", color: "var(--yellow)", bar: "var(--yellow)" },
     { label: "HIGH-TRAFFIC SYSTEM DESIGN ARCHITECTURE", color: "var(--yellow)", bar: "var(--yellow)" },
@@ -39,35 +168,6 @@ const DATA = {
     DATABASES: "MySQL / MongoDB / PostgreSQL",
     DEVOPS: "Docker / Linux / Git / CI/CD / GitHub Actions / VPS Management / Cloud Fundamentals",
   },
-  experience: [
-    {
-      role: "Full-Stack Web Developer",
-      company: "FREELANCE PROJECTS",
-      period: "Jan 2025 – Present",
-      points: [
-        "Designed, developed, and deployed scalable web applications using Next.js, Nest JS, Django REST Framework, Express.js, and FastAPI.",
-        "Built RESTful APIs, implemented secure authentication flows, and optimized performance for production-ready deployments."
-      ],
-    },
-    {
-      role: "Backend Engineer (Project-Based)",
-      company: "DEVNEXT",
-      period: "Jul 2025 – Dec 2025",
-      points: [
-        "Developed scalable backend systems and designed databases to support high-traffic applications within a collaborative team.",
-        "Contributed to system architecture decisions and ensured reliability across production environments."
-      ],
-    },
-    {
-      role: "Web Developer Intern",
-      company: "TECHONFY IT",
-      period: "Jun 2024 – Dec 2024",
-      points: [
-        "Built production-ready websites and collaborated with the development team to deliver client projects on schedule.",
-        "Gained hands-on experience with full-stack workflows, version control, and real-world deployment practices."
-      ],
-    },
-  ],
   education: [
     { 
       institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)",
@@ -103,13 +203,11 @@ const DATA = {
     }
   ],
   projects: [
-    { name: "IDEA2SYSTEM", desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR", tech: "NestJS / TypeScript / OpenAI / PostgreSQL / Docker", meta: "Idea to Blueprint", icon: "🧠" },
-    { name: "AINOS", desc: "AI-POWERED ECOMMERCE PLATFORM", tech: "NestJS / React / PostgreSQL / Prisma / Redis / AI APIs", meta: "Secure Payments", icon: "◈" },
-    { name: "TOYGALAXY", desc: "E-COMMERCE PLATFORM", tech: "Django / JavaScript / PostgreSQL / Redis / Tailwind", meta: "2,000+ daily users", icon: "◫" },
-    { name: "GYAANBD", desc: "LMS PLATFORM", tech: "Next.js / TypeScript / NestJS / PostgreSQL / i18n", meta: "Multi-language support", icon: "◬" },
-    { name: "RINORS", desc: "MULTI-VENDOR E-COMMERCE", tech: "Next.js / T3 Stack / TypeScript / Prisma / PostgreSQL", meta: "10,000+ monthly users", icon: "❖" },
-    { name: "GITRABBIT", desc: "AI CODE REVIEW PLATFORM", tech: "Next.js / TypeScript / OpenAI / GitHub APIs", meta: "Auto Pull-Request Reviews", icon: "🐇" },
-    { name: "ATLANIA", desc: "AI-POWERED AUTONOMOUS BLOGGING PLATFORM", tech: "Next.js / NestJS / OpenAI / Redis / Tailwind", meta: "AI Auto-SEO & Auto-Images", icon: "🌌" },
+    { name: "IDEA2SYSTEM", desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR", tech: "NestJS / Docker / PostgreSQL", meta: "Idea to Blueprint", icon: "🧠" },
+    { name: "TOYGALAXY", desc: "E-COMMERCE PLATFORM", tech: "Django / JavaScript / TailwindCSS", meta: "2,000+ daily users", icon: "◫" },
+    { name: "GITRABBIT", desc: "AI CODE REVIEW PLATFORM", tech: "Enterprise SaaS", meta: "Auto Pull-Request Reviews", icon: "🐇" },
+    { name: "RINORS", desc: "MULTI-VENDOR E-COMMERCE", tech: "Next.js / T3 Stack / TypeScript", meta: "10,000+ monthly users", icon: "❖" },
+    { name: "AINOS", desc: "AI-POWERED FULL-STACK SAAS", tech: "NestJS / React / Prisma", meta: "Secure Payments", icon: "◈" },
   ],
   connect: {
     phone: "+880 1771 659336",
@@ -181,14 +279,14 @@ function Header() {
         {/* Nav */}
         <motion.div
           className="responsive-nav"
-          style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4.5rem", flexWrap: "wrap", gap: "1.5rem" }}
+          style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4.5rem", flexWrap: "wrap", gap: "1rem" }}
           initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }} />
             <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>PORTFOLIO_2026</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" as const }}>
             {["projects", "connect"].map(id => (
               <a key={id} href={`#${id}`}
                 style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }}
@@ -196,6 +294,41 @@ function Header() {
                 onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
               >{id}</a>
             ))}
+            {/* Resume Download */}
+            <a
+              href="https://drive.google.com/file/d/1U5OautUtvBelMObPqBBwfCdGDoBmoIJK/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Download Resume"
+              style={{
+                display: "flex", alignItems: "center", gap: "6px",
+                padding: "6px 12px",
+                border: "1px solid var(--border)",
+                background: "var(--surface)",
+                color: "var(--text-muted)",
+                fontSize: "11px", letterSpacing: "0.12em",
+                textDecoration: "none",
+                transition: "all 0.2s ease",
+                whiteSpace: "nowrap" as const,
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
+                (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                (e.currentTarget as HTMLElement).style.background = "var(--accent-dim)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+                (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
+                (e.currentTarget as HTMLElement).style.background = "var(--surface)";
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              RESUME
+            </a>
             <ThemeToggle />
           </div>
         </motion.div>
@@ -207,7 +340,7 @@ function Header() {
               <p style={{ fontSize: "13px", letterSpacing: "0.25em", color: "var(--text-muted)", marginBottom: "14px" }}>&lt;identity&gt;</p>
               <h1 style={{ fontSize: "clamp(3.5rem, 9vw, 6rem)", fontWeight: 700, lineHeight: 1, margin: 0, letterSpacing: "-0.03em" }}>
                 <span style={{ color: "var(--text-primary)" }}>SHAMIUL </span>
-                <span style={{ color: "var(--accent)", textShadow: "0 0 50px rgba(79,255,176,0.35)" }}>SHAKIB</span>
+                <span style={{ color: "var(--accent)", textShadow: "0 0 50px rgba(253,203,110,0.35)" }}>SHAKIB</span>
               </h1>
               <p style={{ fontSize: "13px", letterSpacing: "0.25em", color: "var(--text-muted)", margin: "10px 0 28px" }}>&lt;/identity&gt;</p>
             </motion.div>
@@ -233,11 +366,11 @@ function Header() {
           >
             <div style={{
               width: "200px", height: "200px", borderRadius: "50%", overflow: "hidden",
-              border: "1px solid var(--border)", boxShadow: "0 0 70px rgba(79,255,176,0.15), 0 0 0 5px rgba(79,255,176,0.05)",
+              border: "1px solid var(--border)", boxShadow: "0 0 70px rgba(253,203,110,0.15), 0 0 0 5px rgba(253,203,110,0.05)",
               position: "relative",
             }}>
-              <Image src="/profile.jpg" alt="Shamiul Shakib" width={200} height={200}
-                style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(1) contrast(1.1)" }}
+              <Image src="/profile.png" alt="Shamiul Shakib" width={200} height={200}
+                style={{ width: "100%", height: "100%", objectFit: "cover", filter: "contrast(1.05) brightness(1.02)" }}
                 priority
               />
               <div style={{
@@ -297,61 +430,257 @@ function ProfileExpertise() {
   );
 }
 
-// ─── Experience + Education ───────────────────────────────────────────────────
+// ─── Experience Details Panel ─────────────────────────────────────────────────
 
-function ExperienceEducation() {
+function ExperienceDetails({ exp }: { exp: ExperienceEntry }) {
+  return (
+    <motion.div
+      key="details"
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+      style={{ overflow: "hidden" }}
+    >
+      <div style={{
+        marginTop: "24px",
+        background: "var(--surface)",
+        border: "1px solid var(--border)",
+        padding: "28px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "28px",
+      }}>
+
+        {/* Responsibilities */}
+        <div>
+          <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", fontWeight: 500, marginBottom: "14px" }}>CORE RESPONSIBILITIES</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {exp.responsibilities.map((r, i) => (
+              <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                <span style={{ color: "var(--accent)", fontSize: "12px", flexShrink: 0, marginTop: "1px" }}>▸</span>
+                <p style={{ fontSize: "12px", lineHeight: 1.75, color: "var(--text-secondary)" }}>{r}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Impact */}
+        <div>
+          <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", fontWeight: 500, marginBottom: "14px" }}>IMPACT & RESULTS</p>
+          <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "10px" }}>
+            {exp.impact.map((item, i) => (
+              <div key={i} style={{
+                display: "flex", flexDirection: "column", gap: "4px",
+                padding: "10px 16px",
+                border: "1px solid var(--border)",
+                background: "var(--bg)",
+                minWidth: "100px",
+              }}>
+                <span style={{ fontSize: "16px", fontWeight: 700, color: "var(--yellow)", letterSpacing: "-0.01em" }}>{item.metric}</span>
+                <span style={{ fontSize: "10px", letterSpacing: "0.1em", color: "var(--text-muted)" }}>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Challenges */}
+        <div>
+          <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", fontWeight: 500, marginBottom: "14px" }}>CHALLENGES & SOLUTIONS</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {exp.challenges.map((ch, i) => (
+              <div key={i} style={{
+                background: "var(--bg)",
+                border: "1px solid var(--border)",
+                padding: "18px",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", borderBottom: "1px solid var(--border)", paddingBottom: "8px" }}>
+                  <span style={{ color: "var(--yellow)", fontSize: "11px", fontWeight: 600 }}>[CHALLENGE_{i + 1}]</span>
+                  <span style={{ color: "var(--text-primary)", fontSize: "12px", fontWeight: 500 }}>{ch.title}</span>
+                </div>
+                <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-secondary)", marginBottom: "10px" }}>
+                  <span style={{ color: "var(--text-muted)" }}>&gt;_ Problem: </span>{ch.problem}
+                </p>
+                <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--accent)" }}>
+                  <span style={{ color: "var(--text-muted)" }}>&gt;_ Solution: </span>{ch.solution}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Key Learnings */}
+        <div>
+          <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", fontWeight: 500, marginBottom: "14px" }}>KEY LEARNINGS</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {exp.keyLearnings.map((l, i) => (
+              <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                <span style={{ color: "var(--text-muted)", fontSize: "12px", flexShrink: 0, marginTop: "1px" }}>◦</span>
+                <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>{l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </motion.div>
+  );
+}
+
+// ─── Experience Card ──────────────────────────────────────────────────────────
+
+function ExperienceCard({ exp, index, isOpen, onToggle }: {
+  exp: ExperienceEntry;
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      custom={index + 1}
+      style={{
+        paddingLeft: "20px",
+        borderLeft: `2px solid ${isOpen ? "var(--accent)" : "var(--border)"}`,
+        transition: "border-color 0.25s ease",
+      }}
+    >
+      {/* Card Header */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" as const }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px", flexWrap: "wrap" as const }}>
+            <p style={{ fontSize: "14px", letterSpacing: "0.08em", fontWeight: 600, color: "var(--accent)" }}>&gt; {exp.company}</p>
+            <span style={{
+              fontSize: "10px", letterSpacing: "0.12em",
+              padding: "2px 8px",
+              border: "1px solid var(--border)",
+              color: "var(--text-muted)",
+            }}>{exp.type.toUpperCase()}</span>
+          </div>
+          <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginBottom: "6px" }}>{exp.role}</p>
+          <p style={{ fontSize: "12px", color: "var(--text-muted)" }}>{exp.period} · {exp.location}</p>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "flex-end", gap: "12px", flexShrink: 0 }}>
+          <button
+            onClick={onToggle}
+            style={{
+              display: "flex", alignItems: "center", gap: "8px",
+              padding: "7px 14px",
+              border: `1px solid ${isOpen ? "var(--accent)" : "var(--border)"}`,
+              background: isOpen ? "var(--accent-dim)" : "var(--surface)",
+              color: isOpen ? "var(--accent)" : "var(--text-muted)",
+              fontSize: "11px", letterSpacing: "0.12em",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              fontFamily: "'JetBrains Mono', monospace",
+            }}
+            onMouseEnter={e => {
+              if (!isOpen) {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
+                (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+              }
+            }}
+            onMouseLeave={e => {
+              if (!isOpen) {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+                (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
+              }
+            }}
+          >
+            <motion.span
+              animate={{ rotate: isOpen ? 45 : 0 }}
+              transition={{ duration: 0.2 }}
+              style={{ display: "inline-block", fontSize: "14px", lineHeight: 1 }}
+            >+</motion.span>
+            {isOpen ? "COLLAPSE" : "VIEW DETAILS"}
+          </button>
+        </div>
+      </div>
+
+      {/* Tech Tags */}
+      <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px", marginTop: "14px" }}>
+        {exp.tech.map((t, ti) => (
+          <span key={ti} style={{
+            fontSize: "10px", letterSpacing: "0.1em",
+            padding: "3px 9px",
+            border: "1px solid var(--border)",
+            color: "var(--text-muted)",
+            background: "var(--surface)",
+          }}>{t}</span>
+        ))}
+      </div>
+
+      {/* Expandable Details */}
+      <AnimatePresence>
+        {isOpen && <ExperienceDetails exp={exp} />}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+// ─── Experience Section ───────────────────────────────────────────────────────
+
+function ExperienceSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (i: number) => {
+    setOpenIndex(prev => (prev === i ? null : i));
+  };
+
+  return (
+    <motion.section
+      id="experience"
+      style={{ borderBottom: "1px solid var(--border)" }}
+      initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+    >
+      <div className="container-max">
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="EXPERIENCE" /></motion.div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
+          {EXPERIENCE_DATA.map((exp, i) => (
+            <ExperienceCard
+              key={i}
+              exp={exp}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => handleToggle(i)}
+            />
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+// ─── Education Section ────────────────────────────────────────────────────────
+
+function EducationSection() {
   return (
     <motion.section
       style={{ borderBottom: "1px solid var(--border)" }}
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
-      <div className="container-max grid-cols-1-2" style={{ gap: 0 }}>
-        <div className="mobile-border-none mobile-padding-y" style={{ paddingRight: "4rem", borderRight: "1px solid var(--border)" }}>
-          <motion.div variants={fadeUp} custom={0}><SectionLabel label="EXPERIENCE" /></motion.div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            {DATA.experience.map((exp, i) => (
-              <motion.div key={i} variants={fadeUp} custom={i + 1}
-                style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                whileHover={{ borderColor: "var(--accent)" } as any}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
-                  <p style={{ fontSize: "13px", letterSpacing: "0.08em", fontWeight: 500, color: "var(--accent)" }}>&gt; {exp.company}</p>
-                  <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0 }}>{exp.period}</span>
-                </div>
-                <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginBottom: "10px" }}>{exp.role}</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  {exp.points.map((pt, pi) => (
-                    <p key={pi} style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>• {pt}</p>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div className="mobile-border-none mobile-padding-y" style={{ paddingLeft: "4rem" }}>
-          <motion.div variants={fadeUp} custom={0}><SectionLabel label="EDUCATION" /></motion.div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            {DATA.education.map((edu, i) => (
-              <motion.div key={i} variants={fadeUp} custom={i + 1}
-                style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                whileHover={{ borderColor: "var(--accent)" } as any}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
-                  <p style={{ fontSize: "13px", letterSpacing: "0.06em", fontWeight: 500, color: "var(--accent)" }}>&gt; {edu.institution}</p>
-                  <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.period}</span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-                  <p style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{edu.degree}</p>
-                  <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.location}</span>
-                </div>
-                <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>
-                  <span style={{ color: "var(--text-primary)" }}>Coursework:</span> {edu.coursework}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+      <div className="container-max">
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="EDUCATION" /></motion.div>
+        <div className="grid-cols-1-2" style={{ gap: "2.5rem", marginTop: "1rem" }}>
+          {DATA.education.map((edu, i) => (
+            <motion.div key={i} variants={fadeUp} custom={i + 1}
+              style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              whileHover={{ borderColor: "var(--accent)" } as any}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
+                <p style={{ fontSize: "13px", letterSpacing: "0.06em", fontWeight: 500, color: "var(--accent)" }}>&gt; {edu.institution}</p>
+                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.period}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{edu.degree}</p>
+                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.location}</span>
+              </div>
+              <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>
+                <span style={{ color: "var(--text-primary)" }}>Coursework:</span> {edu.coursework}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>
@@ -532,10 +861,11 @@ export default function Home() {
         <Header />
         <Ticker />
         <ProfileExpertise />
-        <ExperienceEducation />
-        <References />
+        <ExperienceSection />
+        <EducationSection />
         <Ticker reversed />
         <Projects />
+        <References />
         <Connect />
         <Footer />
       </div>

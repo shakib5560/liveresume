@@ -261,7 +261,7 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
     icon: "🐇",
     longDescription: "GitRabbit is an advanced AI-powered code review assistant that integrates directly into GitHub repository workflows. It automatically reviews pull requests, analyzes code changes for potential bugs, checks styling and security issues, and provides line-by-line recommendations to speed up the review cycle.",
     github: "https://github.com/shakib5560/gitrabbit",
-    live: "https://gitrabbit-demo.netlify.app",
+    live: "https://gitrabbit-kappa.vercel.app/",
     client: {
       name: "GitRabbit Open Source / DevTools Inc.",
       industry: "Developer Productivity & AI Code Review Tools",

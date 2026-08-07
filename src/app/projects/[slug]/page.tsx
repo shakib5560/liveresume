@@ -119,7 +119,7 @@ export default function ProjectDetailsPage({ params }: { params: any }) {
                 </p>
                 <h1 style={{ fontSize: "clamp(3rem, 7vw, 4.5rem)", fontWeight: 700, lineHeight: 1.1, margin: "10px 0 20px 0", letterSpacing: "-0.02em" }}>
                   <span style={{ color: "var(--text-primary)" }}>PROJECT: </span>
-                  <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(79,255,176,0.25)" }}>{project.name}</span>
+                  <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(253,203,110,0.25)" }}>{project.name}</span>
                 </h1>
                 <p style={{ fontSize: "13px", letterSpacing: "0.2em", color: "var(--text-secondary)", marginBottom: "20px" }}>
                   {project.desc}
