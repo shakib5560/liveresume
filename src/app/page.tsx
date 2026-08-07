@@ -203,9 +203,9 @@ const DATA = {
     }
   ],
   projects: [
+    { name: "GITRABBIT", desc: "AI CODE REVIEW PLATFORM", tech: "Enterprise SaaS", meta: "Auto Pull-Request Reviews", icon: "🐇" },
     { name: "IDEA2SYSTEM", desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR", tech: "NestJS / Docker / PostgreSQL", meta: "Idea to Blueprint", icon: "🧠" },
     { name: "TOYGALAXY", desc: "E-COMMERCE PLATFORM", tech: "Django / JavaScript / TailwindCSS", meta: "2,000+ daily users", icon: "◫" },
-    { name: "GITRABBIT", desc: "AI CODE REVIEW PLATFORM", tech: "Enterprise SaaS", meta: "Auto Pull-Request Reviews", icon: "🐇" },
     { name: "RINORS", desc: "MULTI-VENDOR E-COMMERCE", tech: "Next.js / T3 Stack / TypeScript", meta: "10,000+ monthly users", icon: "❖" },
     { name: "AINOS", desc: "AI-POWERED FULL-STACK SAAS", tech: "NestJS / React / Prisma", meta: "Secure Payments", icon: "◈" },
   ],
@@ -295,31 +295,23 @@ function Header() {
               >{id}</a>
             ))}
             {/* Resume Download */}
-            <a
+            <motion.a
               href="https://drive.google.com/file/d/1U5OautUtvBelMObPqBBwfCdGDoBmoIJK/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               title="Download Resume"
+              animate={{ borderColor: ["var(--border)", "var(--accent)", "var(--border)"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ borderColor: "var(--accent)", color: "var(--accent)", backgroundColor: "var(--accent-dim)" }}
               style={{
                 display: "flex", alignItems: "center", gap: "6px",
                 padding: "6px 12px",
                 border: "1px solid var(--border)",
                 background: "var(--surface)",
-                color: "var(--text-muted)",
+                color: "var(--text-primary)",
                 fontSize: "11px", letterSpacing: "0.12em",
                 textDecoration: "none",
-                transition: "all 0.2s ease",
                 whiteSpace: "nowrap" as const,
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
-                (e.currentTarget as HTMLElement).style.color = "var(--accent)";
-                (e.currentTarget as HTMLElement).style.background = "var(--accent-dim)";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-                (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
-                (e.currentTarget as HTMLElement).style.background = "var(--surface)";
               }}
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -328,7 +320,7 @@ function Header() {
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
               RESUME
-            </a>
+            </motion.a>
             <ThemeToggle />
           </div>
         </motion.div>
@@ -439,7 +431,7 @@ function ExperienceDetails({ exp }: { exp: ExperienceEntry }) {
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: "auto" }}
       exit={{ opacity: 0, height: 0 }}
-      transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       style={{ overflow: "hidden" }}
     >
       <div style={{
@@ -561,30 +553,35 @@ function ExperienceCard({ exp, index, isOpen, onToggle }: {
           <p style={{ fontSize: "12px", color: "var(--text-muted)" }}>{exp.period} · {exp.location}</p>
         </div>
         <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "flex-end", gap: "12px", flexShrink: 0 }}>
-          <button
+          <motion.button
             onClick={onToggle}
+            animate={!isOpen ? { 
+              boxShadow: ["0px 0px 0px rgba(253,203,110,0)", "0px 0px 12px rgba(253,203,110,0.25)", "0px 0px 0px rgba(253,203,110,0)"],
+              borderColor: ["var(--border)", "var(--accent)", "var(--border)"],
+              color: ["var(--text-muted)", "var(--accent)", "var(--text-muted)"]
+            } : {
+              boxShadow: "0px 0px 0px rgba(253,203,110,0)",
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+              backgroundColor: "var(--accent-dim)"
+            }}
+            transition={!isOpen ? { duration: 2.5, repeat: Infinity, ease: "easeInOut" } : { duration: 0.2 }}
+            whileHover={{ 
+              scale: 1.03, 
+              borderColor: "var(--accent)", 
+              color: "var(--accent)", 
+              backgroundColor: "var(--accent-dim)",
+              boxShadow: "0px 0px 15px rgba(253,203,110,0.4)"
+            }}
+            whileTap={{ scale: 0.95 }}
             style={{
               display: "flex", alignItems: "center", gap: "8px",
               padding: "7px 14px",
-              border: `1px solid ${isOpen ? "var(--accent)" : "var(--border)"}`,
-              background: isOpen ? "var(--accent-dim)" : "var(--surface)",
-              color: isOpen ? "var(--accent)" : "var(--text-muted)",
+              border: "1px solid var(--border)",
+              background: "var(--surface)",
               fontSize: "11px", letterSpacing: "0.12em",
               cursor: "pointer",
-              transition: "all 0.2s ease",
               fontFamily: "'JetBrains Mono', monospace",
-            }}
-            onMouseEnter={e => {
-              if (!isOpen) {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
-                (e.currentTarget as HTMLElement).style.color = "var(--accent)";
-              }
-            }}
-            onMouseLeave={e => {
-              if (!isOpen) {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-                (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
-              }
             }}
           >
             <motion.span
@@ -593,7 +590,7 @@ function ExperienceCard({ exp, index, isOpen, onToggle }: {
               style={{ display: "inline-block", fontSize: "14px", lineHeight: 1 }}
             >+</motion.span>
             {isOpen ? "COLLAPSE" : "VIEW DETAILS"}
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -748,7 +745,9 @@ function Projects() {
                 variants={fadeUp} custom={i + 1}
                 onHoverStart={() => setHovered(i)}
                 onHoverEnd={() => setHovered(null)}
-                style={{ background: "var(--bg)", padding: "2rem", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}
+                animate={proj.name === "GITRABBIT" ? { boxShadow: ["inset 0 0 0 1px transparent", "inset 0 0 0 1px var(--accent)", "inset 0 0 0 1px transparent"] } : {}}
+                transition={proj.name === "GITRABBIT" ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : {}}
+                style={{ background: proj.name === "GITRABBIT" ? "var(--surface)" : "var(--bg)", padding: "2rem", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}
               >
                 <AnimatePresence>
                   {hovered === i && (
@@ -759,7 +758,18 @@ function Projects() {
                 </AnimatePresence>
                 <div style={{ position: "relative", zIndex: 1 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
-                    <span style={{ fontSize: "24px", color: "var(--border-hover)" }}>{proj.icon}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <span style={{ fontSize: "24px", color: "var(--border-hover)" }}>{proj.icon}</span>
+                      {proj.name === "GITRABBIT" && (
+                        <motion.span
+                          animate={{ opacity: [0.6, 1, 0.6] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                          style={{ fontSize: "9px", letterSpacing: "0.15em", padding: "3px 6px", background: "var(--accent)", color: "var(--bg)", fontWeight: 700 }}
+                        >
+                          CASE STUDY
+                        </motion.span>
+                      )}
+                    </div>
                     <motion.span style={{ fontSize: "12px", letterSpacing: "0.12em", color: "var(--text-muted)" }}
                       animate={{ color: hovered === i ? "var(--accent)" : "var(--text-muted)" }}
                     >{proj.tech}</motion.span>
@@ -861,10 +871,10 @@ export default function Home() {
         <Header />
         <Ticker />
         <ProfileExpertise />
+        <Projects />
         <ExperienceSection />
         <EducationSection />
         <Ticker reversed />
-        <Projects />
         <References />
         <Connect />
         <Footer />
