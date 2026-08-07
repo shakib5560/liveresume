@@ -136,7 +136,7 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
     meta: "2,000+ daily users",
     icon: "◫",
     longDescription: "ToyGalaxy is a modern e-commerce ecosystem designed for hobbyists, collectors, and toy enthusiasts. The platform supports large-scale product collections, dynamic inventory management, and optimized customer purchasing workflows.",
-    github: "https://github.com/shakib5560",
+    github: "https://github.com/shakib5560/ToyGalaxy",
     live: "https://www.toygalaxy.com.au/",
     client: {
       name: "ToyGalaxy Retail Ltd.",
