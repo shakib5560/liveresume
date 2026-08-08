@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 interface TransitionContextType {
@@ -100,10 +100,19 @@ function LoadingBar({ isRouting }: { isRouting: boolean }) {
   );
 }
 
-export default function TransitionProvider({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
+function NavigationEvents({ setIsRouting }: { setIsRouting: (val: boolean) => void }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  useEffect(() => {
+    setIsRouting(false);
+  }, [pathname, searchParams, setIsRouting]);
+
+  return null;
+}
+
+export default function TransitionProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
   
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [isRouting, setIsRouting] = useState(false);
@@ -119,10 +128,6 @@ export default function TransitionProvider({ children }: { children: React.React
     }
   }, []);
 
-  useEffect(() => {
-    setIsRouting(false);
-  }, [pathname, searchParams]);
-
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
@@ -137,7 +142,7 @@ export default function TransitionProvider({ children }: { children: React.React
   const navigateTo = (href: string) => {
     if (typeof window !== "undefined") {
       const url = new URL(href, window.location.href);
-      if (url.pathname !== pathname || url.search !== searchParams.toString()) {
+      if (url.pathname !== window.location.pathname || url.search !== window.location.search) {
         setIsRouting(true);
       }
     }
@@ -146,8 +151,12 @@ export default function TransitionProvider({ children }: { children: React.React
 
   return (
     <TransitionContext.Provider value={{ navigateTo, isTransitioning: isRouting, theme, toggleTheme }}>
+      <Suspense fallback={null}>
+        <NavigationEvents setIsRouting={setIsRouting} />
+      </Suspense>
       <LoadingBar isRouting={isRouting} />
       {children}
     </TransitionContext.Provider>
   );
 }
+
