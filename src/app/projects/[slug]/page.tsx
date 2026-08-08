@@ -478,7 +478,6 @@ export default function ProjectDetailsPage({ params }: { params: any }) {
         {/* Footer */}
         <footer className="container-max" style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
           <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>© 2026 SHAMIUL SHAKIB</span>
-          <span style={{ color: "var(--border-hover)", fontSize: "18px" }}>✦</span>
           <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>BUILT WITH NEXT.JS</span>
         </footer>
       </div>

@@ -642,7 +642,6 @@ export default function GitRabbitPage() {
             onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
             onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
           >&lt; BACK TO DIRECTORY</TransitionLink>
-          <span style={{ color: "var(--border-hover)", fontSize: "18px" }}>✦</span>
           <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>© 2026 SHAMIUL SHAKIB</span>
         </footer>
 
