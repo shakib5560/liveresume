@@ -84,7 +84,7 @@ export default function GitRabbitPage() {
                 onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
               >&lt; BACK TO DIRECTORY</TransitionLink>
               <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" as const }}>
-                <a href="https://gitrabbit-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.gitrabbit.co/" target="_blank" rel="noopener noreferrer"
                   style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
                   onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
@@ -100,13 +100,13 @@ export default function GitRabbitPage() {
               </motion.p>
               <motion.h1 variants={fadeUp} custom={1} style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 700, lineHeight: 1, margin: "0 0 12px", letterSpacing: "-0.03em" }}>
                 <span style={{ color: "var(--text-primary)" }}>GIT</span>
-                <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(253,203,110,0.25)" }}>RABBIT.AI</span>
+                <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(253,203,110,0.25)" }}>RABBIT.CO</span>
               </motion.h1>
               <motion.p variants={fadeUp} custom={2} style={{ fontSize: "14px", letterSpacing: "0.12em", color: "var(--text-secondary)", marginBottom: "20px" }}>
                 AI-POWERED CODE INTELLIGENCE FOR MODERN ENGINEERING TEAMS
               </motion.p>
               <motion.p variants={fadeUp} custom={3} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "20px" }}>
-                GitRabbit.ai aims to go beyond conventional AI code-review tools. Instead of reviewing code line-by-line in isolation, it is being built to understand the entire codebase, architecture, framework behavior, and potential production impact of every code change.
+                GitRabbit.co aims to go beyond conventional AI code-review tools. Instead of reviewing code line-by-line in isolation, it is being built to understand the entire codebase, architecture, framework behavior, and potential production impact of every code change.
               </motion.p>
               <motion.div variants={fadeUp} custom={4} style={{ display: "flex", flexWrap: "wrap" as const, gap: "8px", marginBottom: "24px" }}>
                 <Badge color="var(--accent)">ONGOING DEVELOPMENT</Badge>
@@ -114,12 +114,12 @@ export default function GitRabbitPage() {
                 <Badge color="var(--text-secondary)">AI DEVELOPER INFRASTRUCTURE</Badge>
               </motion.div>
               <motion.div variants={fadeUp} custom={5} style={{ display: "flex", gap: "12px", flexWrap: "wrap" as const }}>
-                <a href="https://gitrabbit-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.gitrabbit.co/" target="_blank" rel="noopener noreferrer"
                   style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", background: "var(--accent-dim)", border: "1px solid var(--accent)", color: "var(--accent)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--bg)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent-dim)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
                 >↗ LIVE DEMO</a>
-                <a href="https://github.com/shakib5560/gitrabbit_backend" target="_blank" rel="noopener noreferrer"
+                <a href="https://github.com/shakib5560/gitrabbit2.0" target="_blank" rel="noopener noreferrer"
                   style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
@@ -169,7 +169,7 @@ export default function GitRabbitPage() {
               <Badge color="var(--accent)">DEMO VIDEO</Badge>
             </div>
             <p style={{ fontSize: "12px", color: "var(--text-muted)", marginBottom: "28px", letterSpacing: "0.05em" }}>
-              An introduction to the GitRabbit.ai product vision — what we&apos;re building and why it matters.
+              An introduction to the GitRabbit.co product vision — what we&apos;re building and why it matters.
             </p>
             <div style={{
               position: "relative", borderRadius: "2px", overflow: "hidden",
@@ -180,7 +180,7 @@ export default function GitRabbitPage() {
               <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}>
                 <iframe
                   src="https://www.youtube.com/embed/JGCwlSpg1Pc?rel=0&modestbranding=1&color=white"
-                  title="GitRabbit.ai — Product Introduction"
+                  title="GitRabbit.co — Product Introduction"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                   loading="lazy"
@@ -191,7 +191,7 @@ export default function GitRabbitPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <span style={{ fontSize: "20px" }}>🐇</span>
                   <div>
-                    <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "0.06em" }}>GITRABBIT.AI</p>
+                    <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "0.06em" }}>GITRABBIT.CO</p>
                     <p style={{ fontSize: "11px", color: "var(--text-muted)", letterSpacing: "0.1em" }}>AI-POWERED CODE INTELLIGENCE</p>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export default function GitRabbitPage() {
             <motion.div variants={fadeUp} custom={0}><SectionLabel label="THE PROBLEM" /></motion.div>
             <motion.h2 variants={fadeUp} custom={1} style={{ fontSize: "clamp(1.4rem, 3.5vw, 2rem)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "16px", lineHeight: 1.3, letterSpacing: "-0.02em" }}>
               Existing code review evaluates the change.<br />
-              <span style={{ color: "var(--accent)" }}>GitRabbit.ai is being built to understand the system around it.</span>
+              <span style={{ color: "var(--accent)" }}>GitRabbit.co is being built to understand the system around it.</span>
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", lineHeight: 1.8, color: "var(--text-secondary)", maxWidth: "680px", marginBottom: "3rem" }}>
               Modern software teams work with large, interconnected codebases, complex pull requests, framework-specific architecture constraints, hidden service dependencies, and an increasing volume of AI-generated code — code that may compile and pass CI but introduce deeper architectural, performance, or security problems.
@@ -236,7 +236,7 @@ export default function GitRabbitPage() {
                 </div>
               </motion.div>
               <motion.div variants={fadeUp} custom={4} style={{ background: "var(--surface)", padding: "2rem", borderLeft: "2px solid var(--accent)" }}>
-                <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "16px" }}>GITRABBIT.AI APPROACH</p>
+                <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "16px" }}>GITRABBIT.CO APPROACH</p>
                 {["Repository Context", "Architecture Map", "Dependency Graph", "Multi-Model AI Analysis", "Zero-Noise Validation", "Actionable Engineering Insights"].map((step, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
                     <span style={{ color: "var(--accent)", fontSize: "10px" }}>▸</span>
@@ -252,6 +252,118 @@ export default function GitRabbitPage() {
             <motion.div variants={fadeUp} custom={5} style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap" as const, gap: "8px" }}>
               {["AI-Generated Code", "Hidden Dependencies", "N+1 Queries", "Architectural Anti-Patterns", "Async/Sync Violations", "Framework Misuse", "Performance Bottlenecks", "Security Risks", "Context Switching"].map((tag, i) => (
                 <span key={i} style={{ fontSize: "11px", letterSpacing: "0.1em", padding: "4px 10px", border: "1px solid var(--border)", color: "var(--text-muted)" }}>{tag}</span>
+              ))}
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* ─── Competitive Comparison ───────────────────────────────────── */}
+        <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+          style={{ borderBottom: "1px solid var(--border)" }}
+        >
+          <div className="container-max">
+            <motion.div variants={fadeUp} custom={0}><SectionLabel label="COMPETITIVE LANDSCAPE" /></motion.div>
+            <motion.div variants={fadeUp} custom={1} style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+              <h2 style={{ fontSize: "clamp(1.4rem, 3.5vw, 2rem)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "10px", letterSpacing: "-0.02em" }}>
+                AI Code Review, <span style={{ color: "var(--accent)" }}>Reimagined</span>
+              </h2>
+              <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7 }}>
+                Where GitRabbit.co goes beyond traditional AI review tools.
+              </p>
+            </motion.div>
+
+            {/* Three-card comparison */}
+            <motion.div variants={fadeUp} custom={2} className="mobile-stack-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr 1fr", gap: "1px", background: "var(--border)", marginBottom: "1px" }}>
+              {/* CodeRabbit */}
+              <div style={{ background: "var(--surface)", padding: "1.75rem", display: "flex", flexDirection: "column", gap: "10px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
+                  <div style={{ width: "40px", height: "40px", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", background: "var(--bg)" }}>🐰</div>
+                  <div>
+                    <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "0.04em" }}>CodeRabbit</p>
+                    <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>AI-powered PR review</p>
+                  </div>
+                </div>
+                <div style={{ width: "32px", height: "2px", background: "var(--border-hover)" }} />
+              </div>
+
+              {/* GitRabbit — highlighted center */}
+              <div style={{ background: "var(--surface-2)", padding: "1.75rem", borderLeft: "2px solid var(--accent)", borderRight: "2px solid var(--accent)", display: "flex", flexDirection: "column", gap: "10px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
+                  <div style={{ width: "40px", height: "40px", border: "1px solid var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", background: "var(--accent-dim)" }}>🐇</div>
+                  <div>
+                    <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.04em" }}>
+                      <span style={{ color: "var(--text-primary)" }}>Git</span><span style={{ color: "var(--accent)" }}>Rabbit</span>
+                      <span style={{ fontSize: "10px", color: "var(--accent)", marginLeft: "6px", border: "1px solid var(--accent)", padding: "1px 6px", letterSpacing: "0.1em" }}>+</span>
+                    </p>
+                    <p style={{ fontSize: "11px", color: "var(--text-secondary)", marginTop: "2px" }}>AI code review that teams experience together.</p>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "6px", alignItems: "center", fontSize: "12px", marginTop: "4px" }}>
+                  <span style={{ color: "var(--accent)" }}>Review</span>
+                  <span style={{ color: "var(--text-muted)" }}>→</span>
+                  <span style={{ color: "var(--accent)" }}>Collaborate</span>
+                  <span style={{ color: "var(--text-muted)" }}>→</span>
+                  <span style={{ color: "var(--accent)" }}>Resolve</span>
+                </div>
+              </div>
+
+              {/* GitHub Copilot */}
+              <div style={{ background: "var(--surface)", padding: "1.75rem", display: "flex", flexDirection: "column", gap: "10px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
+                  <div style={{ width: "40px", height: "40px", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", background: "var(--bg)" }}>🐙</div>
+                  <div>
+                    <p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "0.04em" }}>GitHub Copilot</p>
+                    <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>AI-assisted development & review</p>
+                  </div>
+                </div>
+                <div style={{ width: "32px", height: "2px", background: "var(--border-hover)" }} />
+              </div>
+            </motion.div>
+
+            {/* VS Comparison rows */}
+            <motion.div variants={fadeUp} custom={3} style={{ display: "flex", flexDirection: "column", gap: "1px", background: "var(--border)" }}>
+              {[
+                {
+                  traditional: { icon: "🔍", label: "Traditional tools", sub: "Review-focused" },
+                  gitrabbit: { label: "GitRabbit.co", sub: "Review + ", highlight: "Real-Time Team Collaboration", icon: "👥" },
+                },
+                {
+                  traditional: { icon: "💬", label: "Traditional tools", sub: "Feedback across separate workflows" },
+                  gitrabbit: { label: "GitRabbit.co", sub: "AI review + live team discussion in ", highlight: "one workspace", icon: "🗨️" },
+                },
+                {
+                  traditional: { icon: "🔎", label: "Traditional tools", sub: "Find issues" },
+                  gitrabbit: { label: "GitRabbit.co", sub: "", highlight: "Understand → Discuss → Resolve", icon: "✅" },
+                },
+              ].map((row, i) => (
+                <div key={i} className="vs-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto 1.15fr auto 48px", alignItems: "center", background: "var(--surface)", padding: "1.25rem 1.5rem", gap: "1rem" }}>
+                  {/* Traditional */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ width: "36px", height: "36px", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", flexShrink: 0, background: "var(--bg)" }}>{row.traditional.icon}</div>
+                    <div>
+                      <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-secondary)" }}>{row.traditional.label}</p>
+                      <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>{row.traditional.sub}</p>
+                    </div>
+                  </div>
+                  {/* VS badge */}
+                  <div style={{ padding: "3px 10px", border: "1px solid var(--border)", fontSize: "10px", letterSpacing: "0.12em", color: "var(--text-muted)", textAlign: "center" }}>VS</div>
+                  {/* GitRabbit */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ width: "36px", height: "36px", border: "1px solid var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", flexShrink: 0, background: "var(--accent-dim)" }}>🐇</div>
+                    <div>
+                      <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-primary)" }}>{row.gitrabbit.label}</p>
+                      <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>
+                        {row.gitrabbit.sub}<span style={{ color: "var(--accent)" }}>{row.gitrabbit.highlight}</span>
+                      </p>
+                    </div>
+                  </div>
+                  {/* Arrow */}
+                  <div className="vs-arrow" style={{ display: "flex", alignItems: "center", gap: "4px", color: "var(--border-hover)", fontSize: "12px" }}>
+                    <span style={{ display: "block", width: "40px", borderTop: "1px dashed var(--border-hover)" }} />→
+                  </div>
+                  {/* Icon */}
+                  <div style={{ width: "36px", height: "36px", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", background: "var(--bg)" }}>{row.gitrabbit.icon}</div>
+                </div>
               ))}
             </motion.div>
           </div>
@@ -307,7 +419,7 @@ export default function GitRabbitPage() {
               Deep Framework Understanding
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "600px" }}>
-              Instead of treating every project as generic source code, GitRabbit.ai is designed to develop deep, framework-specific intelligence — understanding how modern frameworks actually behave.
+              Instead of treating every project as generic source code, GitRabbit.co is designed to develop deep, framework-specific intelligence — understanding how modern frameworks actually behave.
             </motion.p>
             <div className="grid-cols-1-2" style={{ gap: "1px", background: "var(--border)" }}>
               {[
@@ -346,7 +458,7 @@ export default function GitRabbitPage() {
               Beyond the Diff
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "600px" }}>
-              GitRabbit.ai is being designed to move beyond analyzing only the changed PR diff. The system aims to understand the full repository — how a seemingly small change in one module could affect another service or component elsewhere.
+              GitRabbit.co is being designed to move beyond analyzing only the changed PR diff. The system aims to understand the full repository — how a seemingly small change in one module could affect another service or component elsewhere.
             </motion.p>
             <motion.div variants={fadeUp} custom={3} style={{ padding: "2rem", border: "1px solid var(--border)", background: "var(--bg)", marginBottom: "2rem" }}>
               <p style={{ fontSize: "11px", letterSpacing: "0.15em", color: "var(--accent)", marginBottom: "20px" }}>REPOSITORY CONTEXT MODEL</p>
@@ -386,7 +498,7 @@ export default function GitRabbitPage() {
               Review Less. <span style={{ color: "var(--accent)" }}>Catch More.</span>
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "600px" }}>
-              GitRabbit.ai is built around a strict <strong style={{ color: "var(--text-primary)" }}>Zero-Noise Policy</strong> — the goal is not to overwhelm developers with hundreds of suggestions, but to surface only what genuinely matters in production.
+              GitRabbit.co is built around a strict <strong style={{ color: "var(--text-primary)" }}>Zero-Noise Policy</strong> — the goal is not to overwhelm developers with hundreds of suggestions, but to surface only what genuinely matters in production.
             </motion.p>
             <div className="grid-cols-1-2" style={{ gap: "1px", background: "var(--border)" }}>
               <motion.div variants={fadeUp} custom={3} style={{ background: "var(--surface)", padding: "2rem" }}>
@@ -424,7 +536,7 @@ export default function GitRabbitPage() {
               <Badge color="var(--yellow)">PRODUCT VISION</Badge>
             </motion.div>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "640px" }}>
-              The goal is not to replace engineers — it is to give every team the architectural oversight of a senior engineer, available on every pull request. GitRabbit.ai is designed to reason about long-term system quality, not just whether code passes CI.
+              The goal is not to replace engineers — it is to give every team the architectural oversight of a senior engineer, available on every pull request. GitRabbit.co is designed to reason about long-term system quality, not just whether code passes CI.
             </motion.p>
             <div style={{ display: "flex", flexDirection: "column" as const, gap: "1px", background: "var(--border)" }}>
               {[
@@ -455,7 +567,7 @@ export default function GitRabbitPage() {
               Algorithmic & Infrastructure Analysis
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "600px" }}>
-              Better algorithms mean lower compute requirements, better scalability, and lower infrastructure cost. GitRabbit.ai aims to identify computational and data-access inefficiencies before they reach production.
+              Better algorithms mean lower compute requirements, better scalability, and lower infrastructure cost. GitRabbit.co aims to identify computational and data-access inefficiencies before they reach production.
             </motion.p>
             <motion.div variants={fadeUp} custom={3} style={{ display: "flex", gap: "1px", background: "var(--border)", marginBottom: "1.5rem" }}>
               <div style={{ flex: 1, background: "var(--surface)", padding: "20px" }}>
@@ -497,7 +609,7 @@ export default function GitRabbitPage() {
               <Badge color="var(--yellow)">ROADMAP VISION</Badge>
             </motion.div>
             <motion.p variants={fadeUp} custom={2} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "600px" }}>
-              GitRabbit.ai&apos;s long-term vision extends beyond code review into a collaborative AI-native engineering environment. These capabilities represent the product roadmap — not currently implemented.
+              GitRabbit.co&apos;s long-term vision extends beyond code review into a collaborative AI-native engineering environment. These capabilities represent the product roadmap — not currently implemented.
             </motion.p>
             <div className="grid-cols-1-2" style={{ gap: "1px", background: "var(--border)" }}>
               {[
@@ -588,10 +700,10 @@ export default function GitRabbitPage() {
             <motion.div variants={fadeUp} custom={1} style={{ maxWidth: "700px" }}>
               <h2 style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.2rem)", fontWeight: 700, color: "var(--text-primary)", lineHeight: 1.35, marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>
                 AI can generate code.<br />
-                <span style={{ color: "var(--accent)" }}>GitRabbit.ai aims to help engineers understand whether that code belongs in the system.</span>
+                <span style={{ color: "var(--accent)" }}>GitRabbit.co aims to help engineers understand whether that code belongs in the system.</span>
               </h2>
               <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "2rem" }}>
-                GitRabbit.ai is not just an AI code reviewer. It is an ongoing attempt to build a <strong style={{ color: "var(--text-primary)" }}>code intelligence and engineering workspace</strong> that understands software at multiple levels.
+                GitRabbit.co is not just an AI code reviewer. It is an ongoing attempt to build a <strong style={{ color: "var(--text-primary)" }}>code intelligence and engineering workspace</strong> that understands software at multiple levels.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px", marginBottom: "2rem" }}>
                 {["Code", "Context", "Architecture", "Performance", "Collaboration", "Resolution"].map((item, i) => (
@@ -619,19 +731,252 @@ export default function GitRabbitPage() {
               <p style={{ fontSize: "14px", letterSpacing: "0.15em", fontWeight: 600, color: "var(--text-primary)" }}>ONGOING · LARGE-SCALE SAAS PROJECT</p>
             </motion.div>
             <motion.p variants={fadeUp} custom={1} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: "600px", marginBottom: "2rem" }}>
-              GitRabbit.ai is an ongoing product initiative focused on building an AI-native engineering intelligence platform. The current implementation and roadmap will continue evolving as the product architecture, AI capabilities, and developer experience mature.
+              GitRabbit.co is an ongoing product initiative focused on building an AI-native engineering intelligence platform. The current implementation and roadmap will continue evolving as the product architecture, AI capabilities, and developer experience mature.
             </motion.p>
             <motion.div variants={fadeUp} custom={2} style={{ display: "flex", gap: "10px", flexWrap: "wrap" as const }}>
-              <a href="https://gitrabbit-kappa.vercel.app/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.gitrabbit.co/" target="_blank" rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", background: "var(--accent-dim)", border: "1px solid var(--accent)", color: "var(--accent)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--bg)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent-dim)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
               >↗ VIEW LIVE DEMO</a>
-              <a href="https://github.com/shakib5560/gitrabbit_backend" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/shakib5560/gitrabbit2.0" target="_blank" rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
               >⌥ BACKEND REPO</a>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* ─── Technical Deep Dive ───────────────────────────────────── */}
+        <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+          style={{ borderBottom: "1px solid var(--border)" }}
+        >
+          <div className="container-max">
+            <motion.div variants={fadeUp} custom={0}><SectionLabel label="TECHNICAL DEEP DIVE" /></motion.div>
+            <motion.div variants={fadeUp} custom={1} style={{ marginBottom: "2.5rem" }}>
+              <h2 style={{ fontSize: "clamp(1.3rem, 3vw, 1.9rem)", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "-0.02em", marginBottom: "10px" }}>
+                How I Built the System
+              </h2>
+              <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: "680px" }}>
+                GitRabbit Backend v2 is a production-grade microservices architecture built for scalability, database isolation, and independent deployability — each service owns its own domain, schema, and runtime.
+              </p>
+            </motion.div>
+
+            {/* Microservices Service Cards */}
+            <motion.div variants={fadeUp} custom={2} style={{ marginBottom: "2rem" }}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "1rem" }}>MICROSERVICES ARCHITECTURE</p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1px", background: "var(--border)" }}>
+                {[
+                  { service: "Auth + Realtime", framework: "NestJS v11", port: ":3000", db: "auth_db · PostgreSQL", orm: "Prisma v5", icon: "🔐", items: ["JWT Auth", "Refresh Tokens", "RBAC Guards", "Socket.IO WebSocket", "User Management"] },
+                  { service: "AI / LLM Service", framework: "FastAPI", port: ":8000", db: "ai_db · PostgreSQL", orm: "SQLAlchemy + Alembic", icon: "🤖", items: ["OpenAI API", "Anthropic API", "Conversation Models", "Token Usage Tracking", "Async Processing"] },
+                  { service: "Blog Service", framework: "Fastify v4", port: ":4000", db: "blog_db · PostgreSQL", orm: "Prisma v5", icon: "📝", items: ["Post / Category / Tag", "Comment System", "JWT Verification", "Auth Decorator", "Slug-based Routing"] },
+                  { service: "API Gateway", framework: "Nginx", port: ":80", db: "—", orm: "—", icon: "🌐", items: ["/api/auth/* routing", "/api/ai/* routing", "/api/blog/* routing", "WebSocket Upgrade", "Internal Proxy"] },
+                ].map((svc, i) => (
+                  <div key={i} style={{ background: "var(--surface)", padding: "1.5rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+                      <span style={{ fontSize: "20px" }}>{svc.icon}</span>
+                      <div>
+                        <p style={{ fontSize: "12px", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.04em" }}>{svc.service}</p>
+                        <p style={{ fontSize: "10px", color: "var(--accent)", letterSpacing: "0.1em", marginTop: "2px" }}>{svc.framework} · {svc.port}</p>
+                      </div>
+                    </div>
+                    <div style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.08em", marginBottom: "10px", padding: "6px 10px", background: "var(--bg)", border: "1px solid var(--border)" }}>
+                      {svc.db} · {svc.orm}
+                    </div>
+                    {svc.items.map((item, j) => (
+                      <div key={j} style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "5px" }}>
+                        <span style={{ color: "var(--accent)", fontSize: "9px" }}>▸</span>
+                        <span style={{ fontSize: "11px", color: "var(--text-secondary)" }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Nginx Routing Table */}
+            <motion.div variants={fadeUp} custom={3} className="mobile-scroll-x" style={{ background: "var(--surface)", border: "1px solid var(--border)", padding: "1.5rem", marginBottom: "2rem" }}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.15em", color: "var(--text-muted)", marginBottom: "12px", fontFamily: "'JetBrains Mono', monospace" }}>NGINX ROUTING TABLE</p>
+              <div style={{ minWidth: "600px" }}>
+              {[
+                { method: "ANY", path: "/api/auth/*",  target: "auth-service:3000", type: "REST" },
+                { method: "WS",  path: "/socket.io/*", target: "auth-service:3000", type: "WebSocket" },
+                { method: "ANY", path: "/api/ai/*",    target: "ai-service:8000",   type: "REST" },
+                { method: "ANY", path: "/api/blog/*",  target: "blog-service:4000", type: "REST" },
+              ].map((route, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "8px 0", borderBottom: i < 3 ? "1px solid var(--border)" : "none", flexWrap: "wrap" as const }}>
+                  <span style={{ fontSize: "10px", padding: "2px 8px", background: route.type === "WebSocket" ? "rgba(253,203,110,0.12)" : "var(--accent-dim)", border: "1px solid var(--border)", color: "var(--accent)", minWidth: "50px", textAlign: "center" as const }}>{route.method}</span>
+                  <span style={{ fontSize: "12px", color: "var(--text-primary)", flex: 1, minWidth: "140px", fontFamily: "'JetBrains Mono', monospace" }}>{route.path}</span>
+                  <span style={{ fontSize: "10px", color: "var(--text-muted)" }}>→</span>
+                  <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontFamily: "'JetBrains Mono', monospace" }}>{route.target}</span>
+                  <span style={{ fontSize: "10px", padding: "2px 8px", border: "1px solid var(--border)", color: "var(--text-muted)" }}>{route.type}</span>
+                </div>
+              ))}
+              </div>
+            </motion.div>
+
+            {/* Multi-Agent AI Workflow */}
+            <motion.div variants={fadeUp} custom={4} style={{ marginBottom: "2rem" }}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "1rem" }}>MULTI-AGENT AI WORKFLOW</p>
+              <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderLeft: "3px solid var(--accent)", padding: "1.5rem" }}>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "1.25rem" }}>
+                  Rather than sending a PR diff to a single model, GitRabbit.co orchestrates <strong style={{ color: "var(--text-primary)" }}>multiple specialized AI agents</strong> that analyze code from different perspectives simultaneously — then synthesize results through a validation layer before surfacing insights.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column" as const, gap: "1px", background: "var(--border)" }}>
+                  {[
+                    { step: "01", agent: "Repo Ingestion Agent",    role: "Clones & indexes the full repository. Builds dependency graph and module map.", model: "Custom Parser" },
+                    { step: "02", agent: "Architecture Agent",       role: "Detects framework patterns, architectural violations, and anti-patterns across the codebase.", model: "OpenAI GPT-4o" },
+                    { step: "03", agent: "Security & Perf Agent",    role: "Scans for N+1 queries, async/sync violations, injection risks, and auth gaps.", model: "Anthropic Claude" },
+                    { step: "04", agent: "Context Retrieval (RAG)",  role: "Queries Vector DB to find semantically similar code patterns across the full codebase.", model: "Embeddings + pgvector" },
+                    { step: "05", agent: "Synthesis & Filter Agent", role: "Merges agent outputs. Applies Zero-Noise Policy — surfaces only high-signal findings.", model: "OpenAI GPT-4o" },
+                    { step: "06", agent: "Response Formatter",       role: "Generates line-by-line review comments, severity labels, and actionable fix suggestions.", model: "Output Layer" },
+                  ].map((agent, i) => (
+                    <div key={i} style={{ background: "var(--bg)", padding: "1rem 1.25rem", display: "flex", gap: "1.25rem", alignItems: "flex-start", flexWrap: "wrap" as const }}>
+                      <span style={{ fontSize: "11px", color: "var(--border-hover)", letterSpacing: "0.1em", minWidth: "24px", flexShrink: 0, paddingTop: "2px" }}>{agent.step}</span>
+                      <div style={{ flex: 1, minWidth: "180px" }}>
+                        <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-primary)", marginBottom: "4px" }}>{agent.agent}</p>
+                        <p style={{ fontSize: "11px", color: "var(--text-secondary)", lineHeight: 1.6 }}>{agent.role}</p>
+                      </div>
+                      <span style={{ fontSize: "10px", padding: "3px 10px", border: "1px solid var(--accent)", color: "var(--accent)", background: "var(--accent-dim)", whiteSpace: "nowrap" as const, flexShrink: 0 }}>{agent.model}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Vector DB / RAG Pipeline */}
+            <motion.div variants={fadeUp} custom={5} style={{ marginBottom: "2rem" }}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "1rem" }}>VECTOR DATABASE & RAG PIPELINE</p>
+              <div className="mobile-stack-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", background: "var(--border)" }}>
+                <div style={{ background: "var(--surface)", padding: "1.5rem" }}>
+                  <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-primary)", marginBottom: "12px" }}>Codebase Embedding Flow</p>
+                  {[
+                    "Repository cloned & chunked by file/function",
+                    "Each chunk embedded via OpenAI text-embedding-3",
+                    "Vectors stored in PostgreSQL + pgvector extension",
+                    "Indexed by file path, language, and module type",
+                    "Re-indexed on each new commit to stay current",
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: "flex", gap: "10px", marginBottom: "8px" }}>
+                      <span style={{ color: "var(--accent)", fontSize: "9px", paddingTop: "4px", flexShrink: 0 }}>▸</span>
+                      <span style={{ fontSize: "12px", color: "var(--text-secondary)", lineHeight: 1.6 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ background: "var(--surface)", padding: "1.5rem" }}>
+                  <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-primary)", marginBottom: "12px" }}>RAG Query Flow</p>
+                  {[
+                    "PR diff extracted and embedded at review time",
+                    "Similarity search against codebase vector store",
+                    "Top-K relevant code chunks retrieved (k=10)",
+                    "Injected as context into AI agent prompt",
+                    "Agent reasons about change in full codebase context",
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: "flex", gap: "10px", marginBottom: "8px" }}>
+                      <span style={{ color: "var(--yellow)", fontSize: "9px", paddingTop: "4px", flexShrink: 0 }}>▸</span>
+                      <span style={{ fontSize: "12px", color: "var(--text-secondary)", lineHeight: 1.6 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{ background: "var(--surface)", padding: "1rem 1.5rem", border: "1px solid var(--border)", borderTop: "none", display: "flex", gap: "1.5rem", flexWrap: "wrap" as const, alignItems: "center" }}>
+                <span style={{ fontSize: "11px", color: "var(--text-muted)", letterSpacing: "0.08em" }}>VECTOR STORE:</span>
+                {["PostgreSQL + pgvector", "OpenAI Embeddings", "Cosine Similarity", "Top-K Retrieval", "Chunk-level Indexing"].map((tag) => (
+                  <span key={tag} style={{ fontSize: "10px", padding: "3px 10px", border: "1px solid var(--border)", color: "var(--text-muted)" }}>{tag}</span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Database Isolation */}
+            <motion.div variants={fadeUp} custom={6} style={{ marginBottom: "2rem" }}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "1rem" }}>DATABASE ISOLATION STRATEGY</p>
+              <div style={{ background: "var(--surface)", border: "1px solid var(--border)", padding: "1.5rem" }}>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "1.25rem", borderLeft: "2px solid var(--yellow)", paddingLeft: "14px" }}>
+                  <strong style={{ color: "var(--text-primary)" }}>Key principle:</strong> Each service exclusively owns its own PostgreSQL instance. No service ever directly queries another service&apos;s database. Cross-service identity is passed via JWT payload only.
+                </p>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1px", background: "var(--border)" }}>
+                  {[
+                    { db: "auth_db",  service: "auth-service", port: "5433", orm: "Prisma v5",            migration: "prisma migrate deploy", volume: "auth-db-data" },
+                    { db: "ai_db",    service: "ai-service",   port: "5434", orm: "SQLAlchemy + Alembic", migration: "alembic upgrade head",  volume: "ai-db-data" },
+                    { db: "blog_db",  service: "blog-service", port: "5435", orm: "Prisma v5",            migration: "prisma migrate deploy", volume: "blog-db-data" },
+                  ].map((db, i) => (
+                    <div key={i} style={{ background: "var(--bg)", padding: "1.25rem" }}>
+                      <p style={{ fontSize: "11px", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.08em", marginBottom: "10px" }}>{db.db}</p>
+                      {([["Service", db.service], ["Port", db.port], ["ORM", db.orm], ["Migration", db.migration], ["Volume", db.volume]] as [string,string][]).map(([label, val]) => (
+                        <div key={label} style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px", gap: "8px" }}>
+                          <span style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.08em", flexShrink: 0 }}>{label}</span>
+                          <span style={{ fontSize: "10px", color: "var(--text-secondary)", textAlign: "right" as const }}>{val}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Full Tech Stack Table */}
+            <motion.div variants={fadeUp} custom={7} style={{ marginBottom: "2rem" }}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "1rem" }}>FULL TECHNOLOGY STACK</p>
+              <div className="mobile-scroll-x" style={{ border: "1px solid var(--border)", overflow: "hidden" }}>
+                <div style={{ minWidth: "600px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 80px", background: "var(--surface-2)", padding: "10px 16px", borderBottom: "1px solid var(--border)" }}>
+                  {["Layer", "Technology", "Version", "Status"].map((h) => (
+                    <span key={h} style={{ fontSize: "10px", letterSpacing: "0.12em", color: "var(--text-muted)" }}>{h}</span>
+                  ))}
+                </div>
+                {[
+                  { layer: "Auth / Realtime",      tech: "NestJS",                  ver: "v11",    status: "✅" },
+                  { layer: "AI / LLM",             tech: "FastAPI",                 ver: "0.110",  status: "✅" },
+                  { layer: "Blog",                 tech: "Fastify",                 ver: "v4",     status: "✅" },
+                  { layer: "Language (Auth/Blog)",  tech: "TypeScript",              ver: "v5",     status: "✅" },
+                  { layer: "Language (AI)",         tech: "Python",                  ver: "3.11",   status: "✅" },
+                  { layer: "Database",              tech: "PostgreSQL",              ver: "15",     status: "✅" },
+                  { layer: "ORM (Auth/Blog)",       tech: "Prisma",                  ver: "v5",     status: "✅" },
+                  { layer: "ORM (AI)",              tech: "SQLAlchemy + Alembic",    ver: "2.x",   status: "✅" },
+                  { layer: "Vector DB",             tech: "pgvector (PostgreSQL)",   ver: "0.5+",  status: "🚧" },
+                  { layer: "Embeddings",            tech: "OpenAI text-embedding-3", ver: "Latest", status: "🚧" },
+                  { layer: "LLM Providers",         tech: "OpenAI + Anthropic",      ver: "Latest", status: "🚧" },
+                  { layer: "Realtime",              tech: "Socket.IO",               ver: "v4",     status: "✅" },
+                  { layer: "API Gateway",           tech: "Nginx",                   ver: "latest", status: "✅" },
+                  { layer: "Cache / Broker",        tech: "Redis",                   ver: "v7",     status: "⏳" },
+                  { layer: "Containerization",      tech: "Docker + Compose",        ver: "v3",     status: "✅" },
+                ].map((row, i) => (
+                  <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 80px", padding: "9px 16px", borderBottom: "1px solid var(--border)", background: i % 2 === 0 ? "var(--surface)" : "var(--bg)" }}>
+                    <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>{row.layer}</span>
+                    <span style={{ fontSize: "11px", color: "var(--text-primary)", fontWeight: 600 }}>{row.tech}</span>
+                    <span style={{ fontSize: "11px", color: "var(--text-secondary)" }}>{row.ver}</span>
+                    <span style={{ fontSize: "12px" }}>{row.status}</span>
+                  </div>
+                ))}
+                </div>
+              </div>
+              <div style={{ padding: "8px 12px", background: "var(--surface)", border: "1px solid var(--border)", borderTop: "none", fontSize: "10px", color: "var(--text-muted)", display: "flex", gap: "16px" }}>
+                <span>✅ Active</span><span>🚧 In Progress</span><span>⏳ Provisioned, not integrated</span>
+              </div>
+            </motion.div>
+
+            {/* Architecture Principles */}
+            <motion.div variants={fadeUp} custom={8}>
+              <p style={{ fontSize: "11px", letterSpacing: "0.18em", color: "var(--accent)", marginBottom: "1rem" }}>ARCHITECTURE PRINCIPLES</p>
+              <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "1px", background: "var(--border)" }}>
+                {[
+                  { title: "Database per Service",    desc: "Each service has its own PostgreSQL instance — zero cross-DB queries permitted." },
+                  { title: "Loose Coupling",          desc: "Services communicate via HTTP/WebSocket, never through shared databases." },
+                  { title: "Independent Deployment",  desc: "Each service has its own Dockerfile and can be rebuilt and deployed independently." },
+                  { title: "Stateless Services",      desc: "No in-memory session state. JWT is self-contained and verifiable by any downstream service." },
+                  { title: "Reproducible Migrations", desc: "Prisma and Alembic migrations run automatically on every container start." },
+                  { title: "Security by Default",     desc: "bcrypt-hashed passwords, secrets in env vars, databases fully isolated per service." },
+                ].map((p, i) => (
+                  <div key={i} style={{ flex: "1 1 280px", background: "var(--surface)", padding: "1.25rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                      <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "var(--accent)", display: "block", flexShrink: 0 }} />
+                      <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-primary)" }}>{p.title}</p>
+                    </div>
+                    <p style={{ fontSize: "11px", color: "var(--text-secondary)", lineHeight: 1.65, paddingLeft: "12px" }}>{p.desc}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </motion.section>

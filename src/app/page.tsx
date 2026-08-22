@@ -156,6 +156,7 @@ const DATA = {
   name: "SHAMIUL SHAKIB",
   title: "SOFTWARE ENGINEER",
   tagline: "Building systems that scale.",
+  summary: "Full Stack & AI Software Engineer with 2+ years of experience, known for clear English communication and strong problem-solving. Combines deep technical expertise (NestJS, TypeScript, Python, etc.) with a collaborative, client-focused approach. Has worked on scalable REST/GraphQL APIs and microservices, always taking ownership from requirements through delivery. Proactive and accountable, skilled at optimizing system design and database performance while continuously learning new technologies.",
   profile: [
     { label: "2+ YRS PRODUCTION EXPERIENCE", color: "var(--text-primary)", bar: "var(--accent)" },
     { label: "B.SC. CSE & DIPLOMA GRAPHIC DESIGN", color: "var(--text-secondary)", bar: "var(--border-hover)" },
@@ -163,10 +164,11 @@ const DATA = {
     { label: "HIGH-TRAFFIC SYSTEM DESIGN ARCHITECTURE", color: "var(--yellow)", bar: "var(--yellow)" },
   ],
   expertise: {
-    LANGUAGES: "Python / JavaScript / TypeScript / C / C++ / Dart / SQL",
-    FRAMEWORKS: "React.js / Next.js / Node.js / NestJS / Express.js / Django / FastAPI / Tailwind CSS",
-    DATABASES: "MySQL / MongoDB / PostgreSQL",
-    DEVOPS: "Docker / Linux / Git / CI/CD / GitHub Actions / VPS Management / Cloud Fundamentals",
+    LANGUAGES: "TypeScript / JavaScript / Python / C++ / SQL",
+    BACKEND: "Node.js / NestJS / Express.js / FastAPI / Django / DRF / GraphQL / REST APIs / Microservices / JWT / RBAC",
+    FRONTEND_DATA: "React.js / Next.js / PostgreSQL / MongoDB / MySQL / Redis / Prisma ORM",
+    DEVOPS_AI: "Docker / CI/CD / GitHub Actions / VPS / LLM APIs / RAG / Vector Databases / Multi-Agent Workflows",
+    ENGINEERING: "System Design / API Design / Database Design / DSA / Testing / Jest / Security / Input Validation / Error Handling / Postman",
   },
   education: [
     { 
@@ -296,7 +298,7 @@ function Header() {
             ))}
             {/* Resume Download */}
             <motion.a
-              href="https://drive.google.com/file/d/1Jn4_iphYPWSUnNVAdTsfC8B3NSKQ3mKj/view?usp=sharing"
+              href="https://drive.google.com/file/d/1dJsDmvSY82M1N7SwwKQ3mUM_BYODBVpo/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               title="Download Resume"
@@ -388,6 +390,70 @@ function Header() {
 
 // ─── Profile + Expertise ──────────────────────────────────────────────────────
 
+// ─── Professional Summary ────────────────────────────────────────────────────
+
+function SummarySection() {
+  return (
+    <motion.section
+      style={{ borderBottom: "1px solid var(--border)" }}
+      initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+    >
+      <div className="container-max" style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
+        <motion.div variants={fadeUp} custom={0}>
+          <SectionLabel label="PROFESSIONAL SUMMARY" />
+        </motion.div>
+        <motion.div variants={fadeUp} custom={1} style={{
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
+          padding: "1.75rem 2rem",
+          position: "relative",
+        }}>
+          {/* Terminal prompt line */}
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px" }}>
+            <span style={{ color: "var(--accent)", fontSize: "13px", fontFamily: "'JetBrains Mono', monospace" }}>$</span>
+            <span style={{ color: "var(--text-muted)", fontSize: "11px", letterSpacing: "0.18em" }}>cat about.md</span>
+            <TerminalCursor />
+          </div>
+          <p style={{
+            fontSize: "14px",
+            lineHeight: 1.9,
+            color: "var(--text-secondary)",
+            borderLeft: "2px solid var(--accent)",
+            paddingLeft: "1.25rem",
+            maxWidth: "820px",
+          }}>
+            {DATA.summary}
+          </p>
+          {/* Key stat chips */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "1.5rem" }}>
+            {[
+              { icon: "⚡", label: "2+ YRS PRODUCTION" },
+              { icon: "🔗", label: "REST & GRAPHQL APIs" },
+              { icon: "🤖", label: "AI / LLM SYSTEMS" },
+              { icon: "📐", label: "SYSTEM DESIGN" },
+              { icon: "🚀", label: "MICROSERVICES" },
+            ].map((chip) => (
+              <span key={chip.label} style={{
+                display: "inline-flex", alignItems: "center", gap: "6px",
+                padding: "4px 12px",
+                background: "var(--accent-dim)",
+                border: "1px solid var(--border)",
+                color: "var(--text-muted)",
+                fontSize: "10.5px",
+                letterSpacing: "0.12em",
+              }}>
+                <span>{chip.icon}</span>{chip.label}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+}
+
+// ─── Profile + Expertise ──────────────────────────────────────────────────────
+
 function ProfileExpertise() {
   return (
     <motion.section
@@ -395,7 +461,7 @@ function ProfileExpertise() {
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
       <div className="container-max grid-cols-1-2" style={{ gap: 0 }}>
-        <div className="mobile-border-none mobile-padding-y" style={{ paddingRight: "4rem", borderRight: "1px solid var(--border)" }}>
+        <div className="mobile-border-none mobile-padding-y expertise-left" style={{ paddingRight: "4rem", borderRight: "1px solid var(--border)" }}>
           <motion.div variants={fadeUp} custom={0}><SectionLabel label="PROFILE" /></motion.div>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {DATA.profile.map((item, i) => (
@@ -406,12 +472,12 @@ function ProfileExpertise() {
             ))}
           </div>
         </div>
-        <div className="mobile-border-none mobile-padding-y" style={{ paddingLeft: "4rem" }}>
+        <div className="mobile-border-none mobile-padding-y expertise-right" style={{ paddingLeft: "4rem" }}>
           <motion.div variants={fadeUp} custom={0}><SectionLabel label="EXPERTISE" /></motion.div>
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {Object.entries(DATA.expertise).map(([key, val], i) => (
               <motion.div key={key} variants={fadeUp} custom={i + 1}>
-                <p style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--accent)", fontWeight: 500, marginBottom: "6px" }}>{key}</p>
+                <p style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--accent)", fontWeight: 500, marginBottom: "6px" }}>{key.replace(/_/g, " & ")}</p>
                 <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-secondary)" }}>{val}</p>
               </motion.div>
             ))}
@@ -689,7 +755,7 @@ function EducationSection() {
 function References() {
   return (
     <motion.section
-      style={{ borderBottom: "1px solid var(--border)", padding: "4rem 0" }}
+      style={{ borderBottom: "1px solid var(--border)" }}
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
       <div className="container-max">
@@ -798,10 +864,10 @@ function Projects() {
 
 function Connect() {
   const links = [
-    { label: DATA.connect.phone, icon: "☏", href: `tel:${DATA.connect.phone.replace(/\s/g, "")}` },
-    { label: DATA.connect.email, icon: "✉", href: `mailto:${DATA.connect.email.toLowerCase()}` },
-    { label: "GITHUB", icon: "⌥", href: `https://${DATA.connect.github}` },
-    { label: "LINKEDIN", icon: "⌘", href: `https://${DATA.connect.linkedin}` },
+    { label: DATA.connect.phone, icon: "☏", href: `tel:${DATA.connect.phone.replace(/\s/g, "")}`, external: false },
+    { label: DATA.connect.email, icon: "✉", href: `mailto:${DATA.connect.email.toLowerCase()}`, external: false },
+    { label: "GITHUB", icon: "⌥", href: `https://${DATA.connect.github}`, external: true },
+    { label: "LINKEDIN", icon: "⌘", href: `https://${DATA.connect.linkedin}`, external: true },
   ];
   return (
     <motion.section
@@ -813,7 +879,7 @@ function Connect() {
         <motion.div variants={fadeUp} custom={0}><SectionLabel label="CONNECT" /></motion.div>
         <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "12px", marginBottom: "30px" }}>
           {links.map((link, i) => (
-            <motion.a key={i} href={link.href} target="_blank" rel="noopener noreferrer" variants={fadeUp} custom={i + 1}
+            <motion.a key={i} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} variants={fadeUp} custom={i + 1}
               style={{
                 display: "flex", alignItems: "center", gap: "10px", padding: "12px 22px",
                 border: "1px solid var(--border)", background: "var(--surface)",
@@ -869,6 +935,7 @@ export default function Home() {
       <div style={{ position: "relative", zIndex: 1 }}>
         <Header />
         <Ticker />
+        <SummarySection />
         <ProfileExpertise />
         <Projects />
         <ExperienceSection />

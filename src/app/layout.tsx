@@ -4,16 +4,22 @@ import TransitionProvider from "@/components/TransitionProvider";
 
 export const metadata: Metadata = {
   title: "Shamiul Shakib — Software Engineer",
-  description: "Full-stack software engineer specializing in AI-powered web applications, high-traffic system design, and modern web architecture.",
-  keywords: ["software engineer", "full-stack developer", "Next.js", "Python", "TypeScript"],
+  description: "Full Stack & AI Software Engineer with 2+ years of experience. Specializing in NestJS, TypeScript, Python, scalable REST/GraphQL APIs, microservices, and AI-powered web applications.",
+  keywords: ["software engineer", "full-stack developer", "AI engineer", "NestJS", "Next.js", "Python", "TypeScript", "microservices", "GraphQL", "REST API"],
   authors: [{ name: "Shamiul Shakib" }],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
     title: "Shamiul Shakib — Software Engineer",
-    description: "Full-stack software engineer specializing in AI-powered web applications.",
+    description: "Full Stack & AI Software Engineer with 2+ years of experience. NestJS, TypeScript, Python, microservices, AI/LLM systems.",
     type: "website",
+    siteName: "Shamiul Shakib Portfolio",
+  },
+  twitter: {
+    card: "summary",
+    title: "Shamiul Shakib — Software Engineer",
+    description: "Full Stack & AI Software Engineer. NestJS, TypeScript, Python, microservices, AI/LLM systems.",
   },
 };
 
