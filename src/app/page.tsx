@@ -174,7 +174,7 @@ const DATA = {
     { 
       institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)",
       degree: "B.Sc. in Computer Science & Engineering (Evening) [CGPA: 3.43/4.00]",
-      period: "Jan 2024 – Present",
+      period: "Jun 2023 – Present",
       location: "Rupnogor Road, Mirpur, Dhaka",
       coursework: "DSA · Probability & Statistics · Competitive Programming · Computer Networking · System Design · OOP"
     },
@@ -298,7 +298,7 @@ function Header() {
             ))}
             {/* Resume Download */}
             <motion.a
-              href="https://drive.google.com/file/d/1dJsDmvSY82M1N7SwwKQ3mUM_BYODBVpo/view?usp=sharing"
+              href="https://drive.google.com/file/d/1XyG6o6adoV7iJwtvkcGyG-0zfJs8aOf0/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               title="Download Resume"
