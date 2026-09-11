@@ -180,7 +180,7 @@ const DATA = {
     },
     { 
       institution: "GRAPHIC ARTS INSTITUTE (GAI)",
-      degree: "Diploma in Engineering (Graphic Design & Software Tech) [CGPA: 3.60/4.00]",
+      degree: "Diploma in Engineering (Graphic Design & Software Tech) [CGPA: 3.06/4.00]",
       period: "Jun 2020 – Dec 2024",
       location: "Satmosjid Road, Mohammadpur, Dhaka",
       coursework: "Web Development · JS · TS · Python · React · Node.js · Django · REST API · UI Design · Figma · Photoshop"
