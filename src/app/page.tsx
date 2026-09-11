@@ -330,7 +330,7 @@ function Header() {
             ))}
             {/* Resume Download */}
             <motion.a
-              href="https://drive.google.com/file/d/1icifk7WcDBebXYrqRcf5ZTpnI2Tulb9j/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Is1ZwKxfif_X9C3x6IgcVzxmETNnbd8M/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               title="Download Resume"
