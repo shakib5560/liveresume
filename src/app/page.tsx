@@ -186,6 +186,38 @@ const DATA = {
       coursework: "Web Development · JS · TS · Python · React · Node.js · Django · REST API · UI Design · Figma · Photoshop"
     },
   ],
+  certifications: [
+    {
+      title: "Advance Your Node.js Skills",
+      issuer: "LinkedIn Learning",
+      credential: "https://www.linkedin.com/learning/certificates/14d3bc8e594d03be0f545c803408bf78a508c15b4f933b28371aa155178e7881",
+      icon: "⬡",
+    },
+    {
+      title: "Building Generative AI Skills for Developers",
+      issuer: "LinkedIn Learning",
+      credential: "https://www.linkedin.com/learning/certificates/07ce910ef6882762b32c5768f5b4aad7143578f2aa26e36fa55db07295662ec8?trk=share_certificate",
+      icon: "◈",
+    },
+    {
+      title: "Mastering AI-Assisted Development",
+      issuer: "LinkedIn Learning",
+      credential: "https://www.linkedin.com/learning/certificates/19ca561dad9460869dc561d12b4f0efc2df0ccf558dce837987198d9aa0a0f51?trk=share_certificate",
+      icon: "◉",
+    },
+    {
+      title: "Advanced RAG Applications with Vector Databases",
+      issuer: "LinkedIn Learning",
+      credential: "https://www.linkedin.com/learning/certificates/e0ee4aeb9390196fa9677af8d6deed9af991c88b69d5f6f888532fd6a27b7d88",
+      icon: "❖",
+    },
+    {
+      title: "Docker for Developers",
+      issuer: "LinkedIn Learning",
+      credential: "https://www.linkedin.com/learning/certificates/ec238d9f34f7446280a37ac3549da897cbe174bd6ab60b473d788c721ea8b685",
+      icon: "◫",
+    },
+  ],
   references: [
     {
       name: "Md. Faisal Amir Mostafa",
@@ -298,7 +330,7 @@ function Header() {
             ))}
             {/* Resume Download */}
             <motion.a
-              href="https://drive.google.com/file/d/1XyG6o6adoV7iJwtvkcGyG-0zfJs8aOf0/view?usp=sharing"
+              href="https://drive.google.com/file/d/1icifk7WcDBebXYrqRcf5ZTpnI2Tulb9j/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               title="Download Resume"
@@ -750,6 +782,151 @@ function EducationSection() {
   );
 }
 
+// ─── Certifications ──────────────────────────────────────────────────────────
+
+function CertificationsSection() {
+  return (
+    <motion.section
+      style={{ borderBottom: "1px solid var(--border)" }}
+      initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+    >
+      <div className="container-max">
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="CERTIFICATIONS & PROFESSIONAL DEVELOPMENT" /></motion.div>
+
+        {/* Decorative header row */}
+        <motion.div variants={fadeUp} custom={1} style={{
+          display: "flex", alignItems: "center", gap: "10px", marginBottom: "28px",
+          padding: "10px 16px",
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
+        }}>
+          <span style={{ color: "var(--accent)", fontSize: "12px", fontFamily: "'JetBrains Mono', monospace" }}>$</span>
+          <span style={{ color: "var(--text-muted)", fontSize: "11px", letterSpacing: "0.18em" }}>ls ~/certifications --verified</span>
+          <TerminalCursor />
+        </motion.div>
+
+        {/* Cert cards grid */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+          {DATA.certifications.map((cert, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              custom={i + 2}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              whileHover={{
+                borderColor: "var(--accent)",
+                backgroundColor: "var(--accent-dim)",
+                x: 4,
+              } as any}
+              transition={{ duration: 0.2 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "16px",
+                padding: "16px 20px",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                flexWrap: "wrap" as const,
+              }}
+            >
+              {/* Left: icon + info */}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", flex: 1, minWidth: 0 }}>
+                {/* Index badge */}
+                <div style={{
+                  flexShrink: 0,
+                  width: "32px", height: "32px",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  border: "1px solid var(--border)",
+                  background: "var(--bg)",
+                  color: "var(--accent)",
+                  fontSize: "14px",
+                }}>
+                  {cert.icon}
+                </div>
+
+                <div style={{ minWidth: 0 }}>
+                  {/* Issuer tag */}
+                  <p style={{
+                    fontSize: "10px", letterSpacing: "0.18em",
+                    color: "var(--text-muted)", marginBottom: "4px",
+                    textTransform: "uppercase" as const,
+                  }}>
+                    {cert.issuer}
+                  </p>
+                  {/* Title */}
+                  <p style={{
+                    fontSize: "13px", fontWeight: 600,
+                    color: "var(--text-primary)",
+                    letterSpacing: "0.04em",
+                    lineHeight: 1.4,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap" as const,
+                  }}>
+                    {cert.title}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: credential link */}
+              <motion.a
+                href={cert.credential}
+                target="_blank"
+                rel="noopener noreferrer"
+                animate={{
+                  borderColor: ["var(--border)", "var(--accent)", "var(--border)"],
+                  color: ["var(--text-muted)", "var(--accent)", "var(--text-muted)"],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+                whileHover={{
+                  borderColor: "var(--accent)",
+                  color: "var(--accent)",
+                  backgroundColor: "var(--accent-dim)",
+                  boxShadow: "0 0 14px rgba(253,203,110,0.3)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  flexShrink: 0,
+                  display: "flex", alignItems: "center", gap: "7px",
+                  padding: "6px 14px",
+                  border: "1px solid var(--border)",
+                  background: "var(--bg)",
+                  fontSize: "10.5px", letterSpacing: "0.12em",
+                  textDecoration: "none",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  whiteSpace: "nowrap" as const,
+                }}
+              >
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 11 12 14 22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                CREDENTIAL
+              </motion.a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom tagline */}
+        <motion.div variants={fadeUp} custom={DATA.certifications.length + 2} style={{
+          marginTop: "24px",
+          display: "flex", alignItems: "center", gap: "10px",
+          padding: "10px 16px",
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
+          borderLeft: "2px solid var(--accent)",
+        }}>
+          <span style={{ color: "var(--accent)", fontSize: "12px" }}>◎</span>
+          <span style={{ fontSize: "11px", letterSpacing: "0.14em", color: "var(--text-muted)" }}>
+            {DATA.certifications.length} VERIFIED CREDENTIALS · CONTINUOUSLY LEARNING
+          </span>
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+}
+
 // ─── References ───────────────────────────────────────────────────────────────
 
 function References() {
@@ -940,6 +1117,7 @@ export default function Home() {
         <Projects />
         <ExperienceSection />
         <EducationSection />
+        <CertificationsSection />
         <Ticker reversed />
         <References />
         <Connect />
