@@ -171,16 +171,16 @@ const DATA = {
     ENGINEERING: "System Design / API Design / Database Design / DSA / Testing / Jest / Security / Input Validation / Error Handling / Postman",
   },
   education: [
-    { 
+    {
       institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)",
       degree: "B.Sc. in Computer Science & Engineering (Evening) [CGPA: 3.43/4.00]",
       period: "Jun 2023 – Present",
       location: "Rupnogor Road, Mirpur, Dhaka",
       coursework: "DSA · Probability & Statistics · Competitive Programming · Computer Networking · System Design · OOP"
     },
-    { 
+    {
       institution: "GRAPHIC ARTS INSTITUTE (GAI)",
-      degree: "Diploma in Engineering (Graphic Design & Software Tech) [CGPA: 3.06/4.00]",
+      degree: "Diploma in Engineering (Graphic Design & Software Tech) [CGPA: 3.6/4.00]",
       period: "Jun 2020 – Dec 2024",
       location: "Satmosjid Road, Mohammadpur, Dhaka",
       coursework: "Web Development · JS · TS · Python · React · Node.js · Django · REST API · UI Design · Figma · Photoshop"
@@ -349,9 +349,9 @@ function Header() {
               }}
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               RESUME
             </motion.a>
@@ -653,7 +653,7 @@ function ExperienceCard({ exp, index, isOpen, onToggle }: {
         <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "flex-end", gap: "12px", flexShrink: 0 }}>
           <motion.button
             onClick={onToggle}
-            animate={!isOpen ? { 
+            animate={!isOpen ? {
               boxShadow: ["0px 0px 0px rgba(253,203,110,0)", "0px 0px 12px rgba(253,203,110,0.25)", "0px 0px 0px rgba(253,203,110,0)"],
               borderColor: ["var(--border)", "var(--accent)", "var(--border)"],
               color: ["var(--text-muted)", "var(--accent)", "var(--text-muted)"]
@@ -664,10 +664,10 @@ function ExperienceCard({ exp, index, isOpen, onToggle }: {
               backgroundColor: "var(--accent-dim)"
             }}
             transition={!isOpen ? { duration: 2.5, repeat: Infinity, ease: "easeInOut" } : { duration: 0.2 }}
-            whileHover={{ 
-              scale: 1.03, 
-              borderColor: "var(--accent)", 
-              color: "var(--accent)", 
+            whileHover={{
+              scale: 1.03,
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
               backgroundColor: "var(--accent-dim)",
               boxShadow: "0px 0px 15px rgba(253,203,110,0.4)"
             }}
@@ -899,8 +899,8 @@ function CertificationsSection() {
                 }}
               >
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 11 12 14 22 4"/>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                  <polyline points="9 11 12 14 22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                 </svg>
                 CREDENTIAL
               </motion.a>
