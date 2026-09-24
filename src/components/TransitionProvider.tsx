@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, Suspense } from "react";
+import React, { createContext, useContext, useState, useEffect, Suspense, useSyncExternalStore } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 interface TransitionContextType {
@@ -19,22 +19,38 @@ const TransitionContext = createContext<TransitionContextType>({
 
 export const useTransitionNavigation = () => useContext(TransitionContext);
 
+function subscribeReducedMotion(callback: () => void) {
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mediaQuery.addEventListener("change", callback);
+  return () => mediaQuery.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
 function LoadingBar({ isRouting }: { isRouting: boolean }) {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
-
-  useEffect(() => {
-    setIsReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
+  const isReducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     let interval: NodeJS.Timeout;
 
     if (isRouting) {
-      setVisible(true);
-      setProgress(15);
+      const startTimeout = setTimeout(() => {
+        setVisible(true);
+        setProgress(15);
+      }, 0);
 
       interval = setInterval(() => {
         setProgress((prev) => {
@@ -45,20 +61,27 @@ function LoadingBar({ isRouting }: { isRouting: boolean }) {
           return prev + Math.random() * 10;
         });
       }, 500);
+
+      return () => {
+        clearTimeout(startTimeout);
+        clearInterval(interval);
+      };
     } else if (visible) {
-      setProgress(100);
+      const finishTimeout = setTimeout(() => {
+        setProgress(100);
+      }, 0);
       timeout = setTimeout(() => {
         setVisible(false);
         setTimeout(() => {
           setProgress(0);
         }, 300);
       }, 300);
-    }
 
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
+      return () => {
+        clearTimeout(finishTimeout);
+        clearTimeout(timeout);
+      };
+    }
   }, [isRouting, visible]);
 
   if (!visible && progress === 0) return null;
@@ -105,38 +128,61 @@ function NavigationEvents({ setIsRouting }: { setIsRouting: (val: boolean) => vo
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    setIsRouting(false);
+    const timer = setTimeout(() => {
+      setIsRouting(false);
+    }, 0);
+    return () => clearTimeout(timer);
   }, [pathname, searchParams, setIsRouting]);
 
   return null;
 }
 
+let themeListeners: Array<() => void> = [];
+
+function subscribeTheme(callback: () => void) {
+  themeListeners.push(callback);
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === "theme") callback();
+  };
+  window.addEventListener("storage", onStorage);
+  return () => {
+    themeListeners = themeListeners.filter((l) => l !== callback);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+function getThemeSnapshot(): "dark" | "light" {
+  if (typeof window === "undefined") return "dark";
+  return (localStorage.getItem("theme") as "dark" | "light") || "dark";
+}
+
+function getThemeServerSnapshot(): "dark" | "light" {
+  return "dark";
+}
+
+function emitThemeChange() {
+  for (const listener of themeListeners) {
+    listener();
+  }
+}
+
 export default function TransitionProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
   const [isRouting, setIsRouting] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
-    if (savedTheme === "light") {
-      setTheme("light");
+    if (theme === "light") {
       document.documentElement.classList.add("light");
     } else {
-      setTheme("dark");
       document.documentElement.classList.remove("light");
     }
-  }, []);
+  }, [theme]);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
-    if (nextTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
+    emitThemeChange();
   };
 
   const navigateTo = (href: string) => {
@@ -159,4 +205,3 @@ export default function TransitionProvider({ children }: { children: React.React
     </TransitionContext.Provider>
   );
 }
-

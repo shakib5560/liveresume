@@ -761,8 +761,7 @@ function EducationSection() {
           {DATA.education.map((edu, i) => (
             <motion.div key={i} variants={fadeUp} custom={i + 1}
               style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              whileHover={{ borderColor: "var(--accent)" } as any}
+              whileHover={{ borderColor: "var(--accent)" }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
                 <p style={{ fontSize: "13px", letterSpacing: "0.06em", fontWeight: 500, color: "var(--accent)" }}>&gt; {edu.institution}</p>
@@ -813,12 +812,11 @@ function CertificationsSection() {
               key={i}
               variants={fadeUp}
               custom={i + 2}
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               whileHover={{
                 borderColor: "var(--accent)",
                 backgroundColor: "var(--accent-dim)",
                 x: 4,
-              } as any}
+              }}
               transition={{ duration: 0.2 }}
               style={{
                 display: "flex",
@@ -942,8 +940,7 @@ function References() {
           {DATA.references.map((ref, i) => (
             <motion.div key={i} variants={fadeUp} custom={i + 1}
               style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              whileHover={{ borderColor: "var(--accent)" } as any}
+              whileHover={{ borderColor: "var(--accent)" }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
                 <p style={{ fontSize: "13px", letterSpacing: "0.08em", fontWeight: 500, color: "var(--accent)" }}>&gt; {ref.name.toUpperCase()}</p>
