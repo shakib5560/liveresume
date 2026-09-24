@@ -237,6 +237,7 @@ const DATA = {
     }
   ],
   projects: [
+    { name: "AUTOTASKX", desc: "AI-POWERED INDUSTRIAL OS", tech: "Industrial Intelligence", meta: "60% Lab Lead Time Reduction", icon: "🏭" },
     { name: "GITRABBIT", desc: "AI CODE REVIEW PLATFORM", tech: "Enterprise SaaS", meta: "Auto Pull-Request Reviews", icon: "🐇" },
     { name: "IDEA2SYSTEM", desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR", tech: "NestJS / Docker / PostgreSQL", meta: "Idea to Blueprint", icon: "🧠" },
     { name: "TOYGALAXY", desc: "E-COMMERCE PLATFORM", tech: "Django / JavaScript / TailwindCSS", meta: "2,000+ daily users", icon: "◫" },
@@ -988,9 +989,9 @@ function Projects() {
                 variants={fadeUp} custom={i + 1}
                 onHoverStart={() => setHovered(i)}
                 onHoverEnd={() => setHovered(null)}
-                animate={proj.name === "GITRABBIT" ? { boxShadow: ["inset 0 0 0 1px transparent", "inset 0 0 0 1px var(--accent)", "inset 0 0 0 1px transparent"] } : {}}
-                transition={proj.name === "GITRABBIT" ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : {}}
-                style={{ background: proj.name === "GITRABBIT" ? "var(--surface)" : "var(--bg)", padding: "2rem", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}
+                animate={proj.name === "GITRABBIT" || proj.name === "AUTOTASKX" ? { boxShadow: ["inset 0 0 0 1px transparent", "inset 0 0 0 1px var(--accent)", "inset 0 0 0 1px transparent"] } : {}}
+                transition={proj.name === "GITRABBIT" || proj.name === "AUTOTASKX" ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : {}}
+                style={{ background: proj.name === "GITRABBIT" || proj.name === "AUTOTASKX" ? "var(--surface)" : "var(--bg)", padding: "2rem", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}
               >
                 <AnimatePresence>
                   {hovered === i && (
@@ -1003,7 +1004,7 @@ function Projects() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <span style={{ fontSize: "24px", color: "var(--border-hover)" }}>{proj.icon}</span>
-                      {proj.name === "GITRABBIT" && (
+                      {(proj.name === "GITRABBIT" || proj.name === "AUTOTASKX") && (
                         <motion.span
                           animate={{ opacity: [0.6, 1, 0.6] }}
                           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
