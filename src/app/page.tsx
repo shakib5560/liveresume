@@ -443,7 +443,7 @@ function Header() {
               border: "1px solid var(--border)", boxShadow: "0 0 70px rgba(253,203,110,0.15), 0 0 0 5px rgba(253,203,110,0.05)",
               position: "relative",
             }}>
-              <Image src="/profile.png" alt="Shamiul Shakib" width={200} height={200}
+              <Image src="/profile1.png" alt="Shamiul Shakib" width={200} height={200}
                 style={{ width: "100%", height: "100%", objectFit: "cover", filter: "contrast(1.05) brightness(1.02)" }}
                 priority
               />
