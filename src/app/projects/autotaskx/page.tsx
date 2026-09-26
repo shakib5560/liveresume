@@ -118,7 +118,7 @@ export default function AutoTaskXPage() {
         </header>
 
         {/* ─── Tech Ticker ──────────────────────────────────────────────── */}
-        <div style={{ overflow: "hidden", borderBottom: "1px solid var(--border)", padding: "12px 0", background: "var(--surface)" }}>
+        <div className="ticker-container" style={{ overflow: "hidden", width: "100%", maxWidth: "100%", borderBottom: "1px solid var(--border)", padding: "12px 0", background: "var(--surface)" }}>
           <div style={{ display: "flex", gap: "2rem", alignItems: "center", whiteSpace: "nowrap", width: "max-content", animation: "ticker 22s linear infinite" }}>
             {Array.from({ length: 8 }).flatMap((_, idx) =>
               ["NEXT.JS 16", "FASTAPI", "TIMESCALEDB", "REDIS 7.2", "POSTGRESQL", "WEBSOCKETS", "SCIPY", "DOCKER", "✦"].map((t, i) => (

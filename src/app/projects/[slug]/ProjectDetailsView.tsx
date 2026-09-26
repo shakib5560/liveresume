@@ -238,7 +238,7 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
         </header>
 
         {/* Custom Moving Ticker for Project Tech Stack */}
-        <div style={{ overflow: "hidden", borderBottom: "1px solid var(--border)", padding: "12px 0" }}>
+        <div className="ticker-container" style={{ overflow: "hidden", width: "100%", maxWidth: "100%", borderBottom: "1px solid var(--border)", padding: "12px 0" }}>
           <div
             style={{
               display: "flex",

@@ -96,6 +96,8 @@ function LoadingBar({ isRouting }: { isRouting: boolean }) {
         height: "2px",
         zIndex: 9999,
         pointerEvents: "none",
+        overflow: "hidden",
+        maxWidth: "100%",
         opacity: visible ? 1 : 0,
         transformOrigin: "left",
         transform: `scaleX(${progress / 100})`,

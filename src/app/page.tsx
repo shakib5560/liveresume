@@ -38,114 +38,129 @@ interface ExperienceEntry {
 
 const EXPERIENCE_DATA: ExperienceEntry[] = [
   {
-    role: "Backend Software Engineer",
+    role: "Technical Founder",
+    company: "GITRABBIT.CO",
+    period: "June 2026 – v2 Engineering in Progress",
+    location: "Dhaka, Bangladesh / Remote",
+    type: "Product SaaS",
+    tech: ["Next.js", "TypeScript", "FastAPI", "Python", "OpenAI", "Claude", "PostgreSQL", "Docker"],
+    responsibilities: [
+      "Designed a revenue-focused SaaS architecture for repository-level code intelligence, targeting gaps in the $1B+ code review market.",
+      "Validated v1 MVP with 2,000+ users (CSE students & SWE professionals, BUBT community), using feedback to drive v2 architecture.",
+      "Enabling the engine to parse client requirements & project context, then verify whether AI-agent-written code aligns with intended specs.",
+      "Architecting an engine that surfaces architectural risks, dependency conflicts, and high-impact changes across repos, beyond line-level diffs.",
+    ],
+    impact: [
+      { metric: "2,000+", label: "Validated v1 MVP Users" },
+      { metric: "$1B+", label: "Target Code Review Market" },
+      { metric: "Multi-Agent", label: "Autonomous Workflow Engine" },
+      { metric: "v2", label: "Engineering in Progress" },
+    ],
+    challenges: [
+      {
+        title: "Repository-Level Code Intelligence Beyond Line-Level Diffs",
+        problem: "Standard code review tools only evaluate line-by-line git diffs, missing multi-file architectural regressions, dependency conflicts, and subtle contract breaks.",
+        solution: "Architected a multi-agent engine that ingests the entire project context, parses dependencies, and validates changes against holistic project specifications and client requirements.",
+      },
+    ],
+    keyLearnings: [
+      "Translating developer feedback from 2,000+ early users into a production-grade v2 architecture.",
+      "Orchestrating multi-model LLM pipelines for specialized code reasoning tasks.",
+    ],
+  },
+  {
+    role: "Backend Software Engineer L2",
     company: "RAJTECH BD",
     period: "Jan 2026 – Present",
     location: "Dhaka, Bangladesh",
     type: "Full-Time",
-    tech: ["NestJS", "TypeScript", "PostgreSQL", "Prisma ORM", "FastAPI", "JWT", "Docker", "CI/CD"],
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "Prisma ORM", "FastAPI", "Redis", "JWT", "RBAC", "Docker"],
     responsibilities: [
-      "Designed and developed scalable backend services for an enterprise AI-powered SaaS platform using NestJS, TypeScript, PostgreSQL, and Prisma ORM, following modular software architecture and clean coding principles.",
-      "Built secure REST APIs and FastAPI microservices with JWT authentication, Role-Based Access Control (RBAC), request validation, rate limiting, background jobs, and asynchronous processing.",
-      "Optimized database performance through query optimization, indexing strategies, caching, and efficient data modeling to reduce API response latency.",
-      "Collaborated with cross-functional teams and international clients to design technical architecture, define API contracts, manage Docker-based deployments, and maintain CI/CD pipelines throughout the software development lifecycle.",
+      "Build and ship backend services for AI-powered SaaS products in NestJS, TypeScript, PostgreSQL, and Prisma, owning 20+ modules from schema design through production deployment.",
+      "Engineered production-grade REST APIs and FastAPI microservices with JWT authentication, RBAC, and asynchronous processing, supporting 1M+ daily requests across 8+ client-facing services.",
+      "Reduced p95 endpoint latency by 79%, from 850ms to 180ms, by eliminating N+1 Prisma queries, adding composite indexes, and introducing Redis caching on high-traffic routes.",
+      "Define API contracts and system design decisions directly with international clients, translating product requirements into service boundaries and delivery plans.",
     ],
     impact: [
-      { metric: "20%", label: "AI Workflow Efficiency ↑" },
-      { metric: "Modular", label: "Microservice Architecture" },
-      { metric: "RBAC", label: "Secure Multi-Tenant APIs" },
-      { metric: "CI/CD", label: "Automated Deployments" },
+      { metric: "79%", label: "p95 Latency Reduction (850→180ms)" },
+      { metric: "1M+", label: "Daily API Requests Supported" },
+      { metric: "20+", label: "Production Modules Owned" },
+      { metric: "8+", label: "Client-Facing Services" },
     ],
     challenges: [
       {
-        title: "Designing a Scalable Multi-Tenant SaaS Backend",
-        problem: "Building an enterprise SaaS that isolates tenant data, enforces role-based access, and scales horizontally without leaking context between users or organizations.",
-        solution: "Implemented a modular NestJS architecture with tenant-scoped guards, JWT-based RBAC middleware, and Prisma data models that enforce row-level isolation, allowing the system to scale confidently across clients.",
+        title: "Eliminating N+1 Queries and Optimizing Prisma p95 Latency",
+        problem: "High-traffic routes suffered from 850ms p95 latency caused by unoptimized Prisma ORM query patterns and missing composite indexes under heavy concurrent read loads.",
+        solution: "Restructured data access layers with batched operations, introduced composite database indexes, and implemented a Redis caching layer for hot routes, reducing p95 latency by 79% to 180ms.",
       },
       {
-        title: "Optimizing AI Workflow Response Times",
-        problem: "AI-driven pipeline endpoints were synchronous and caused high latency under concurrent load, degrading user experience significantly.",
-        solution: "Refactored AI-heavy operations into background jobs using NestJS Bull queues and Redis, decoupling request/response cycles and improving throughput by 20% under production traffic.",
+        title: "Designing Multi-Tenant Service Boundaries & Defining API Contracts",
+        problem: "Supporting 8+ client-facing services while managing international client requirement translation and keeping microservices isolated without latency bloat.",
+        solution: "Defined rigorous OpenAPI contracts, built modular NestJS/FastAPI services with JWT authentication and RBAC, and established asynchronous message queues for heavy processing.",
       },
     ],
     keyLearnings: [
-      "How to architect clean, multi-tenant NestJS backends that remain maintainable as teams grow.",
-      "Practical trade-offs between synchronous REST and async queue-driven processing for AI workloads.",
-      "Collaborating with international clients to define API contracts and manage expectations across time zones.",
+      "Database performance tuning with composite indexing and Redis caching.",
+      "Defining API contracts and leading technical architecture discussions directly with international stakeholders.",
     ],
   },
   {
-    role: "Full-Stack Software Engineer",
+    role: "Full-Stack Software Engineer (Contract)",
     company: "DEVNEXT",
     period: "Feb 2025 – Dec 2025",
     location: "Karachi, Pakistan (Remote)",
-    type: "Project-Based (Contract)",
-    tech: ["Django", "JavaScript", "PostgreSQL", "Redis", "TailwindCSS", "REST APIs", "Docker"],
+    type: "Contract",
+    tech: ["Django", "Python", "JavaScript", "PostgreSQL", "Redis", "TailwindCSS", "REST APIs", "Docker"],
     responsibilities: [
-      "Developed and maintained production-grade full-stack web applications supporting more than 1,500 daily active users, including enterprise e-commerce platforms such as ToyGalaxy Australia.",
-      "Designed scalable backend architecture, relational database schemas, REST APIs, and reusable frontend components using Django, JavaScript, and modern web development practices.",
-      "Improved application performance by optimizing SQL queries, reducing database bottlenecks, implementing caching strategies, and minimizing server response time.",
-      "Managed the complete software development lifecycle, including client communication, requirement analysis, development, testing, deployment, production support, and continuous system improvements.",
+      "Delivered backend and frontend features for ToyGalaxy Australia, a production Django e-commerce platform serving 1,500+ daily active users.",
+      "Built REST APIs, relational schemas, and catalog/checkout flows, carrying features from requirements through code review, deployment, and production support.",
+      "Optimized ORM queries and added indexed schema fields and request validation, holding response times stable through seasonal traffic spikes.",
     ],
     impact: [
-      { metric: "1,500+", label: "Daily Active Users" },
-      { metric: "30%", label: "Server Response Time ↓" },
-      { metric: "Redis", label: "Caching Layer Implemented" },
-      { metric: "E2E", label: "Full SDLC Ownership" },
+      { metric: "1,500+", label: "Daily Active Users (ToyGalaxy AU)" },
+      { metric: "0", label: "Downtime Through Seasonal Spikes" },
+      { metric: "E2E", label: "Full SDLC: Design to Deploy" },
+      { metric: "REST", label: "Catalog & Checkout APIs" },
     ],
     challenges: [
       {
-        title: "Scaling a Django Backend to 1,500+ Daily Users",
-        problem: "The existing application experienced degraded performance under increasing traffic — slow database queries, N+1 ORM issues, and unoptimized session handling were the main culprits.",
-        solution: "Profiled the application with Django Debug Toolbar, rewrote critical ORM queries using select_related and prefetch_related, introduced Redis caching for hot data paths, and reduced average response time by 30%.",
-      },
-      {
-        title: "Remote Client Communication & Requirement Clarity",
-        problem: "Working remotely with international clients meant requirements were sometimes ambiguous, leading to rework and delivery delays.",
-        solution: "Introduced structured requirement documentation, API contract-first design using OpenAPI specs, and weekly sync calls to align expectations — cutting mid-sprint scope changes significantly.",
+        title: "Holding Response Times Stable Through Seasonal Traffic Spikes",
+        problem: "Heavy seasonal traffic spikes on the ToyGalaxy Australia e-commerce platform threatened to saturate database connections and slow down the checkout pipeline.",
+        solution: "Optimized critical Django ORM queries with select_related/prefetch_related, added composite schema indexes, and introduced robust payload validation to keep response times consistently fast.",
       },
     ],
     keyLearnings: [
-      "How to systematically identify and resolve Django ORM performance bottlenecks in production.",
-      "Managing a full SDLC independently — from requirement gathering to production support.",
-      "Effective remote collaboration patterns with asynchronous communication and contract-first API design.",
+      "Production Django ORM query optimization and relational schema indexing.",
+      "Managing full feature lifecycles from client requirement gathering to production deployment.",
     ],
   },
   {
     role: "Web Developer Intern",
-    company: "TECHONFY IT LTD",
+    company: "TECHONFY IT",
     period: "Apr 2024 – Sep 2024",
     location: "Dhaka, Bangladesh",
     type: "Internship",
-    tech: ["HTML/CSS", "JavaScript", "Git", "REST APIs", "CI/CD", "AWS/GCP", "Unit Testing"],
+    tech: ["REST APIs", "JavaScript", "HTML/CSS", "Git", "Agile", "Debugging", "CI/CD"],
     responsibilities: [
-      "Engineered and maintained scalable production web applications within an Agile environment, collaborating with senior developers to deliver high-quality software solutions for 10+ clients.",
-      "Architected database schemas and developed full-stack features, including secure authentication, REST API integrations, and automated unit testing.",
-      "Managed version control (Git), rigorous code reviews, and CI/CD workflows, streamlining automated deployment pipelines to AWS/GCP.",
-      "Participated in sprint planning, daily standups, retrospectives, and pair programming sessions to accelerate learning and contribute to team goals.",
+      "Collaborated with senior developers on client web applications, contributing to REST APIs, database queries, authentication flows, and frontend bug fixes while gaining hands-on production experience.",
+      "Participated in a Git-based PR workflow, learning code review practices, debugging techniques, Agile collaboration, and deployment workflows through real-world development tasks.",
     ],
     impact: [
-      { metric: "10+", label: "Client Projects Delivered" },
-      { metric: "20%", label: "Post-Release Bugs ↓" },
-      { metric: "AWS/GCP", label: "Cloud Deployments" },
-      { metric: "Agile", label: "Sprint-Based Delivery" },
+      { metric: "Hands-on", label: "Production REST APIs & DB Queries" },
+      { metric: "Git PR", label: "Structured Code Review Workflow" },
+      { metric: "Agile", label: "Collaborative Team Sprints" },
+      { metric: "Frontend", label: "Bug Fixing & Quality Assurance" },
     ],
     challenges: [
       {
-        title: "Learning Production Standards as a First-Time Engineer",
-        problem: "Transitioning from personal projects to production codebases with strict code review, testing requirements, and CI/CD pipelines was an immediate steep learning curve.",
-        solution: "Adopted a growth mindset — studying senior engineers' code reviews, writing unit tests for every feature, and proactively asking for feedback on architecture decisions to internalize production-grade standards quickly.",
-      },
-      {
-        title: "Reducing Post-Release Bug Rate Across Client Projects",
-        problem: "Several client projects had a pattern of bugs surfacing post-deployment, damaging client confidence and consuming engineering time on hotfixes.",
-        solution: "Introduced automated unit testing for authentication and API integration layers and tightened the pre-deployment review checklist, contributing to a 20% reduction in post-release reported bugs.",
+        title: "Adopting Production Git-Based PR & Collaboration Workflows",
+        problem: "Transitioning to enterprise codebases required adhering to strict PR conventions, automated checks, and multi-developer branching strategies.",
+        solution: "Proactively engaged in code reviews, learned systematic debugging techniques from senior developers, and maintained clean commit histories across client deliveries.",
       },
     ],
     keyLearnings: [
-      "How to write production-quality code with tests, reviews, and CI/CD from day one.",
-      "The value of Agile practices — sprint planning, standups, and retrospectives — in structuring collaborative work.",
-      "Building confidence through code review feedback loops and learning to give and receive technical critique professionally.",
+      "Git PR workflows, peer code reviews, and structured debugging.",
+      "Collaborating effectively within Agile sprint cycles.",
     ],
   },
 ];
@@ -154,36 +169,48 @@ const EXPERIENCE_DATA: ExperienceEntry[] = [
 
 const DATA = {
   name: "SHAMIUL SHAKIB",
-  title: "SOFTWARE ENGINEER",
+  title: "SOFTWARE ENGINEER — FULL STACK & AI SYSTEMS",
   tagline: "Building systems that scale.",
-  summary: "Full Stack & AI Software Engineer with 2+ years of experience, known for clear English communication and strong problem-solving. Combines deep technical expertise (NestJS, TypeScript, Python, etc.) with a collaborative, client-focused approach. Has worked on scalable REST/GraphQL APIs and microservices, always taking ownership from requirements through delivery. Proactive and accountable, skilled at optimizing system design and database performance while continuously learning new technologies.",
+  summary: "Solution-focused Full Stack Engineer with 2+ years of experience shipping production web applications and microservices using NestJS, ReactJS, Django, TypeScript, Python & AWS . Proven ability to tackle complex architectural challenges, highlighted by engineering an industrial IoT platform with sub-25ms real-time pipelines (AutoTaskX) and an AI-driven code intelligence SaaS (GitRabbit). Combines robust backend optimization skills with fluent English communication to seamlessly translate product requirements into scalable technical solutions.",
   profile: [
     { label: "2+ YRS PRODUCTION EXPERIENCE", color: "var(--text-primary)", bar: "var(--accent)" },
-    { label: "B.SC. CSE & DIPLOMA GRAPHIC DESIGN", color: "var(--text-secondary)", bar: "var(--border-hover)" },
-    { label: "SPECIALIZED: AI-POWERED WEB APPS", color: "var(--yellow)", bar: "var(--yellow)" },
-    { label: "HIGH-TRAFFIC SYSTEM DESIGN ARCHITECTURE", color: "var(--yellow)", bar: "var(--yellow)" },
+    { label: "FULL STACK & AI SYSTEMS SPECIALIST", color: "var(--yellow)", bar: "var(--yellow)" },
+    { label: "INDUSTRIAL IOT & SUB-25MS REAL-TIME PIPELINES", color: "var(--accent)", bar: "var(--accent)" },
+    { label: "AI-DRIVEN CODE INTELLIGENCE SAAS (GITRABBIT)", color: "var(--yellow)", bar: "var(--yellow)" },
+    { label: "FLUENT ENGLISH & CLIENT-FACING ARCHITECTURE", color: "var(--text-secondary)", bar: "var(--border-hover)" },
   ],
   expertise: {
-    LANGUAGES: "TypeScript / JavaScript / Python / C++ / SQL",
-    BACKEND: "Node.js / NestJS / Express.js / FastAPI / Django / DRF / GraphQL / REST APIs / Microservices / JWT / RBAC",
-    FRONTEND_DATA: "React.js / Next.js / PostgreSQL / MongoDB / MySQL / Redis / Prisma ORM",
-    DEVOPS_AI: "Docker / CI/CD / GitHub Actions / VPS / LLM APIs / RAG / Vector Databases / Multi-Agent Workflows",
-    ENGINEERING: "System Design / API Design / Database Design / DSA / Testing / Jest / Security / Input Validation / Error Handling / Postman",
+    CORE_STACK: "TypeScript, JavaScript, NodeJS, NestJS, ReactJS",
+    SECONDARY_STACK: "Python, Django, DRF, FastAPI, BeautifulSoup, Scrapy",
+    DATA: "PostgreSQL, SQL, Prisma ORM, Redis (Primary); MongoDB, Mongoose, PyMongo (Secondary)",
+    BACKEND_SYSTEMS: "REST APIs, GraphQL, Microservices, JWT, RBAC, System Design, API Design",
+    DEVOPS_CLOUD: "AWS, EC2, S3, Docker, CI/CD, GitHub Actions, VPS, Nginx, Git, Cloudflare",
+    AI: "Multi-agentic Workflow, Context Engineering, LLM APIs, RAG (Basic), Vector Databases, Claude",
   },
   education: [
     {
       institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)",
-      degree: "B.Sc. in Computer Science & Engineering (Evening) [CGPA: 3.43/4.00]",
-      period: "Jun 2023 – Present",
-      location: "Rupnogor Road, Mirpur, Dhaka",
-      coursework: "DSA · Probability & Statistics · Competitive Programming · Computer Networking · System Design · OOP"
+      degree: "BSc in Computer Science & Engineering",
+      grade: "CGPA: 3.43 / 4.00",
+      period: "Jun 2023 – (Capstone in Progress)",
+      location: "Mirpur, Dhaka, Bangladesh",
+      coursework: "Data Structures & Algorithms · System Design · Computer Networking · OOP · Database Systems · AI Systems"
     },
     {
-      institution: "GRAPHIC ARTS INSTITUTE (GAI)",
-      degree: "Diploma in Engineering (Graphic Design & Software Tech) [CGPA: 3.6/4.00]",
-      period: "Jun 2020 – Dec 2024",
-      location: "Satmosjid Road, Mohammadpur, Dhaka",
-      coursework: "Web Development · JS · TS · Python · React · Node.js · Django · REST API · UI Design · Figma · Photoshop"
+      institution: "GOVERNMENT GRAPHIC ARTS INSTITUTE",
+      degree: "Diploma in Engineering in Graphic Design & S.T.",
+      grade: "CGPA: 3.60 / 4.00",
+      period: "Jan 2020 – May 2023",
+      location: "Mohammadpur, Dhaka, Bangladesh",
+      coursework: "Software Technology · Web Development · JS · TS · Python · React · Node.js · Django · REST APIs"
+    },
+    {
+      institution: "BAHARPUR HIGH SCHOOL",
+      degree: "Secondary School Certificate (SSC) — Science",
+      grade: "GPA: 4.93 / 5.00",
+      period: "2020",
+      location: "Ranjbari, Bangladesh",
+      coursework: "Science Major · Physics, Chemistry, Higher Mathematics, Biology"
     },
   ],
   certifications: [
@@ -194,7 +221,13 @@ const DATA = {
       icon: "⬡",
     },
     {
-      title: "Building Generative AI Skills for Developers",
+      title: "AWS: Zero to Hero",
+      issuer: "Train With Shubham",
+      credential: "https://www.linkedin.com/in/sheikh-shamiul-834878206/",
+      icon: "☁",
+    },
+    {
+      title: "Building AI Skills for Developers",
       issuer: "LinkedIn Learning",
       credential: "https://www.linkedin.com/learning/certificates/07ce910ef6882762b32c5768f5b4aad7143578f2aa26e36fa55db07295662ec8?trk=share_certificate",
       icon: "◈",
@@ -218,6 +251,18 @@ const DATA = {
       icon: "◫",
     },
   ],
+  achievements: [
+    {
+      title: "1st Place — Regional Business Innovation Challenge 2023",
+      description: "Ranked 1st among participating teams for developing an algorithmic approach to controlling chemical reactions.",
+      icon: "🏆"
+    },
+    {
+      title: "BUBT Three Minute Thesis (3MT) Presenter",
+      description: "Presented FacePass, a facial authentication system designed for secure web login and identity verification.",
+      icon: "🎙️"
+    }
+  ],
   references: [
     {
       name: "Md. Faisal Amir Mostafa",
@@ -237,18 +282,20 @@ const DATA = {
     }
   ],
   projects: [
-    { name: "AUTOTASKX", desc: "AI-POWERED INDUSTRIAL OS", tech: "Industrial Intelligence", meta: "60% Lab Lead Time Reduction", icon: "🏭" },
-    { name: "GITRABBIT", desc: "AI CODE REVIEW PLATFORM", tech: "Enterprise SaaS", meta: "Auto Pull-Request Reviews", icon: "🐇" },
-    { name: "IDEA2SYSTEM", desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR", tech: "NestJS / Docker / PostgreSQL", meta: "Idea to Blueprint", icon: "🧠" },
-    { name: "TOYGALAXY", desc: "E-COMMERCE PLATFORM", tech: "Django / JavaScript / TailwindCSS", meta: "2,000+ daily users", icon: "◫" },
-    { name: "RINORS", desc: "MULTI-VENDOR E-COMMERCE", tech: "Next.js / T3 Stack / TypeScript", meta: "10,000+ monthly users", icon: "❖" },
-    { name: "AINOS", desc: "AI-POWERED FULL-STACK SAAS", tech: "NestJS / React / Prisma", meta: "Secure Payments", icon: "◈" },
+    { name: "AUTOTASKX", desc: "Real-time industrial IoT platform unifying machine telemetry & formulation.", tech: "INDUSTRIAL IOT", meta: "60% Dye Trial Reduction · Sub-25ms Real-Time", icon: "🏭" },
+    { name: "GITRABBIT", desc: "Multi-agent code review SaaS analyzing architecture & project context.", tech: "CODE INTELLIGENCE", meta: "2,000+ Validated Users · $1B+ Target Market", icon: "🐇" },
+    { name: "TOYGALAXY", desc: "Production e-commerce platform with optimized catalog & checkout pipelines.", tech: "E-COMMERCE", meta: "1,500+ DAU · Zero Downtime Spikes", icon: "◫" },
+    { name: "IDEA2SYSTEM", desc: "Autonomous software blueprint engine generating schemas, ERDs & API specs.", tech: "AI BLUEPRINTS", meta: "Multi-Stage LLM Chains · Dockerized", icon: "🧠" },
+    { name: "RINORS", desc: "Scalable multi-vendor marketplace with type-safe tRPC APIs and modular schemas.", tech: "MARKETPLACE", meta: "10,000+ Monthly Users · End-to-End Type-Safe", icon: "❖" },
+    { name: "AINOS", desc: "AI-driven full-stack commerce engine with automated SEO & image pipelines.", tech: "FULL-STACK AI", meta: "Secure Multi-Tenant SaaS · Stripe Billing", icon: "◈" },
   ],
   connect: {
-    phone: "+880 1771 659336",
-    email: "DEV.SHAKIB@OUTLOOK.COM",
+    phone: "+880 1771-659336",
+    email: "dev.shakib@outlook.com",
+    website: "shamiulshakib.me",
     github: "github.com/shakib5560",
-    linkedin: "linkedin.com/in/sheikh-shamiul-834878206/",
+    linkedin: "linkedin.com/in/sheikh-shamiul-834878206",
+    location: "Shyamoli, Dhaka, Bangladesh",
     hackerrank: "hackerrank.com/profile/dev_shakib6",
   },
 };
@@ -275,7 +322,7 @@ const TICKER = ["ENGINEER", "//", "DESIGNER", "//", "DEVELOPER", "//", "CREATIVE
 function Ticker({ reversed = false }: { reversed?: boolean }) {
   const items = [...TICKER, ...TICKER, ...TICKER, ...TICKER];
   return (
-    <div style={{ overflow: "hidden", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "12px 0" }}>
+    <div className="ticker-container" style={{ overflow: "hidden", width: "100%", maxWidth: "100%", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "12px 0" }}>
       <div
         style={{
           display: "flex", gap: "2rem", alignItems: "center", whiteSpace: "nowrap", width: "max-content",
@@ -331,7 +378,7 @@ function Header() {
             ))}
             {/* Resume Download */}
             <motion.a
-              href="https://drive.google.com/file/d/1Is1ZwKxfif_X9C3x6IgcVzxmETNnbd8M/view?usp=sharing"
+              href="https://drive.google.com/file/d/1VEmpMnnviL37f4pgM5vwhEvM0qJDGGz7/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               title="Download Resume"
@@ -406,7 +453,7 @@ function Header() {
               }} />
             </div>
             <div style={{
-              position: "absolute", bottom: "12px", right: "-14px",
+              position: "absolute", bottom: "12px", right: "0px",
               display: "flex", alignItems: "center", gap: "8px", padding: "6px 12px",
               background: "var(--surface)", border: "1px solid var(--border)",
               color: "var(--text-secondary)", fontSize: "12px", letterSpacing: "0.1em",
@@ -461,10 +508,11 @@ function SummarySection() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "1.5rem" }}>
             {[
               { icon: "⚡", label: "2+ YRS PRODUCTION" },
-              { icon: "🔗", label: "REST & GRAPHQL APIs" },
-              { icon: "🤖", label: "AI / LLM SYSTEMS" },
-              { icon: "📐", label: "SYSTEM DESIGN" },
-              { icon: "🚀", label: "MICROSERVICES" },
+              { icon: "⚙️", label: "NESTJS & DJANGO" },
+              { icon: "📡", label: "SUB-25MS REAL-TIME IoT" },
+              { icon: "🤖", label: "AI CODE INTELLIGENCE" },
+              { icon: "☁️", label: "AWS & MICROSERVICES" },
+              { icon: "💬", label: "FLUENT ENGLISH" },
             ].map((chip) => (
               <span key={chip.label} style={{
                 display: "inline-flex", alignItems: "center", gap: "6px",
@@ -510,7 +558,7 @@ function ProfileExpertise() {
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {Object.entries(DATA.expertise).map(([key, val], i) => (
               <motion.div key={key} variants={fadeUp} custom={i + 1}>
-                <p style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--accent)", fontWeight: 500, marginBottom: "6px" }}>{key.replace(/_/g, " & ")}</p>
+                <p style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--accent)", fontWeight: 500, marginBottom: "6px" }}>{key.replace(/_/g, " ")}</p>
                 <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-secondary)" }}>{val}</p>
               </motion.div>
             ))}
@@ -756,24 +804,89 @@ function EducationSection() {
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
       <div className="container-max">
-        <motion.div variants={fadeUp} custom={0}><SectionLabel label="EDUCATION" /></motion.div>
-        <div className="grid-cols-1-2" style={{ gap: "2.5rem", marginTop: "1rem" }}>
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="EDUCATION & ACADEMIC BACKGROUND" /></motion.div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "1rem" }}>
           {DATA.education.map((edu, i) => (
-            <motion.div key={i} variants={fadeUp} custom={i + 1}
-              style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
-              whileHover={{ borderColor: "var(--accent)" }}
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              custom={i + 1}
+              whileHover={{
+                borderColor: "var(--accent)",
+                backgroundColor: "var(--surface-2)",
+                x: 4,
+              }}
+              transition={{ duration: 0.2 }}
+              style={{
+                padding: "22px 26px",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderLeft: "3px solid var(--accent)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+              }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
-                <p style={{ fontSize: "13px", letterSpacing: "0.06em", fontWeight: 500, color: "var(--accent)" }}>&gt; {edu.institution}</p>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.period}</span>
+              {/* Institution & Period Row */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px" }}>
+                <div style={{ flex: 1, minWidth: "260px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", marginBottom: "6px" }}>
+                    <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--accent)", letterSpacing: "0.04em" }}>
+                      &gt; {edu.institution}
+                    </span>
+                    {edu.grade && (
+                      <span style={{
+                        fontSize: "11px",
+                        letterSpacing: "0.08em",
+                        padding: "2px 8px",
+                        border: "1px solid var(--border)",
+                        background: "var(--bg)",
+                        color: "var(--yellow)",
+                        fontWeight: 600,
+                      }}>
+                        {edu.grade}
+                      </span>
+                    )}
+                  </div>
+                  <p style={{ fontSize: "13.5px", color: "var(--text-primary)", fontWeight: 500 }}>
+                    {edu.degree}
+                  </p>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px", flexShrink: 0 }}>
+                  <span style={{
+                    fontSize: "11px",
+                    letterSpacing: "0.1em",
+                    padding: "3px 10px",
+                    border: "1px solid var(--border)",
+                    background: "var(--bg)",
+                    color: "var(--text-secondary)",
+                    fontFamily: "'JetBrains Mono', monospace",
+                  }}>
+                    {edu.period}
+                  </span>
+                  <span style={{ fontSize: "11.5px", color: "var(--text-muted)" }}>
+                    📍 {edu.location}
+                  </span>
+                </div>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-                <p style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{edu.degree}</p>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{edu.location}</span>
+
+              {/* Coursework & Focus */}
+              <div style={{
+                paddingTop: "10px",
+                borderTop: "1px solid var(--border)",
+                display: "flex",
+                alignItems: "baseline",
+                gap: "8px",
+                flexWrap: "wrap",
+              }}>
+                <span style={{ fontSize: "11px", letterSpacing: "0.12em", color: "var(--text-muted)", textTransform: "uppercase", flexShrink: 0 }}>
+                  Coursework &amp; Focus:
+                </span>
+                <span style={{ fontSize: "12.5px", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                  {edu.coursework}
+                </span>
               </div>
-              <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>
-                <span style={{ color: "var(--text-primary)" }}>Coursework:</span> {edu.coursework}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -926,6 +1039,60 @@ function CertificationsSection() {
   );
 }
 
+// ─── Achievements ─────────────────────────────────────────────────────────────
+
+function AchievementsSection() {
+  return (
+    <motion.section
+      style={{ borderBottom: "1px solid var(--border)" }}
+      initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
+    >
+      <div className="container-max">
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="ACHIEVEMENTS & HONORS" /></motion.div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem", marginTop: "1rem" }}>
+          {DATA.achievements.map((ach, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              custom={i + 1}
+              style={{
+                padding: "20px 24px",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderLeft: "3px solid var(--accent)",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "16px",
+              }}
+              whileHover={{ borderColor: "var(--accent)" }}
+            >
+              <div style={{
+                flexShrink: 0,
+                width: "36px", height: "36px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                border: "1px solid var(--border)",
+                background: "var(--bg)",
+                color: "var(--yellow)",
+                fontSize: "18px",
+              }}>
+                {ach.icon}
+              </div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "var(--text-primary)", marginBottom: "6px", letterSpacing: "0.02em" }}>
+                  {ach.title}
+                </p>
+                <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-secondary)" }}>
+                  {ach.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
 // ─── References ───────────────────────────────────────────────────────────────
 
 function References() {
@@ -1011,9 +1178,19 @@ function Projects() {
                         </motion.span>
                       )}
                     </div>
-                    <motion.span style={{ fontSize: "12px", letterSpacing: "0.12em", color: "var(--text-muted)" }}
+                    <motion.span
+                      style={{
+                        fontSize: "11px",
+                        letterSpacing: "0.14em",
+                        color: "var(--text-muted)",
+                        whiteSpace: "nowrap",
+                        textTransform: "uppercase",
+                        flexShrink: 0,
+                      }}
                       animate={{ color: hovered === i ? "var(--accent)" : "var(--text-muted)" }}
-                    >{proj.tech}</motion.span>
+                    >
+                      {proj.tech}
+                    </motion.span>
                   </div>
                   <h3 style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1em", color: "var(--text-primary)", marginBottom: "8px" }}>{proj.name}</h3>
                   <p style={{ fontSize: "13px", letterSpacing: "0.05em", color: "var(--text-secondary)", marginBottom: "16px" }}>{proj.desc}</p>
@@ -1039,8 +1216,9 @@ function Projects() {
 
 function Connect() {
   const links = [
-    { label: DATA.connect.phone, icon: "☏", href: `tel:${DATA.connect.phone.replace(/\s/g, "")}`, external: false },
+    { label: DATA.connect.phone, icon: "☏", href: `tel:${DATA.connect.phone.replace(/[\s-]/g, "")}`, external: false },
     { label: DATA.connect.email, icon: "✉", href: `mailto:${DATA.connect.email.toLowerCase()}`, external: false },
+    { label: DATA.connect.website.toUpperCase(), icon: "🌐", href: `https://${DATA.connect.website}`, external: true },
     { label: "GITHUB", icon: "⌥", href: `https://${DATA.connect.github}`, external: true },
     { label: "LINKEDIN", icon: "⌘", href: `https://${DATA.connect.linkedin}`, external: true },
   ];
@@ -1052,6 +1230,9 @@ function Connect() {
     >
       <div className="container-max">
         <motion.div variants={fadeUp} custom={0}><SectionLabel label="CONNECT" /></motion.div>
+        <p style={{ fontSize: "12px", color: "var(--text-muted)", letterSpacing: "0.15em", marginBottom: "18px" }}>
+          LOCATION: <span style={{ color: "var(--text-primary)" }}>{DATA.connect.location.toUpperCase()}</span>
+        </p>
         <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "12px", marginBottom: "30px" }}>
           {links.map((link, i) => (
             <motion.a key={i} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} variants={fadeUp} custom={i + 1}
@@ -1103,11 +1284,11 @@ function Footer() {
 
 export default function Home() {
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative", overflowX: "hidden", width: "100%", maxWidth: "100%" }}>
       {/* Grid background */}
       <div className="grid-bg" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
+      <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "100%", overflowX: "hidden" }}>
         <Header />
         <Ticker />
         <SummarySection />
@@ -1116,6 +1297,7 @@ export default function Home() {
         <ExperienceSection />
         <EducationSection />
         <CertificationsSection />
+        <AchievementsSection />
         <Ticker reversed />
         <References />
         <Connect />
