@@ -223,7 +223,7 @@ const DATA = {
     {
       title: "AWS: Zero to Hero",
       issuer: "Train With Shubham",
-      credential: "https://www.linkedin.com/in/sheikh-shamiul-834878206/",
+      credential: "https://www.trainwithshubham.com/verify-certificate?serialno=Z9XFGDKG",
       icon: "☁",
     },
     {
@@ -275,7 +275,7 @@ const DATA = {
       name: "Mohammad Faisal",
       role: "Co-founder & CEO, RajTech BD Ltd.",
       phone: "01758-522846",
-      email: "rajtechbdt@gmail.com",
+      email: "hello@rajtechbd.com",
       website: "rajtechbd.com",
       location: "Mirpur-12, Dhaka",
       address: "Block-C, Road No. 5, House No. 13, 1st Floor, Mirpur-12, Dhaka, Bangladesh"
@@ -343,7 +343,16 @@ function Ticker({ reversed = false }: { reversed?: boolean }) {
 
 function Header() {
   const [typed, setTyped] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const full = DATA.tagline;
+
+  const navLinks = [
+    { label: "projects", href: "#projects" },
+    { label: "experience", href: "#experience" },
+    { label: "education", href: "#education" },
+    { label: "certifications", href: "#certifications" },
+    { label: "connect", href: "#connect" },
+  ];
 
   useEffect(() => {
     let i = 0;
@@ -360,51 +369,166 @@ function Header() {
 
         {/* Nav */}
         <motion.div
-          className="responsive-nav"
-          style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4.5rem", flexWrap: "wrap", gap: "1rem" }}
+          style={{ marginBottom: "4rem" }}
           initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }} />
-            <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>PORTFOLIO_2026</span>
+          <div
+            className="responsive-nav"
+            style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+              <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }} />
+              <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>PORTFOLIO_2026</span>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", flexShrink: 0 }}>
+              {/* Desktop links */}
+              <div className="desktop-nav-links">
+                {navLinks.map(link => (
+                  <a key={link.href} href={link.href}
+                    style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "var(--text-primary)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
+                  >{link.label}</a>
+                ))}
+              </div>
+
+              {/* Resume Download */}
+              <motion.a
+                href="https://drive.google.com/file/d/1VEmpMnnviL37f4pgM5vwhEvM0qJDGGz7/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download Resume"
+                animate={{ borderColor: ["var(--border)", "var(--accent)", "var(--border)"] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ borderColor: "var(--accent)", color: "var(--accent)", backgroundColor: "var(--accent-dim)" }}
+                style={{
+                  display: "flex", alignItems: "center", gap: "6px",
+                  padding: "6px 12px",
+                  border: "1px solid var(--border)",
+                  background: "var(--surface)",
+                  color: "var(--text-primary)",
+                  fontSize: "11px", letterSpacing: "0.12em",
+                  textDecoration: "none",
+                  whiteSpace: "nowrap" as const,
+                  flexShrink: 0,
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                RESUME
+              </motion.a>
+
+              <ThemeToggle />
+
+              {/* Mobile Menu Toggle Button */}
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(prev => !prev)}
+                className="mobile-menu-btn"
+                aria-label="Toggle navigation menu"
+                aria-expanded={mobileMenuOpen}
+                style={{
+                  background: mobileMenuOpen ? "var(--accent-dim)" : "var(--surface)",
+                  border: `1px solid ${mobileMenuOpen ? "var(--accent)" : "var(--border)"}`,
+                  color: mobileMenuOpen ? "var(--accent)" : "var(--text-primary)",
+                  cursor: "pointer",
+                  width: "36px",
+                  height: "36px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: 0,
+                  transition: "all 0.2s",
+                  flexShrink: 0,
+                }}
+              >
+                {mobileMenuOpen ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="4" y1="7" x2="20" y2="7" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="17" x2="20" y2="17" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" as const }}>
-            {["projects", "connect"].map(id => (
-              <a key={id} href={`#${id}`}
-                style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "var(--text-primary)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
-              >{id}</a>
-            ))}
-            {/* Resume Download */}
-            <motion.a
-              href="https://drive.google.com/file/d/1VEmpMnnviL37f4pgM5vwhEvM0qJDGGz7/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Download Resume"
-              animate={{ borderColor: ["var(--border)", "var(--accent)", "var(--border)"] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ borderColor: "var(--accent)", color: "var(--accent)", backgroundColor: "var(--accent-dim)" }}
-              style={{
-                display: "flex", alignItems: "center", gap: "6px",
-                padding: "6px 12px",
-                border: "1px solid var(--border)",
-                background: "var(--surface)",
-                color: "var(--text-primary)",
-                fontSize: "11px", letterSpacing: "0.12em",
-                textDecoration: "none",
-                whiteSpace: "nowrap" as const,
-              }}
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              RESUME
-            </motion.a>
-            <ThemeToggle />
-          </div>
+
+          {/* Mobile Menu Drawer */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0, y: -8 }}
+                animate={{ opacity: 1, height: "auto", y: 0 }}
+                exit={{ opacity: 0, height: 0, y: -8 }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  overflow: "hidden",
+                  width: "100%",
+                  marginTop: "0.75rem",
+                  border: "1px solid var(--border)",
+                  background: "var(--surface)",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                <div style={{
+                  padding: "10px 14px",
+                  borderBottom: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  background: "var(--surface-2)",
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <span style={{ color: "var(--accent)", fontSize: "12px", fontFamily: "'JetBrains Mono', monospace" }}>$</span>
+                    <span style={{ color: "var(--text-muted)", fontSize: "11px", letterSpacing: "0.15em" }}>ls ~/sections</span>
+                  </div>
+                  <span style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.1em" }}>SELECT TO JUMP</span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", padding: "6px" }}>
+                  {navLinks.map((link, idx) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "10px 14px",
+                        color: "var(--text-secondary)",
+                        textDecoration: "none",
+                        fontSize: "12px",
+                        letterSpacing: "0.12em",
+                        borderLeft: "2px solid transparent",
+                        transition: "all 0.15s ease",
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.color = "var(--accent)";
+                        e.currentTarget.style.background = "var(--accent-dim)";
+                        e.currentTarget.style.borderLeftColor = "var(--accent)";
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.color = "var(--text-secondary)";
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.borderLeftColor = "transparent";
+                      }}
+                    >
+                      <span>{`0${idx + 1} // ${link.label.toUpperCase()}`}</span>
+                      <span style={{ fontSize: "11px", color: "var(--accent)" }}>→</span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         {/* Hero */}
@@ -475,6 +599,7 @@ function Header() {
 function SummarySection() {
   return (
     <motion.section
+      id="summary"
       style={{ borderBottom: "1px solid var(--border)" }}
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
@@ -800,6 +925,7 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <motion.section
+      id="education"
       style={{ borderBottom: "1px solid var(--border)" }}
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
@@ -900,6 +1026,7 @@ function EducationSection() {
 function CertificationsSection() {
   return (
     <motion.section
+      id="certifications"
       style={{ borderBottom: "1px solid var(--border)" }}
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
@@ -1250,19 +1377,81 @@ function Connect() {
             </motion.a>
           ))}
         </div>
-        <motion.div variants={fadeUp} custom={5} style={{ display: "flex", justifyContent: "center" }}>
-          <a href="https://www.hackerrank.com/profile/dev_shakib6" target="_blank" rel="noopener noreferrer"
+        <motion.div variants={fadeUp} custom={links.length + 1}>
+          <motion.a
+            href="https://www.hackerrank.com/profile/dev_shakib6"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              display: "flex", alignItems: "center", gap: "12px", padding: "14px 32px",
-              border: "1px solid var(--border)", color: "var(--text-muted)",
-              fontSize: "13px", letterSpacing: "0.15em", textDecoration: "none", transition: "all 0.2s",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "18px",
+              padding: "16px 22px",
+              border: "1px solid var(--border)",
+              background: "var(--surface)",
+              textDecoration: "none",
+              cursor: "pointer",
+              flexWrap: "wrap" as const,
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
+            whileHover={{
+              borderColor: "var(--accent)",
+              backgroundColor: "var(--accent-dim)",
+              boxShadow: "0 0 20px var(--accent-glow)",
+              y: -2,
+            }}
+            whileTap={{ scale: 0.99 }}
+            transition={{ duration: 0.2 }}
           >
-            <span style={{ color: "var(--accent)" }}>◈</span>
-            PROBLEM SOLVING PROFILE: {DATA.connect.hackerrank.toUpperCase()}
-          </a>
+            <div style={{ display: "flex", alignItems: "center", gap: "14px", minWidth: 0 }}>
+              <div style={{
+                width: "38px",
+                height: "38px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1px solid var(--border)",
+                background: "var(--bg)",
+                color: "var(--accent)",
+                fontSize: "16px",
+                flexShrink: 0,
+              }}>
+                ◈
+              </div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                  <span style={{ fontSize: "10px", letterSpacing: "0.18em", color: "var(--text-muted)", textTransform: "uppercase" as const }}>
+                    Competitive Programming & Problem Solving
+                  </span>
+                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--accent)", display: "inline-block", boxShadow: "0 0 6px var(--accent)" }} />
+                </div>
+                <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "0.06em" }}>
+                  HackerRank Profile <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "12px" }}>· @dev_shakib6</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "7px 16px",
+              border: "1px solid var(--border)",
+              background: "var(--bg)",
+              fontSize: "11px",
+              letterSpacing: "0.14em",
+              color: "var(--accent)",
+              fontWeight: 600,
+              fontFamily: "'JetBrains Mono', monospace",
+              whiteSpace: "nowrap" as const,
+            }}>
+              <span>VIEW PROFILE</span>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </div>
+          </motion.a>
         </motion.div>
       </div>
     </motion.section>
