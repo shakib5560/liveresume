@@ -4,7 +4,9 @@ import ProjectDetailsView from "./ProjectDetailsView";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
-  return Object.keys(PROJECTS_DATA).map((slug) => ({ slug }));
+  return Object.keys(PROJECTS_DATA)
+    .filter((slug) => slug !== "autotaskx" && slug !== "gitrabbit" && slug !== "off-white")
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({

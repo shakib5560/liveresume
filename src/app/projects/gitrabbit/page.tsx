@@ -103,10 +103,10 @@ export default function GitRabbitPage() {
                 <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(253,203,110,0.25)" }}>RABBIT.CO</span>
               </motion.h1>
               <motion.p variants={fadeUp} custom={2} style={{ fontSize: "14px", letterSpacing: "0.12em", color: "var(--text-secondary)", marginBottom: "20px" }}>
-                AI-POWERED CODE INTELLIGENCE FOR MODERN ENGINEERING TEAMS
+                AI CODE REVIEW & REPOSITORY INTELLIGENCE
               </motion.p>
               <motion.p variants={fadeUp} custom={3} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "20px" }}>
-                GitRabbit.co aims to go beyond conventional AI code-review tools. Instead of reviewing code line-by-line in isolation, it is being built to understand the entire codebase, architecture, framework behavior, and potential production impact of every code change.
+                Designed an automated repository analysis engine that parses project specifications to detect architectural risks, dependency conflicts, and code-to-requirement mismatches beyond line-level diffs. Tested with 2,000+ users.
               </motion.p>
               <motion.div variants={fadeUp} custom={4} style={{ display: "flex", flexWrap: "wrap" as const, gap: "8px", marginBottom: "24px" }}>
                 <Badge color="var(--accent)">ONGOING DEVELOPMENT</Badge>

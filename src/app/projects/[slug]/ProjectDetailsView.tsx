@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { PROJECTS_DATA } from "@/data/projects";
 import TransitionLink from "@/components/TransitionLink";
 import ThemeToggle from "@/components/ThemeToggle";
+import PrivateRepoModal from "@/components/PrivateRepoModal";
 import { motion } from "framer-motion";
 
 // Helper components
@@ -31,6 +32,8 @@ const stagger = {
 };
 
 export default function ProjectDetailsView({ slug }: { slug: string }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [githubHovered, setGithubHovered] = useState(false);
   const project = PROJECTS_DATA[slug];
 
   if (!project) {
@@ -103,9 +106,28 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
                   <span style={{ color: "var(--text-primary)" }}>PROJECT: </span>
                   <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(253,203,110,0.25)" }}>{project.name}</span>
                 </h1>
-                <p style={{ fontSize: "13px", letterSpacing: "0.2em", color: "var(--text-secondary)", marginBottom: "20px" }}>
+                <p style={{ fontSize: "13px", letterSpacing: "0.2em", color: "var(--text-secondary)", marginBottom: "12px" }}>
                   {project.desc}
                 </p>
+                {project.role && (
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
+                    <span style={{ fontSize: "11px", letterSpacing: "0.12em", color: "var(--text-muted)", textTransform: "uppercase" }}>MY ROLE:</span>
+                    <span style={{ fontSize: "12px", letterSpacing: "0.06em", color: project.isContribution ? "var(--yellow)" : "var(--accent)", fontWeight: 600 }}>
+                      {project.role}
+                    </span>
+                    <span style={{
+                      fontSize: "9.5px",
+                      letterSpacing: "0.12em",
+                      padding: "2px 8px",
+                      border: `1px solid ${project.isContribution ? "var(--yellow)" : "var(--accent)"}`,
+                      color: project.isContribution ? "var(--yellow)" : "var(--accent)",
+                      background: project.isContribution ? "var(--yellow-dim)" : "var(--accent-dim)",
+                      fontWeight: 600,
+                    }}>
+                      {project.isContribution ? "CONTRIBUTION" : "CORE SYSTEM"}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Icon details */}
@@ -127,7 +149,49 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
 
             {/* Project Links / Buttons */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "15px", marginTop: "2.5rem" }}>
-              {typeof project.github === "string" ? (
+              {project.isPrivateRepo ? (
+                <button
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  onMouseEnter={() => setGithubHovered(true)}
+                  onMouseLeave={() => setGithubHovered(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "12px 22px",
+                    border: `1px solid ${githubHovered ? "var(--yellow)" : "var(--border)"}`,
+                    background: githubHovered ? "var(--yellow-dim)" : "var(--surface)",
+                    color: githubHovered ? "var(--yellow)" : "var(--text-secondary)",
+                    fontSize: "13px",
+                    letterSpacing: "0.08em",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    fontFamily: "inherit",
+                  }}
+                >
+                  <span style={{ color: githubHovered ? "var(--yellow)" : "var(--text-muted)" }}>
+                    {githubHovered ? "🔒" : "⌥"}
+                  </span>
+                  <span>{githubHovered ? "Private repo" : "[ CODE_REPOSITORY ]"}</span>
+                  {githubHovered && (
+                    <span
+                      style={{
+                        fontSize: "9px",
+                        letterSpacing: "0.1em",
+                        padding: "1px 6px",
+                        background: "var(--yellow)",
+                        color: "#121214",
+                        fontWeight: 700,
+                        borderRadius: "2px",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      REQUEST ACCESS
+                    </span>
+                  )}
+                </button>
+              ) : typeof project.github === "string" ? (
                 <a
                   href={project.github}
                   target="_blank"
@@ -181,30 +245,74 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
                     </a>
                   )}
                   {project.github.backend && (
-                    <a
-                      href={project.github.backend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        padding: "12px 22px",
-                        border: "1px solid var(--border)",
-                        background: "var(--surface)",
-                        color: "var(--text-secondary)",
-                        fontSize: "13px",
-                        letterSpacing: "0.08em",
-                        textDecoration: "none",
-                        cursor: "pointer",
-                        transition: "all 0.2s"
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--accent)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-secondary)"; }}
-                    >
-                      <span style={{ color: "var(--text-muted)" }}>⌥</span>
-                      [ BACKEND_REPOSITORY ]
-                    </a>
+                    project.isBackendPrivate ? (
+                      <button
+                        type="button"
+                        onClick={() => setModalOpen(true)}
+                        onMouseEnter={() => setGithubHovered(true)}
+                        onMouseLeave={() => setGithubHovered(false)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          padding: "12px 22px",
+                          border: `1px solid ${githubHovered ? "var(--yellow)" : "var(--border)"}`,
+                          background: githubHovered ? "var(--yellow-dim)" : "var(--surface)",
+                          color: githubHovered ? "var(--yellow)" : "var(--text-secondary)",
+                          fontSize: "13px",
+                          letterSpacing: "0.08em",
+                          cursor: "pointer",
+                          transition: "all 0.2s",
+                          fontFamily: "inherit",
+                        }}
+                      >
+                        <span style={{ color: githubHovered ? "var(--yellow)" : "var(--text-muted)" }}>
+                          {githubHovered ? "🔒" : "⌥"}
+                        </span>
+                        <span>{githubHovered ? "Private repo" : "[ BACKEND_REPOSITORY ]"}</span>
+                        {githubHovered && (
+                          <span
+                            style={{
+                              fontSize: "9px",
+                              letterSpacing: "0.1em",
+                              padding: "1px 6px",
+                              background: "var(--yellow)",
+                              color: "#121214",
+                              fontWeight: 700,
+                              borderRadius: "2px",
+                              marginLeft: "4px",
+                            }}
+                          >
+                            REQUEST ACCESS
+                          </span>
+                        )}
+                      </button>
+                    ) : (
+                      <a
+                        href={project.github.backend}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          padding: "12px 22px",
+                          border: "1px solid var(--border)",
+                          background: "var(--surface)",
+                          color: "var(--text-secondary)",
+                          fontSize: "13px",
+                          letterSpacing: "0.08em",
+                          textDecoration: "none",
+                          cursor: "pointer",
+                          transition: "all 0.2s"
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--accent)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-secondary)"; }}
+                      >
+                        <span style={{ color: "var(--text-muted)" }}>⌥</span>
+                        [ BACKEND_REPOSITORY ]
+                      </a>
+                    )
                   )}
                 </>
               )}
@@ -463,6 +571,14 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
           <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "var(--text-muted)" }}>BUILT WITH NEXT.JS</span>
         </footer>
       </div>
+
+      {/* Private Repository Request Modal */}
+      <PrivateRepoModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        projectName={project.name}
+        clientOrOrg={project.client.name}
+      />
     </div>
   );
 }

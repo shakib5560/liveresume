@@ -3,23 +3,43 @@ import "./globals.css";
 import TransitionProvider from "@/components/TransitionProvider";
 
 export const metadata: Metadata = {
-  title: "Shamiul Shakib — Software Engineer — Full Stack & AI Systems",
-  description: "Solution-focused Full Stack Engineer with 2+ years of experience shipping production web applications and microservices using NestJS, ReactJS, Django, TypeScript, Python & AWS.",
-  keywords: ["software engineer", "full-stack developer", "AI systems", "NestJS", "ReactJS", "Django", "Python", "TypeScript", "AWS", "microservices", "REST API", "AutoTaskX", "GitRabbit"],
+  title: "Shamiul Shakib — Full-Stack Software Engineer (NestJS • React/Next.js • Python/Django)",
+  description: "Full-Stack Software Engineer with 2+ years of hands-on experience building production-ready web applications, enterprise SaaS/ERP modules, e-commerce platforms, and AI-powered backend services.",
+  keywords: [
+    "Shamiul Shakib",
+    "Full-Stack Software Engineer",
+    "NestJS",
+    "React.js",
+    "Next.js",
+    "Python",
+    "Django",
+    "FastAPI",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Redis",
+    "Docker",
+    "AWS",
+    "GitRabbit",
+    "AutoTaskX",
+    "Rinors",
+    "Idea2System",
+    "ToyGalaxy"
+  ],
   authors: [{ name: "Shamiul Shakib" }],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Shamiul Shakib — Software Engineer — Full Stack & AI Systems",
-    description: "Solution-focused Full Stack Engineer with 2+ years of experience shipping production web applications and microservices using NestJS, ReactJS, Django, TypeScript, Python & AWS.",
+    title: "Shamiul Shakib — Full-Stack Software Engineer (NestJS • React/Next.js • Python/Django)",
+    description: "Full-Stack Software Engineer with 2+ years of hands-on experience building production-ready web applications, enterprise SaaS/ERP modules, e-commerce platforms, and AI-powered backend services.",
     type: "website",
     siteName: "Shamiul Shakib Portfolio",
   },
   twitter: {
     card: "summary",
-    title: "Shamiul Shakib — Software Engineer — Full Stack & AI Systems",
-    description: "Solution-focused Full Stack Engineer with 2+ years of experience shipping production web applications and microservices using NestJS, ReactJS, Django, TypeScript, Python & AWS.",
+    title: "Shamiul Shakib — Full-Stack Software Engineer (NestJS • React/Next.js • Python/Django)",
+    description: "Full-Stack Software Engineer with 2+ years of hands-on experience building production-ready web applications, enterprise SaaS/ERP modules, e-commerce platforms, and AI-powered backend services.",
   },
 };
 

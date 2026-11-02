@@ -27,14 +27,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/projects/off-white`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = Object.keys(PROJECTS_DATA).map((slug) => ({
-    url: `${baseUrl}/projects/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  const projectRoutes: MetadataRoute.Sitemap = Object.keys(PROJECTS_DATA)
+    .filter((slug) => slug !== "autotaskx" && slug !== "gitrabbit" && slug !== "off-white")
+    .map((slug) => ({
+      url: `${baseUrl}/projects/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }));
 
   return [...staticRoutes, ...projectRoutes];
 }

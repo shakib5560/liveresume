@@ -38,118 +38,88 @@ interface ExperienceEntry {
 
 const EXPERIENCE_DATA: ExperienceEntry[] = [
   {
-    role: "Technical Founder",
-    company: "GITRABBIT.CO",
-    period: "June 2026 – v2 Engineering in Progress",
-    location: "Dhaka, Bangladesh / Remote",
-    type: "Product SaaS",
-    tech: ["Next.js", "TypeScript", "FastAPI", "Python", "OpenAI", "Claude", "PostgreSQL", "Docker"],
-    responsibilities: [
-      "Designed a revenue-focused SaaS architecture for repository-level code intelligence, targeting gaps in the $1B+ code review market.",
-      "Validated v1 MVP with 2,000+ users (CSE students & SWE professionals, BUBT community), using feedback to drive v2 architecture.",
-      "Enabling the engine to parse client requirements & project context, then verify whether AI-agent-written code aligns with intended specs.",
-      "Architecting an engine that surfaces architectural risks, dependency conflicts, and high-impact changes across repos, beyond line-level diffs.",
-    ],
-    impact: [
-      { metric: "2,000+", label: "Validated v1 MVP Users" },
-      { metric: "$1B+", label: "Target Code Review Market" },
-      { metric: "Multi-Agent", label: "Autonomous Workflow Engine" },
-      { metric: "v2", label: "Engineering in Progress" },
-    ],
-    challenges: [
-      {
-        title: "Repository-Level Code Intelligence Beyond Line-Level Diffs",
-        problem: "Standard code review tools only evaluate line-by-line git diffs, missing multi-file architectural regressions, dependency conflicts, and subtle contract breaks.",
-        solution: "Architected a multi-agent engine that ingests the entire project context, parses dependencies, and validates changes against holistic project specifications and client requirements.",
-      },
-    ],
-    keyLearnings: [
-      "Translating developer feedback from 2,000+ early users into a production-grade v2 architecture.",
-      "Orchestrating multi-model LLM pipelines for specialized code reasoning tasks.",
-    ],
-  },
-  {
-    role: "Backend Software Engineer L2",
+    role: "Software Engineer (L1 → Promoted to L2)",
     company: "RAJTECH BD",
-    period: "Jan 2026 – Present",
+    period: "January 2026 – Present",
     location: "Dhaka, Bangladesh",
     type: "Full-Time",
-    tech: ["NestJS", "TypeScript", "PostgreSQL", "Prisma ORM", "FastAPI", "Redis", "JWT", "RBAC", "Docker"],
+    tech: ["NestJS", "React.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Redis", "FastAPI", "JWT", "RBAC", "Docker"],
     responsibilities: [
-      "Build and ship backend services for AI-powered SaaS products in NestJS, TypeScript, PostgreSQL, and Prisma, owning 20+ modules from schema design through production deployment.",
-      "Engineered production-grade REST APIs and FastAPI microservices with JWT authentication, RBAC, and asynchronous processing, supporting 1M+ daily requests across 8+ client-facing services.",
-      "Reduced p95 endpoint latency by 79%, from 850ms to 180ms, by eliminating N+1 Prisma queries, adding composite indexes, and introducing Redis caching on high-traffic routes.",
-      "Define API contracts and system design decisions directly with international clients, translating product requirements into service boundaries and delivery plans.",
+      "Full-Stack & Core Feature Engineering (L2, June 2026 – Present): Engineered end-to-end full-stack features, role-based dashboards, and third-party API integrations (webhooks & background queues) using NestJS, React.js, PostgreSQL (Prisma), and Redis.",
+      "Technical Execution & Code Reviews: Translated client requirements into technical specifications and modular database schemas, conducted PR code reviews, and coordinated sprint workflows for on-time delivery.",
+      "Backend Microservices (L1, January 2026 – June 2026): Architected 20+ backend modules and NestJS/FastAPI services with JWT and RBAC, reliably handling 200K+ daily requests across 8+ production services.",
+      "Performance Optimization: Slashed p95 API latency by 79% (from 850ms to 180ms) via N+1 query elimination, composite PostgreSQL indexing, and Redis caching layers.",
     ],
     impact: [
-      { metric: "79%", label: "p95 Latency Reduction (850→180ms)" },
-      { metric: "1M+", label: "Daily API Requests Supported" },
-      { metric: "20+", label: "Production Modules Owned" },
-      { metric: "8+", label: "Client-Facing Services" },
+      { metric: "79%", label: "p95 API Latency Cut (850→180ms)" },
+      { metric: "200K+", label: "Daily Requests Handled" },
+      { metric: "20+", label: "Production Modules Architected" },
+      { metric: "8+", label: "Production Services" },
     ],
     challenges: [
       {
-        title: "Eliminating N+1 Queries and Optimizing Prisma p95 Latency",
-        problem: "High-traffic routes suffered from 850ms p95 latency caused by unoptimized Prisma ORM query patterns and missing composite indexes under heavy concurrent read loads.",
-        solution: "Restructured data access layers with batched operations, introduced composite database indexes, and implemented a Redis caching layer for hot routes, reducing p95 latency by 79% to 180ms.",
+        title: "Eliminating N+1 Queries & Slashing p95 API Latency",
+        problem: "High-traffic endpoints experienced 850ms p95 latency under concurrent loads due to unoptimized Prisma ORM query patterns and missing composite indexes.",
+        solution: "Eliminated N+1 queries through batched Prisma queries, added composite PostgreSQL indexes on high-frequency filters, and introduced Redis caching layers, cutting p95 response times by 79% down to 180ms.",
       },
       {
-        title: "Designing Multi-Tenant Service Boundaries & Defining API Contracts",
-        problem: "Supporting 8+ client-facing services while managing international client requirement translation and keeping microservices isolated without latency bloat.",
-        solution: "Defined rigorous OpenAPI contracts, built modular NestJS/FastAPI services with JWT authentication and RBAC, and established asynchronous message queues for heavy processing.",
+        title: "Multi-Service Architecture & RBAC Security",
+        problem: "Scaling 8+ client-facing microservices while maintaining consistent role-based access control, JWT verification, and clean service boundaries without introducing latency overhead.",
+        solution: "Implemented centralized JWT authentication and fine-grained RBAC middleware across NestJS and FastAPI services, standardizing API contracts and ensuring reliable inter-service communication.",
       },
     ],
     keyLearnings: [
-      "Database performance tuning with composite indexing and Redis caching.",
-      "Defining API contracts and leading technical architecture discussions directly with international stakeholders.",
+      "Database performance tuning through composite PostgreSQL indexing, query profiling, and Redis caching.",
+      "Full-stack feature delivery with NestJS, React.js, and Prisma, managing sprint workflows and peer code reviews.",
+      "Architecting scalable backend microservices with robust JWT and RBAC security models.",
     ],
   },
   {
-    role: "Full-Stack Software Engineer (Contract)",
-    company: "DEVNEXT",
-    period: "Feb 2025 – Dec 2025",
-    location: "Karachi, Pakistan (Remote)",
+    role: "Full-Stack Web Developer (Contract)",
+    company: "DEVNEST",
+    period: "February 2025 – December 2025",
+    location: "Remote (Karachi, Pakistan)",
     type: "Contract",
-    tech: ["Django", "Python", "JavaScript", "PostgreSQL", "Redis", "TailwindCSS", "REST APIs", "Docker"],
+    tech: ["Django", "NestJS", "React.js", "Python", "JavaScript", "PostgreSQL", "Redis", "Tailwind CSS", "REST APIs"],
     responsibilities: [
-      "Delivered backend and frontend features for ToyGalaxy Australia, a production Django e-commerce platform serving 1,500+ daily active users.",
-      "Built REST APIs, relational schemas, and catalog/checkout flows, carrying features from requirements through code review, deployment, and production support.",
-      "Optimized ORM queries and added indexed schema fields and request validation, holding response times stable through seasonal traffic spikes.",
+      "Built and shipped full-stack features, REST APIs, and checkout flows for commercial e-commerce platforms (ToyGalaxy Case Study & Off-White contributions) using Django, NestJS, and React.js.",
+      "Contributed to ToyGalaxy, supporting 2,500+ daily active users (DAUs) with zero downtime.",
+      "Optimized ORM queries, database indexes, and request validation pipelines to improve performance, response times, and system reliability during traffic spikes.",
     ],
     impact: [
-      { metric: "1,500+", label: "Daily Active Users (ToyGalaxy AU)" },
-      { metric: "0", label: "Downtime Through Seasonal Spikes" },
-      { metric: "E2E", label: "Full SDLC: Design to Deploy" },
-      { metric: "REST", label: "Catalog & Checkout APIs" },
+      { metric: "2,500+", label: "DAUs Supported (ToyGalaxy)" },
+      { metric: "0", label: "Downtime During Traffic Spikes" },
+      { metric: "Full-Stack", label: "Django, NestJS & React.js" },
+      { metric: "REST", label: "APIs & Checkout Pipelines" },
     ],
     challenges: [
       {
-        title: "Holding Response Times Stable Through Seasonal Traffic Spikes",
-        problem: "Heavy seasonal traffic spikes on the ToyGalaxy Australia e-commerce platform threatened to saturate database connections and slow down the checkout pipeline.",
-        solution: "Optimized critical Django ORM queries with select_related/prefetch_related, added composite schema indexes, and introduced robust payload validation to keep response times consistently fast.",
+        title: "High-Traffic Checkout Stability & ORM Bottlenecks",
+        problem: "Seasonal traffic surges on commercial e-commerce platforms led to database query bottlenecks and potential slowdowns during order processing.",
+        solution: "Tuned Django ORM queries with select_related/prefetch_related, restructured relational indexes, and tightened request validation pipelines to maintain zero downtime and consistent latency.",
       },
     ],
     keyLearnings: [
       "Production Django ORM query optimization and relational schema indexing.",
-      "Managing full feature lifecycles from client requirement gathering to production deployment.",
+      "Delivering robust checkout flows and commercial e-commerce features with Django, NestJS, and React.js.",
     ],
   },
   {
-    role: "Web Developer Intern",
+    role: "Full-Stack Developer Intern",
     company: "TECHONFY IT",
-    period: "Apr 2024 – Sep 2024",
+    period: "April 2024 – September 2024",
     location: "Dhaka, Bangladesh",
     type: "Internship",
-    tech: ["REST APIs", "JavaScript", "HTML/CSS", "Git", "Agile", "Debugging", "CI/CD"],
+    tech: ["Python", "Django", "Django REST Framework (DRF)", "TypeScript", "JavaScript", "REST APIs", "Git & GitHub"],
     responsibilities: [
-      "Collaborated with senior developers on client web applications, contributing to REST APIs, database queries, authentication flows, and frontend bug fixes while gaining hands-on production experience.",
-      "Participated in a Git-based PR workflow, learning code review practices, debugging techniques, Agile collaboration, and deployment workflows through real-world development tasks.",
+      "Full-Stack Developer Intern (July 2024 – September 2024): Shipped production features, REST APIs, and bug fixes across client web applications using Python, Django, and DRF within an Agile workflow.",
+      "Web Development Intern (April 2024 – June 2024): Built reusable frontend components, relational schemas, API integrations, and authentication flows using TypeScript and JavaScript.",
     ],
     impact: [
-      { metric: "Hands-on", label: "Production REST APIs & DB Queries" },
-      { metric: "Git PR", label: "Structured Code Review Workflow" },
-      { metric: "Agile", label: "Collaborative Team Sprints" },
-      { metric: "Frontend", label: "Bug Fixing & Quality Assurance" },
+      { metric: "Agile", label: "Sprint Feature Delivery" },
+      { metric: "REST APIs", label: "Shipped with Django & DRF" },
+      { metric: "TypeScript", label: "Reusable Components & Schemas" },
+      { metric: "Git PR", label: "Structured Code Reviews" },
     ],
     challenges: [
       {
@@ -159,66 +129,90 @@ const EXPERIENCE_DATA: ExperienceEntry[] = [
       },
     ],
     keyLearnings: [
-      "Git PR workflows, peer code reviews, and structured debugging.",
-      "Collaborating effectively within Agile sprint cycles.",
+      "Full-stack development lifecycle across Python, Django, DRF, TypeScript, and JavaScript.",
+      "Git PR workflows, peer code reviews, and structured debugging within Agile sprint cycles.",
     ],
   },
 ];
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
+interface ProjectSummary {
+  slug: string;
+  name: string;
+  title: string;
+  role: string;
+  isContribution?: boolean;
+  desc: string;
+  tech: string[];
+  meta: string;
+  icon: string;
+}
+
 const DATA = {
   name: "SHAMIUL SHAKIB",
-  title: "SOFTWARE ENGINEER — FULL STACK & AI SYSTEMS",
+  title: "FULL-STACK SOFTWARE ENGINEER (NESTJS • REACT/NEXT.JS • PYTHON/DJANGO)",
   tagline: "Building systems that scale.",
-  summary: "Solution-focused Full Stack Engineer with 2+ years of experience shipping production web applications and microservices using NestJS, ReactJS, Django, TypeScript, Python & AWS . Proven ability to tackle complex architectural challenges, highlighted by engineering an industrial IoT platform with sub-25ms real-time pipelines (AutoTaskX) and an AI-driven code intelligence SaaS (GitRabbit). Combines robust backend optimization skills with fluent English communication to seamlessly translate product requirements into scalable technical solutions.",
+  summary: "Full-Stack Software Engineer with 2+ years of hands-on experience building production-ready web applications, enterprise SaaS/ERP modules, e-commerce platforms, and AI-powered backend services. Core expertise includes TypeScript, NestJS, Node.js, React.js, Next.js, Python (Django/FastAPI), and PostgreSQL. Experienced in translating business requirements into modular architectures, optimizing application performance, integrating AI services, and delivering reliable software within Agile teams.",
   profile: [
-    { label: "2+ YRS PRODUCTION EXPERIENCE", color: "var(--text-primary)", bar: "var(--accent)" },
-    { label: "FULL STACK & AI SYSTEMS SPECIALIST", color: "var(--yellow)", bar: "var(--yellow)" },
-    { label: "INDUSTRIAL IOT & SUB-25MS REAL-TIME PIPELINES", color: "var(--accent)", bar: "var(--accent)" },
-    { label: "AI-DRIVEN CODE INTELLIGENCE SAAS (GITRABBIT)", color: "var(--yellow)", bar: "var(--yellow)" },
-    { label: "FLUENT ENGLISH & CLIENT-FACING ARCHITECTURE", color: "var(--text-secondary)", bar: "var(--border-hover)" },
+    { label: "2+ YRS PRODUCTION FULL-STACK & BACKEND EXPERIENCE", color: "var(--text-primary)", bar: "var(--accent)" },
+    { label: "NESTJS • REACT / NEXT.JS • PYTHON / DJANGO", color: "var(--yellow)", bar: "var(--yellow)" },
+    { label: "ENTERPRISE SAAS/ERP & INDUSTRIAL IOT ARCHITECTURES", color: "var(--accent)", bar: "var(--accent)" },
+    { label: "AI-POWERED CODE INTELLIGENCE & LLM WORKFLOWS", color: "var(--yellow)", bar: "var(--yellow)" },
+    { label: "79% P95 LATENCY REDUCTION & DATABASE OPTIMIZATION", color: "var(--text-secondary)", bar: "var(--border-hover)" },
   ],
   expertise: {
-    CORE_STACK: "TypeScript, JavaScript, NodeJS, NestJS, ReactJS",
-    SECONDARY_STACK: "Python, Django, DRF, FastAPI, BeautifulSoup, Scrapy",
-    DATA: "PostgreSQL, SQL, Prisma ORM, Redis (Primary); MongoDB, Mongoose, PyMongo (Secondary)",
-    BACKEND_SYSTEMS: "REST APIs, GraphQL, Microservices, JWT, RBAC, System Design, API Design",
-    DEVOPS_CLOUD: "AWS, EC2, S3, Docker, CI/CD, GitHub Actions, VPS, Nginx, Git, Cloudflare",
-    AI: "Multi-agentic Workflow, Context Engineering, LLM APIs, RAG (Basic), Vector Databases, Claude",
+    "BACKEND DEVELOPMENT": "Node.js, NestJS, Express.js, Python, Django, Django REST Framework (DRF), FastAPI",
+    "FRONTEND DEVELOPMENT": "React.js, Next.js, TypeScript, JavaScript (ES6+), Tailwind CSS, T3 Stack, HTML5, CSS3",
+    "DATABASES & ORM": "PostgreSQL, Prisma ORM, SQL, Redis, TimescaleDB, MongoDB, Mongoose",
+    "APIS & ARCHITECTURE": "RESTful APIs, GraphQL, tRPC, Microservices, JWT Authentication, Role-Based Access Control (RBAC), System Design",
+    "DEVOPS & CLOUD": "Docker, AWS (EC2, S3), CI/CD (GitHub Actions), Linux VPS, Nginx, Cloudflare, Git & GitHub",
+    "AI & AUTOMATION": "LLM APIs (OpenAI, Claude), Generative AI Integration, Vector Databases, Multi-Agent Workflows, BeautifulSoup, Scrapy",
   },
   education: [
     {
       institution: "BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)",
-      degree: "BSc in Computer Science & Engineering",
+      degree: "B.Sc. in Computer Science & Engineering (CSE)",
       grade: "CGPA: 3.43 / 4.00",
-      period: "Jun 2023 – (Capstone in Progress)",
-      location: "Mirpur, Dhaka, Bangladesh",
+      period: "Jun 2023 – Nov 2026",
+      location: "Mirpur, Dhaka",
       coursework: "Data Structures & Algorithms · System Design · Computer Networking · OOP · Database Systems · AI Systems"
     },
     {
       institution: "GOVERNMENT GRAPHIC ARTS INSTITUTE",
-      degree: "Diploma in Engineering in Graphic Design & S.T.",
+      degree: "Diploma in Engineering (Graphic Design & Software Technology)",
       grade: "CGPA: 3.60 / 4.00",
       period: "Jan 2020 – May 2023",
-      location: "Mohammadpur, Dhaka, Bangladesh",
-      coursework: "Software Technology · Web Development · JS · TS · Python · React · Node.js · Django · REST APIs"
+      location: "Mohammadpur, Dhaka",
+      coursework: "Software Technology · Web Development · JavaScript · TypeScript · Python · React · Node.js · Django · REST APIs"
     },
     {
       institution: "BAHARPUR HIGH SCHOOL",
-      degree: "Secondary School Certificate (SSC) — Science",
+      degree: "Secondary School Certificate (SSC — Science)",
       grade: "GPA: 4.93 / 5.00",
-      period: "2020",
-      location: "Ranjbari, Bangladesh",
+      period: "2019",
+      location: "Rajbari",
       coursework: "Science Major · Physics, Chemistry, Higher Mathematics, Biology"
     },
   ],
   certifications: [
     {
       title: "Advance Your Node.js Skills",
-      issuer: "LinkedIn Learning",
+      issuer: "LinkedIn",
       credential: "https://www.linkedin.com/learning/certificates/14d3bc8e594d03be0f545c803408bf78a508c15b4f933b28371aa155178e7881",
       icon: "⬡",
+    },
+    {
+      title: "Docker for Developers",
+      issuer: "LinkedIn",
+      credential: "https://www.linkedin.com/learning/certificates/ec238d9f34f7446280a37ac3549da897cbe174bd6ab60b473d788c721ea8b685",
+      icon: "◫",
+    },
+    {
+      title: "Building Generative AI Skills for Developers",
+      issuer: "LinkedIn",
+      credential: "https://www.linkedin.com/learning/certificates/07ce910ef6882762b32c5768f5b4aad7143578f2aa26e36fa55db07295662ec8?trk=share_certificate",
+      icon: "◈",
     },
     {
       title: "AWS: Zero to Hero",
@@ -227,34 +221,16 @@ const DATA = {
       icon: "☁",
     },
     {
-      title: "Building AI Skills for Developers",
-      issuer: "LinkedIn Learning",
-      credential: "https://www.linkedin.com/learning/certificates/07ce910ef6882762b32c5768f5b4aad7143578f2aa26e36fa55db07295662ec8?trk=share_certificate",
-      icon: "◈",
-    },
-    {
       title: "Mastering AI-Assisted Development",
-      issuer: "LinkedIn Learning",
+      issuer: "LinkedIn",
       credential: "https://www.linkedin.com/learning/certificates/19ca561dad9460869dc561d12b4f0efc2df0ccf558dce837987198d9aa0a0f51?trk=share_certificate",
       icon: "◉",
-    },
-    {
-      title: "Advanced RAG Applications with Vector Databases",
-      issuer: "LinkedIn Learning",
-      credential: "https://www.linkedin.com/learning/certificates/e0ee4aeb9390196fa9677af8d6deed9af991c88b69d5f6f888532fd6a27b7d88",
-      icon: "❖",
-    },
-    {
-      title: "Docker for Developers",
-      issuer: "LinkedIn Learning",
-      credential: "https://www.linkedin.com/learning/certificates/ec238d9f34f7446280a37ac3549da897cbe174bd6ab60b473d788c721ea8b685",
-      icon: "◫",
     },
   ],
   achievements: [
     {
-      title: "1st Place — Regional Business Innovation Challenge 2023",
-      description: "Ranked 1st among participating teams for developing an algorithmic approach to controlling chemical reactions.",
+      title: "1st Place — Regional Business Innovation Challenge (2023)",
+      description: "Ranked first among participating teams for developing an algorithmic software approach to controlling chemical reactions.",
       icon: "🏆"
     },
     {
@@ -266,29 +242,106 @@ const DATA = {
   references: [
     {
       name: "Md. Faisal Amir Mostafa",
-      role: "Senior Software Architect, W3 Engineers Ltd.",
-      phone: "+880 1758-522846",
-      email: "faisalamirmostafa@gmail.com",
-      location: "Dhaka, Bangladesh"
+      organization: "RajTech BD Ltd",
+      designation: "Co-founder & CEO",
+      address: "1st Floor, House # 13, Road # 05, Block #C, Mirpur-12, Dhaka 1216",
+      phoneOffice: "01990668674",
+      phoneResidential: undefined,
+      mobile: "01758522846",
+      email: "rajtechbdt@gmail.com",
+      relation: "Professional",
     },
     {
-      name: "Mohammad Faisal",
-      role: "Co-founder & CEO, RajTech BD Ltd.",
-      phone: "01758-522846",
-      email: "hello@rajtechbd.com",
-      website: "rajtechbd.com",
-      location: "Mirpur-12, Dhaka",
-      address: "Block-C, Road No. 5, House No. 13, 1st Floor, Mirpur-12, Dhaka, Bangladesh"
-    }
+      name: "Minhazul Haque",
+      organization: "SYSSOLUTION",
+      designation: "Chief Solutions Officer (CSO)",
+      address: "Water Valley, BA-84/B, Lake Drive Rd, South Badda, Gulshan-1, Dhaka-1212",
+      phoneOffice: "9644440440",
+      phoneResidential: "9644440440",
+      mobile: "01827168080",
+      email: "info@syssolution.net",
+      relation: "Professional",
+    },
   ],
   projects: [
-    { name: "AUTOTASKX", desc: "Real-time industrial IoT platform unifying machine telemetry & formulation.", tech: "INDUSTRIAL IOT", meta: "60% Dye Trial Reduction · Sub-25ms Real-Time", icon: "🏭" },
-    { name: "GITRABBIT", desc: "Multi-agent code review SaaS analyzing architecture & project context.", tech: "CODE INTELLIGENCE", meta: "2,000+ Validated Users · $1B+ Target Market", icon: "🐇" },
-    { name: "TOYGALAXY", desc: "Production e-commerce platform with optimized catalog & checkout pipelines.", tech: "E-COMMERCE", meta: "1,500+ DAU · Zero Downtime Spikes", icon: "◫" },
-    { name: "IDEA2SYSTEM", desc: "Autonomous software blueprint engine generating schemas, ERDs & API specs.", tech: "AI BLUEPRINTS", meta: "Multi-Stage LLM Chains · Dockerized", icon: "🧠" },
-    { name: "RINORS", desc: "Scalable multi-vendor marketplace with type-safe tRPC APIs and modular schemas.", tech: "MARKETPLACE", meta: "10,000+ Monthly Users · End-to-End Type-Safe", icon: "❖" },
-    { name: "AINOS", desc: "AI-driven full-stack commerce engine with automated SEO & image pipelines.", tech: "FULL-STACK AI", meta: "Secure Multi-Tenant SaaS · Stripe Billing", icon: "◈" },
-  ],
+    {
+      slug: "gitrabbit",
+      name: "GITRABBIT",
+      title: "AI Code Review & Repository Intelligence",
+      role: "Lead Systems Architect & Full-Stack",
+      isContribution: false,
+      desc: "Designed an automated repository analysis engine that parses project specifications to detect architectural risks, dependency conflicts, and code-to-requirement mismatches beyond line-level diffs.",
+      tech: ["NestJS", "TypeScript", "LLM APIs", "PostgreSQL", "Docker"],
+      meta: "Tested with 2,000+ users",
+      icon: "🐇",
+    },
+    {
+      slug: "autotaskx",
+      name: "AUTOTASKX",
+      title: "Industrial IoT & Formulation Platform",
+      role: "Lead Systems Architect & Full-Stack",
+      isContribution: false,
+      desc: "Architected an industrial IoT platform unifying dye-formulation, defect grading, and machine telemetry using algorithmic recipe engines and Redis Pub/Sub.",
+      tech: ["Next.js", "FastAPI", "TimescaleDB", "Redis", "AWS"],
+      meta: "Sub-25ms Real-Time · 60% Dye Trial Reduction",
+      icon: "🏭",
+    },
+    {
+      slug: "off-white",
+      name: "OFF---WHITE",
+      title: "Luxury Streetwear & High-Fashion E-Commerce",
+      role: "Contributor — Frontend Development & UI/UX Implementation",
+      isContribution: true,
+      desc: "Contributed to enhancing the customer-facing landing page experience, reusable component modules, and responsive UX for off---white.com, preserving iconic brand aesthetics.",
+      tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "UI/UX"],
+      meta: "Collaborative Frontend & UI/UX Delivery",
+      icon: "◻️",
+    },
+    {
+      slug: "rinors",
+      name: "RINORS",
+      title: "Multi-Vendor E-Commerce Marketplace",
+      role: "Full-Stack Engineer",
+      isContribution: false,
+      desc: "Built a high-traffic multi-vendor marketplace serving 10,000+ monthly users. Implemented end-to-end type-safe tRPC APIs, vendor management workflows, and modular relational schemas.",
+      tech: ["Next.js", "TypeScript", "T3 Stack", "tRPC", "Prisma"],
+      meta: "10,000+ Monthly Users · End-to-End Type-Safe",
+      icon: "❖",
+    },
+    {
+      slug: "idea2system",
+      name: "IDEA2SYSTEM",
+      title: "Automated Architecture & ERD Generator",
+      role: "Backend & AI Systems Engineer",
+      isContribution: false,
+      desc: "Engineered a containerized NestJS and PostgreSQL backend orchestrating multi-stage LLM chains to auto-generate validated ERDs, system architectures, and REST API contracts.",
+      tech: ["NestJS", "PostgreSQL", "Docker", "LLM Pipelines"],
+      meta: "Multi-Stage LLM Chains · Dockerized",
+      icon: "🧠",
+    },
+    {
+      slug: "toygalaxy",
+      name: "TOYGALAXY",
+      title: "Commercial E-Commerce Platform",
+      role: "Full-Stack Web Developer (Contract)",
+      isContribution: true,
+      desc: "Engineered backend services and checkout flows for a production e-commerce platform using Django. Supported 2,500+ daily active users, optimizing ORM queries and schema indexing to ensure zero downtime.",
+      tech: ["Django", "JavaScript", "Tailwind CSS", "PostgreSQL", "Redis"],
+      meta: "2,500+ Daily Active Users · Optimized ORM",
+      icon: "◫",
+    },
+    {
+      slug: "ainos",
+      name: "AINOS",
+      title: "AI-Powered eCommerce Platform",
+      role: "Lead Full-Stack & AI Systems Engineer",
+      isContribution: false,
+      desc: "Full-stack AI eCommerce platform featuring automated product descriptions, dynamic SEO metadata generation, and AI-enabled admin control workflows.",
+      tech: ["NestJS", "React", "PostgreSQL", "Prisma", "Redis", "Docker", "AI APIs"],
+      meta: "Automated SEO & AI Image Pipelines",
+      icon: "◈",
+    },
+  ] as ProjectSummary[],
   connect: {
     phone: "+880 1771-659336",
     email: "dev.shakib@outlook.com",
@@ -351,6 +404,7 @@ function Header() {
     { label: "experience", href: "#experience" },
     { label: "education", href: "#education" },
     { label: "certifications", href: "#certifications" },
+    { label: "references", href: "#references" },
     { label: "connect", href: "#connect" },
   ];
 
@@ -395,7 +449,7 @@ function Header() {
 
               {/* Resume Download */}
               <motion.a
-                href="https://drive.google.com/file/d/1VEmpMnnviL37f4pgM5vwhEvM0qJDGGz7/view?usp=sharing"
+                href="https://drive.google.com/file/d/16uvE0JiEmd3ny6EYZoAuI6WApZmiyhVm/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Download Resume"
@@ -525,6 +579,30 @@ function Header() {
                       <span style={{ fontSize: "11px", color: "var(--accent)" }}>→</span>
                     </a>
                   ))}
+
+                  <a
+                    href="https://drive.google.com/file/d/16uvE0JiEmd3ny6EYZoAuI6WApZmiyhVm/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "10px 14px",
+                      marginTop: "6px",
+                      color: "var(--accent)",
+                      background: "var(--accent-dim)",
+                      border: "1px solid var(--accent)",
+                      textDecoration: "none",
+                      fontSize: "11px",
+                      letterSpacing: "0.12em",
+                      fontWeight: 600,
+                    }}
+                  >
+                    <span>DOWNLOAD RESUME (PDF)</span>
+                    <span style={{ fontSize: "12px" }}>↗</span>
+                  </a>
                 </div>
               </motion.div>
             )}
@@ -633,11 +711,11 @@ function SummarySection() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "1.5rem" }}>
             {[
               { icon: "⚡", label: "2+ YRS PRODUCTION" },
-              { icon: "⚙️", label: "NESTJS & DJANGO" },
+              { icon: "⚙️", label: "NESTJS • REACT • DJANGO" },
+              { icon: "🚀", label: "79% P95 LATENCY REDUCTION" },
               { icon: "📡", label: "SUB-25MS REAL-TIME IoT" },
               { icon: "🤖", label: "AI CODE INTELLIGENCE" },
-              { icon: "☁️", label: "AWS & MICROSERVICES" },
-              { icon: "💬", label: "FLUENT ENGLISH" },
+              { icon: "☁️", label: "DOCKER & AWS MICROSERVICES" },
             ].map((chip) => (
               <span key={chip.label} style={{
                 display: "inline-flex", alignItems: "center", gap: "6px",
@@ -683,7 +761,7 @@ function ProfileExpertise() {
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {Object.entries(DATA.expertise).map(([key, val], i) => (
               <motion.div key={key} variants={fadeUp} custom={i + 1}>
-                <p style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--accent)", fontWeight: 500, marginBottom: "6px" }}>{key.replace(/_/g, " ")}</p>
+                <p style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--accent)", fontWeight: 500, marginBottom: "6px" }}>{key}</p>
                 <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-secondary)" }}>{val}</p>
               </motion.div>
             ))}
@@ -1225,30 +1303,133 @@ function AchievementsSection() {
 function References() {
   return (
     <motion.section
+      id="references"
       style={{ borderBottom: "1px solid var(--border)" }}
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
       <div className="container-max">
-        <motion.div variants={fadeUp} custom={0}><SectionLabel label="REFERENCES" /></motion.div>
-        <div className="grid-cols-1-2" style={{ gap: "2rem", marginTop: "2rem" }}>
+        <motion.div variants={fadeUp} custom={0}><SectionLabel label="PROFESSIONAL REFERENCES" /></motion.div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "1.5rem", marginTop: "1rem" }}>
           {DATA.references.map((ref, i) => (
-            <motion.div key={i} variants={fadeUp} custom={i + 1}
-              style={{ paddingLeft: "16px", borderLeft: "2px solid var(--border)", transition: "border-color 0.2s" }}
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              custom={i + 1}
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderTop: "2px solid var(--accent)",
+                padding: "24px",
+                display: "flex",
+                flexDirection: "column",
+                transition: "all 0.2s ease",
+              }}
               whileHover={{ borderColor: "var(--accent)" }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
-                <p style={{ fontSize: "13px", letterSpacing: "0.08em", fontWeight: 500, color: "var(--accent)" }}>&gt; {ref.name.toUpperCase()}</p>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0 }}>{ref.phone}</span>
+              {/* Header: Name, Designation & Relation Badge */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px", flexWrap: "wrap", gap: "8px" }}>
+                <div>
+                  <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.02em", margin: "0 0 4px" }}>
+                    &gt; {ref.name}
+                  </h3>
+                  <p style={{ fontSize: "13px", color: "var(--accent)", fontWeight: 600, margin: 0 }}>
+                    {ref.designation}
+                  </p>
+                  <p style={{ fontSize: "12.5px", color: "var(--text-secondary)", fontWeight: 500, margin: "2px 0 0" }}>
+                    {ref.organization}
+                  </p>
+                </div>
+                <span
+                  style={{
+                    fontSize: "9.5px",
+                    letterSpacing: "0.12em",
+                    padding: "3px 8px",
+                    border: "1px solid var(--accent)",
+                    color: "var(--accent)",
+                    background: "var(--accent-dim)",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {ref.relation}
+                </span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
-                <p style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{ref.role}</p>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", flexShrink: 0, textAlign: "right", marginLeft: "12px" }}>{ref.location}</span>
+
+              {/* Contact and Address Details Table */}
+              <div
+                style={{
+                  marginTop: "12px",
+                  paddingTop: "14px",
+                  borderTop: "1px solid var(--border)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                  fontSize: "12px",
+                  lineHeight: 1.6,
+                }}
+              >
+                {/* Address */}
+                <div style={{ display: "grid", gridTemplateColumns: "115px 1fr", gap: "8px" }}>
+                  <span style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>Address:</span>
+                  <span style={{ color: "var(--text-secondary)" }}>{ref.address}</span>
+                </div>
+
+                {/* Phone Office */}
+                {ref.phoneOffice && (
+                  <div style={{ display: "grid", gridTemplateColumns: "115px 1fr", gap: "8px" }}>
+                    <span style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>Phone (Office):</span>
+                    <a
+                      href={`tel:${ref.phoneOffice}`}
+                      style={{ color: "var(--text-primary)", textDecoration: "none" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+                    >
+                      {ref.phoneOffice}
+                    </a>
+                  </div>
+                )}
+
+                {/* Phone Residential (if available) */}
+                {ref.phoneResidential && (
+                  <div style={{ display: "grid", gridTemplateColumns: "115px 1fr", gap: "8px" }}>
+                    <span style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>Phone (Res):</span>
+                    <a
+                      href={`tel:${ref.phoneResidential}`}
+                      style={{ color: "var(--text-primary)", textDecoration: "none" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+                    >
+                      {ref.phoneResidential}
+                    </a>
+                  </div>
+                )}
+
+                {/* Mobile */}
+                <div style={{ display: "grid", gridTemplateColumns: "115px 1fr", gap: "8px" }}>
+                  <span style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>Mobile:</span>
+                  <a
+                    href={`tel:${ref.mobile}`}
+                    style={{ color: "var(--text-primary)", textDecoration: "none", fontWeight: 500 }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+                  >
+                    {ref.mobile}
+                  </a>
+                </div>
+
+                {/* Email */}
+                <div style={{ display: "grid", gridTemplateColumns: "115px 1fr", gap: "8px" }}>
+                  <span style={{ color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>Email:</span>
+                  <a
+                    href={`mailto:${ref.email}`}
+                    style={{ color: "var(--accent)", textDecoration: "none" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
+                    onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
+                  >
+                    {ref.email}
+                  </a>
+                </div>
               </div>
-              <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "4px" }}>
-                <span><span style={{ color: "var(--text-primary)" }}>Email:</span> {ref.email}</span>
-                {ref.website && <span><span style={{ color: "var(--text-primary)" }}>Website:</span> {ref.website}</span>}
-                {ref.address && <span><span style={{ color: "var(--text-primary)" }}>Address:</span> {ref.address}</span>}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -1268,67 +1449,251 @@ function Projects() {
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }} variants={stagger}
     >
       <div className="container-max">
-        <motion.div variants={fadeUp} custom={0}><SectionLabel label="KEY PROJECTS" /></motion.div>
-        <div className="responsive-projects-grid" style={{ gap: "1px", background: "var(--border)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
+          <div>
+            <motion.div variants={fadeUp} custom={0}>
+              <SectionLabel label="FEATURED WORK // ARCHITECTURE & IMPLEMENTATION" />
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              custom={1}
+              style={{
+                fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)",
+                fontWeight: 700,
+                color: "var(--text-primary)",
+                margin: "4px 0 0",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Key Engineering Projects
+            </motion.h2>
+          </div>
+          <motion.p
+            variants={fadeUp}
+            custom={1}
+            style={{ fontSize: "12px", color: "var(--text-muted)", letterSpacing: "0.1em", maxWidth: "380px" }}
+          >
+            Production SaaS platforms, real-time IoT architectures, and collaborative frontend contributions.
+          </motion.p>
+        </div>
+
+        <div className="responsive-projects-grid">
           {DATA.projects.map((proj, i) => (
             <TransitionLink
-              key={i}
-              href={`/projects/${proj.name.toLowerCase()}`}
-              style={{ textDecoration: "none", color: "inherit", display: "block" }}
+              key={proj.slug}
+              href={`/projects/${proj.slug}`}
+              style={{ textDecoration: "none", color: "inherit", display: "flex" }}
             >
               <motion.div
-                variants={fadeUp} custom={i + 1}
+                variants={fadeUp}
+                custom={i + 1}
                 onHoverStart={() => setHovered(i)}
                 onHoverEnd={() => setHovered(null)}
-                animate={proj.name === "GITRABBIT" || proj.name === "AUTOTASKX" ? { boxShadow: ["inset 0 0 0 1px transparent", "inset 0 0 0 1px var(--accent)", "inset 0 0 0 1px transparent"] } : {}}
-                transition={proj.name === "GITRABBIT" || proj.name === "AUTOTASKX" ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : {}}
-                style={{ background: proj.name === "GITRABBIT" || proj.name === "AUTOTASKX" ? "var(--surface)" : "var(--bg)", padding: "2rem", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}
+                style={{
+                  width: "100%",
+                  background: "var(--project-card-surface)",
+                  border: `1px solid ${hovered === i ? "var(--accent)" : "var(--border)"}`,
+                  borderRadius: "3px",
+                  display: "flex",
+                  flexDirection: "column",
+                  position: "relative",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "all 0.25s ease",
+                  transform: hovered === i ? "translateY(-3px)" : "translateY(0)",
+                  boxShadow: hovered === i ? "0 12px 32px rgba(0, 0, 0, 0.18)" : "none",
+                }}
               >
-                <AnimatePresence>
-                  {hovered === i && (
-                    <motion.div style={{ position: "absolute", inset: 0, background: "var(--accent-dim)", zIndex: 0 }}
-                      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
-                    />
-                  )}
-                </AnimatePresence>
-                <div style={{ position: "relative", zIndex: 1 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <span style={{ fontSize: "24px", color: "var(--border-hover)" }}>{proj.icon}</span>
-                      {(proj.name === "GITRABBIT" || proj.name === "AUTOTASKX") && (
-                        <motion.span
-                          animate={{ opacity: [0.6, 1, 0.6] }}
-                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                          style={{ fontSize: "9px", letterSpacing: "0.15em", padding: "3px 6px", background: "var(--accent)", color: "var(--bg)", fontWeight: 700 }}
-                        >
-                          CASE STUDY
-                        </motion.span>
-                      )}
+                {/* Card Top Window Bar */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "9px 16px",
+                    background: "var(--surface-2)",
+                    borderBottom: "1px solid var(--border)",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#ff5f56", display: "inline-block" }} />
+                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#ffbd2e", display: "inline-block" }} />
+                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#27c93f", display: "inline-block" }} />
+                    <span style={{ marginLeft: "6px", fontSize: "11px", color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
+                      ~/projects/{proj.slug}
+                    </span>
+                  </div>
+
+                  <span
+                    style={{
+                      fontSize: "9px",
+                      letterSpacing: "0.12em",
+                      padding: "2px 7px",
+                      border: `1px solid ${proj.isContribution ? "var(--yellow)" : "var(--accent)"}`,
+                      color: proj.isContribution ? "var(--yellow)" : "var(--accent)",
+                      background: proj.isContribution ? "var(--yellow-dim)" : "var(--accent-dim)",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {proj.isContribution ? "CONTRIBUTION" : "CORE SYSTEM"}
+                  </span>
+                </div>
+
+                {/* Card Content Body */}
+                <div style={{ padding: "22px 24px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
+                  {/* Title & Icon Header */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginBottom: "14px" }}>
+                    <div
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        flexShrink: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "22px",
+                        background: "var(--bg)",
+                        border: "1px solid var(--border)",
+                        borderRadius: "2px",
+                      }}
+                    >
+                      {proj.icon}
                     </div>
-                    <motion.span
+
+                    <div style={{ minWidth: 0, flex: 1 }}>
+                      <h3
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: 700,
+                          letterSpacing: "0.06em",
+                          color: "var(--text-primary)",
+                          marginBottom: "4px",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {proj.name}
+                      </h3>
+                      <p
+                        style={{
+                          fontSize: "12px",
+                          color: "var(--accent)",
+                          fontWeight: 500,
+                          letterSpacing: "0.02em",
+                          lineHeight: 1.4,
+                          margin: 0,
+                        }}
+                      >
+                        {proj.title}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Role Specification Badge */}
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      marginBottom: "14px",
+                      padding: "4px 10px",
+                      background: "var(--bg)",
+                      border: "1px solid var(--border)",
+                      width: "fit-content",
+                    }}
+                  >
+                    <span style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.08em", fontWeight: 600 }}>ROLE:</span>
+                    <span style={{ fontSize: "11px", color: proj.isContribution ? "var(--yellow)" : "var(--text-primary)", fontWeight: 500 }}>
+                      {proj.role}
+                    </span>
+                  </div>
+
+                  {/* Concise Description */}
+                  <p
+                    style={{
+                      fontSize: "12.5px",
+                      color: "var(--text-secondary)",
+                      lineHeight: 1.7,
+                      marginBottom: "16px",
+                      flex: 1,
+                    }}
+                  >
+                    {proj.desc}
+                  </p>
+
+                  {/* Highlight Metric / Meta Badge */}
+                  {proj.meta && (
+                    <div style={{ marginBottom: "16px" }}>
+                      <span
+                        style={{
+                          fontSize: "10.5px",
+                          letterSpacing: "0.08em",
+                          padding: "3px 9px",
+                          border: "1px solid var(--border)",
+                          background: "var(--bg)",
+                          color: "var(--yellow)",
+                          fontWeight: 500,
+                          display: "inline-block",
+                        }}
+                      >
+                        {proj.meta}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Technology Stack Pills */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "18px" }}>
+                    {proj.tech.map((t, ti) => (
+                      <span
+                        key={ti}
+                        style={{
+                          fontSize: "10px",
+                          letterSpacing: "0.06em",
+                          padding: "3px 8px",
+                          background: "var(--bg)",
+                          border: "1px solid var(--border)",
+                          color: "var(--text-muted)",
+                          borderRadius: "2px",
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Link Footer */}
+                  <div
+                    style={{
+                      marginTop: "auto",
+                      paddingTop: "14px",
+                      borderTop: "1px solid var(--border)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
                       style={{
                         fontSize: "11px",
                         letterSpacing: "0.14em",
-                        color: "var(--text-muted)",
-                        whiteSpace: "nowrap",
-                        textTransform: "uppercase",
-                        flexShrink: 0,
+                        color: hovered === i ? "var(--accent)" : "var(--text-secondary)",
+                        fontWeight: 600,
+                        transition: "color 0.2s ease",
                       }}
-                      animate={{ color: hovered === i ? "var(--accent)" : "var(--text-muted)" }}
                     >
-                      {proj.tech}
-                    </motion.span>
-                  </div>
-                  <h3 style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1em", color: "var(--text-primary)", marginBottom: "8px" }}>{proj.name}</h3>
-                  <p style={{ fontSize: "13px", letterSpacing: "0.05em", color: "var(--text-secondary)", marginBottom: "16px" }}>{proj.desc}</p>
-                  {proj.meta && (
-                    <span style={{ fontSize: "11px", letterSpacing: "0.1em", padding: "4px 10px", border: "1px solid var(--border)", color: "var(--yellow)" }}>
-                      {proj.meta}
+                      VIEW CASE STUDY
                     </span>
-                  )}
-                  <motion.span style={{ position: "absolute", bottom: "20px", right: "20px", fontSize: "16px", color: "var(--accent)" }}
-                    initial={{ opacity: 0, x: -4 }} animate={{ opacity: hovered === i ? 1 : 0, x: hovered === i ? 0 : -4 }}
-                  >↗</motion.span>
+                    <span
+                      style={{
+                        color: hovered === i ? "var(--accent)" : "var(--text-muted)",
+                        fontSize: "13px",
+                        transform: hovered === i ? "translateX(3px)" : "translateX(0)",
+                        transition: "all 0.2s ease",
+                      }}
+                    >
+                      →
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             </TransitionLink>
@@ -1348,6 +1713,7 @@ function Connect() {
     { label: DATA.connect.website.toUpperCase(), icon: "🌐", href: `https://${DATA.connect.website}`, external: true },
     { label: "GITHUB", icon: "⌥", href: `https://${DATA.connect.github}`, external: true },
     { label: "LINKEDIN", icon: "⌘", href: `https://${DATA.connect.linkedin}`, external: true },
+    { label: "DOWNLOAD RESUME", icon: "📄", href: "https://drive.google.com/file/d/16uvE0JiEmd3ny6EYZoAuI6WApZmiyhVm/view?usp=sharing", external: true },
   ];
   return (
     <motion.section

@@ -2,6 +2,10 @@ export interface ProjectDetails {
   slug: string;
   name: string;
   desc: string;
+  role?: string;
+  isContribution?: boolean;
+  isPrivateRepo?: boolean;
+  isBackendPrivate?: boolean;
   tech: string;
   meta: string;
   icon: string;
@@ -24,53 +28,241 @@ export interface ProjectDetails {
 }
 
 export const PROJECTS_DATA: Record<string, ProjectDetails> = {
+  gitrabbit: {
+    slug: "gitrabbit",
+    name: "GITRABBIT",
+    desc: "AI CODE REVIEW & REPOSITORY INTELLIGENCE",
+    role: "Lead Systems Architect & Full-Stack",
+    isContribution: false,
+    tech: "NestJS / TypeScript / LLM APIs / PostgreSQL",
+    meta: "Tested with 2,000+ users",
+    icon: "🐇",
+    longDescription: "GitRabbit is an AI code review and repository intelligence platform. Designed an automated repository analysis engine that parses project specifications to detect architectural risks, dependency conflicts, and code-to-requirement mismatches beyond line-level diffs. Tested with 2,000+ users, the platform orchestrates context-aware LLM pipelines to verify whether AI-agent-written code and developer pull requests align with high-level architectural specifications.",
+    github: "https://github.com/shakib5560/gitrabbit2.0",
+    live: "https://www.gitrabbit.co/",
+    client: {
+      name: "GitRabbit",
+      industry: "AI Developer Tools & Code Intelligence",
+      duration: "Product Engineering",
+      deliverables: [
+        "Automated repository analysis engine",
+        "Project specification parsing & code-to-requirement verification",
+        "Architectural risk & dependency conflict detection beyond line-level diffs",
+        "Context-aware LLM pipelines for code reasoning",
+        "Tested and validated with 2,000+ users"
+      ]
+    },
+    problems: [
+      {
+        title: "Repository-Level Analysis Beyond Line-Level Diffs",
+        description: "Standard code review tools only evaluate line-by-line diffs, missing multi-file architectural regressions, dependency conflicts, and contract breaks.",
+        solution: "Engineered an analysis engine that parses the entire project context, dependency graphs, and requirements to validate changes against overall system architecture."
+      },
+      {
+        title: "Handling Large Git Diffs within Token Constraints",
+        description: "Parsing and sending massive pull request diffs to LLM APIs exceeded payload limits and context windows.",
+        solution: "Developed intelligent diff filtering and semantic chunking to summarize boilerplate while dedicating reasoning capacity to high-impact architectural changes."
+      }
+    ]
+  },
+  autotaskx: {
+    slug: "autotaskx",
+    name: "AUTOTASKX",
+    desc: "INDUSTRIAL IOT & FORMULATION PLATFORM",
+    role: "Lead Systems Architect & Full-Stack",
+    isContribution: false,
+    isBackendPrivate: true,
+    tech: "Next.js / FastAPI / TimescaleDB / Redis / AWS",
+    meta: "Sub-25ms Real-Time · 60% Dye Trial Reduction",
+    icon: "🏭",
+    longDescription: "Architected an industrial IoT platform unifying dye-formulation, defect grading, and machine telemetry using algorithmic recipe engines and Redis Pub/Sub. Achieved sub-25ms real-time broadcasting and reduced lab dye trials by 60% with Next.js, FastAPI, TimescaleDB, and AWS.",
+    github: {
+      frontend: "https://github.com/shakib5560/AutoTaskX",
+      backend: "https://github.com/shakib5560/autotaskx-api"
+    },
+    live: "https://autotaskx.online/",
+    client: {
+      name: "Industrial Dyehouse Automation",
+      industry: "Industrial IoT & Smart Manufacturing",
+      duration: "Production Deployment",
+      deliverables: [
+        "Industrial IoT platform unifying dye formulation & defect grading",
+        "Algorithmic recipe engines reducing lab dye trials by 60%",
+        "Sub-25ms real-time telemetry broadcasting with Redis Pub/Sub",
+        "Time-series database persistence with TimescaleDB",
+        "FastAPI backend microservices & Next.js frontend on AWS"
+      ]
+    },
+    problems: [
+      {
+        title: "Translating Optical Physics into Matrix Math",
+        description: "Matching target dye formulations required combining multi-wavelength reflectance curves into non-negative concentration vectors.",
+        solution: "Formulated the problem as a Non-Negative Least Squares (NNLS) optimization computing exact dye concentration vectors in under 15ms."
+      },
+      {
+        title: "Real-Time Machine Telemetry Synchronization",
+        description: "Burst telemetry events from production machines at high line speeds risked desyncing user dashboards and overwhelming the database.",
+        solution: "Implemented an async WebSocket manager backed by Redis Pub/Sub broadcasting telemetry under 25ms, persisting historical time-series data to TimescaleDB."
+      }
+    ]
+  },
+  "off-white": {
+    slug: "off-white",
+    name: "OFF---WHITE",
+    desc: "LUXURY STREETWEAR & E-COMMERCE STOREFRONT",
+    role: "Contributor — Frontend Development & UI/UX Implementation",
+    isContribution: true,
+    isPrivateRepo: true,
+    tech: "React / Next.js / TypeScript / Tailwind CSS / UI/UX Design",
+    meta: "Collaborative Frontend & UI/UX Delivery",
+    icon: "◻️",
+    longDescription: "Off-White (off---white.com) is an internationally recognized luxury streetwear and high-fashion e-commerce platform founded by Virgil Abloh. Contributing as a frontend developer under DevNest, my work focused on enhancing the customer-facing landing page experience, UI consistency, content hierarchy, and reusable component modules using React and Next.js—improving user engagement and content discovery while strictly preserving the brand's iconic deconstructionist visual language and typography.",
+    github: "https://github.com/shakib5560",
+    live: "https://www.off---white.com",
+    liveLabel: "OFFICIAL_STOREFRONT",
+    client: {
+      name: "Off-White™ (via DevNest Contract)",
+      industry: "Luxury Fashion, High-End Streetwear & E-Commerce",
+      duration: "Collaborative Contract",
+      deliverables: [
+        "Landing page visual hierarchy & content presentation enhancement",
+        "Reusable, content-driven UI components & modular drop blocks",
+        "Frontend UI implementation using React, Next.js, and TypeScript",
+        "Component-level state management & interactive data-flow",
+        "Mobile-responsive navigation & lookbook discovery optimization",
+        "High-fashion editorial layout refinement respecting brand aesthetics"
+      ]
+    },
+    problems: [
+      {
+        title: "Enhancing an Established Luxury Storefront Without Brand Disruption",
+        description: "Off-White possesses an iconic brutalist and high-fashion design identity with stark typography and signature quotation marks. The challenge was modernizing the landing page experience and shopping flow without disturbing the brand's core artistic ethos.",
+        solution: "Conducted meticulous layout audits, engineering subtle, high-impact UI enhancements that improved scannability and component modularity while adhering strictly to Off-White's minimalist, high-contrast design tokens."
+      },
+      {
+        title: "Content Modularity Across Dynamic Product Drops",
+        description: "High-fashion drops and capsule collections require rapid layout variations without altering core platform styling or risking regressions.",
+        solution: "Engineered atomic, highly configurable Next.js and React content blocks with strict TypeScript interfaces, giving marketing and merchandising teams the flexibility to compose responsive drop banners and showcase grids seamlessly."
+      },
+      {
+        title: "Responsive Lookbook & Mobile Navigation Usability",
+        description: "Mobile shoppers experienced navigation friction when exploring multi-category editorial lookbooks and product drops.",
+        solution: "Refined the mobile drawer navigation, streamlined category discovery pathways, and optimized touch targets to meet WCAG standards while maintaining the minimalist look."
+      }
+    ]
+  },
+  rinors: {
+    slug: "rinors",
+    name: "RINORS",
+    desc: "MULTI-VENDOR E-COMMERCE MARKETPLACE",
+    role: "Full-Stack Engineer",
+    isContribution: false,
+    isPrivateRepo: true,
+    tech: "Next.js / TypeScript / T3 Stack / tRPC",
+    meta: "10,000+ monthly users",
+    icon: "❖",
+    longDescription: "Built a high-traffic multi-vendor marketplace serving 10,000+ monthly users. Implemented end-to-end type-safe tRPC APIs, vendor management workflows, and modular relational schemas using Prisma and PostgreSQL.",
+    github: "https://github.com/shakib5560",
+    live: "https://www.rinors.com/",
+    client: {
+      name: "Rinors Marketplace",
+      industry: "Multi-Vendor E-Commerce",
+      duration: "7 Months",
+      deliverables: [
+        "High-traffic multi-vendor marketplace serving 10,000+ monthly users",
+        "End-to-end type-safe tRPC API architecture",
+        "Vendor management workflows & storefront controls",
+        "Modular relational schemas with Prisma & PostgreSQL",
+        "High-concurrency query optimization and caching"
+      ]
+    },
+    problems: [
+      {
+        title: "Multi-Vendor Tenant Isolation & RBAC",
+        description: "Managing vendor-specific catalogs, orders, and financial data while maintaining strict tenant separation.",
+        solution: "Designed modular relational schemas in Prisma with scoped access control and end-to-end type safety via tRPC."
+      },
+      {
+        title: "High Concurrent Traffic Stability",
+        description: "Handling traffic spikes from thousands of active buyers and vendors without degradations in checkout latency.",
+        solution: "Implemented query batching, edge caching, and optimized database indexing to maintain fast response times."
+      }
+    ]
+  },
   idea2system: {
     slug: "idea2system",
     name: "IDEA2SYSTEM",
-    desc: "AI-POWERED SOFTWARE BLUEPRINT GENERATOR",
-    tech: "NestJS / TypeScript / OpenAI / PostgreSQL / Prisma / Docker",
-    meta: "Idea to Blueprint",
+    desc: "AUTOMATED ARCHITECTURE & ERD GENERATOR",
+    role: "Backend & AI Systems Engineer",
+    isContribution: false,
+    tech: "NestJS / PostgreSQL / Docker / LLM Pipelines",
+    meta: "Multi-Stage LLM Chains · Dockerized",
     icon: "🧠",
-    longDescription: "Idea2System is an AI-powered platform that transforms raw software ideas into complete, buildable technical blueprints. The system leverages advanced AI planning capabilities to automatically generate software requirements, design database schemas and ERDs, recommend scalable system architectures, generate API contracts, create development roadmaps with task breakdowns, and export comprehensive technical documentation. Built on a solid NestJS backend foundation, Idea2System streamlines the gap between ideation and implementation for developers and engineering teams.",
+    longDescription: "Engineered a containerized NestJS and PostgreSQL backend orchestrating multi-stage LLM chains to auto-generate validated ERDs, system architectures, and REST API contracts.",
     github: "https://github.com/shakib5560/Idea2System-API-V2.0",
     live: "https://hub.docker.com/r/shakib106/idea2system-api",
     liveLabel: "DOCKERHUB_IMAGE",
     video: "8qNOPrrWJXo",
     client: {
-      name: "Idea2System (Open Source)",
+      name: "Idea2System",
       industry: "AI Developer Tools & Software Engineering",
-      duration: "Ongoing",
+      duration: "Product Engineering",
       deliverables: [
-        "AI-powered software requirements generation from ideas",
-        "Automated database schema & ERD design",
-        "Scalable system architecture recommendations",
-        "API contract generation engine",
-        "Development roadmap & task breakdown generator",
-        "Complete technical blueprint export system",
-        "Dockerized production deployment",
-        "Scalable NestJS backend architecture"
+        "Containerized NestJS & PostgreSQL backend",
+        "Multi-stage LLM chains for system architecture synthesis",
+        "Automated database schema & ERD generation",
+        "Validated REST API contract generation",
+        "Dockerized production deployment"
       ]
     },
     problems: [
       {
-        title: "Transforming Ambiguous Ideas into Structured Requirements",
-        description: "Raw software ideas are often vague and unstructured, making it extremely difficult for AI to generate precise, actionable technical requirements without losing the original intent.",
-        solution: "Engineered a multi-stage AI planning pipeline that progressively refines ambiguous inputs through contextual analysis, requirement extraction, and structured output generation to produce detailed software specifications."
+        title: "Cross-Artifact Schema & API Consistency",
+        description: "Ensuring AI-generated database schemas, ERDs, and REST API contracts remain strictly aligned and syntactically valid.",
+        solution: "Engineered a multi-stage validation pipeline with schema linters and cross-referencing logic that guarantees consistency across generated system artifacts."
       },
       {
-        title: "Generating Consistent & Scalable Architecture Blueprints",
-        description: "Producing system architectures that are both technically sound and scalable across different project types required handling diverse technology constraints and design patterns.",
-        solution: "Built a modular architecture recommendation engine that evaluates project scope, tech stack preferences, and scalability requirements to generate tailored system designs with appropriate patterns and infrastructure layouts."
+        title: "Reproducible Containerized Deployment",
+        description: "Standardizing development and execution environments across different host platforms.",
+        solution: "Containerized the platform with Docker multi-stage builds and automated image distribution on Docker Hub."
+      }
+    ]
+  },
+  toygalaxy: {
+    slug: "toygalaxy",
+    name: "TOYGALAXY",
+    desc: "E-COMMERCE PLATFORM",
+    role: "Full-Stack Web Developer (Contract)",
+    isContribution: true,
+    isPrivateRepo: true,
+    tech: "Django / JavaScript / Tailwind CSS",
+    meta: "2,500+ Daily Active Users",
+    icon: "◫",
+    longDescription: "Engineered backend services for a production e-commerce platform using Django. Supported 2,500+ daily active users, optimizing ORM queries and schema indexing to ensure reliability during traffic spikes.",
+    github: "https://github.com/shakib5560/ToyGalaxy",
+    live: "https://www.toygalaxy.com.au/",
+    client: {
+      name: "ToyGalaxy Australia",
+      industry: "E-Commerce & Retail",
+      duration: "Contract",
+      deliverables: [
+        "Backend services for production e-commerce platform using Django",
+        "High-traffic catalog and checkout flows supporting 2,500+ DAUs",
+        "ORM query optimization with select_related & prefetch_related",
+        "Composite database schema indexing for zero-downtime reliability",
+        "REST APIs and streamlined request validation pipelines"
+      ]
+    },
+    problems: [
+      {
+        title: "Dynamic Search & Filtering Performance",
+        description: "Large product collections caused slow database joins and delayed category filtering responses.",
+        solution: "Optimized Django ORM queries with select_related and prefetch_related, introduced indexed fields, and implemented Redis caching to improve filtering speed."
       },
       {
-        title: "API Contract & Schema Coherence Across Generated Artifacts",
-        description: "Ensuring that generated database schemas, API contracts, and system architecture documents remain consistent and reference each other correctly was a complex orchestration challenge.",
-        solution: "Implemented a centralized artifact registry with cross-referencing validation logic that maintains coherence between generated schemas, endpoints, and architecture components throughout the blueprint generation pipeline."
-      },
-      {
-        title: "Containerized Deployment & Reproducible Environments",
-        description: "Ensuring consistent runtime behavior across development, staging, and production environments while managing AI service integrations and database connections.",
-        solution: "Containerized the entire platform using Docker with multi-stage builds, environment-based configuration management, and published production-ready images to Docker Hub for seamless deployment."
+        title: "High-Traffic Checkout Stability",
+        description: "Seasonal traffic surges threatened to saturate database connections and slow down the checkout pipeline.",
+        solution: "Tuned ORM queries, added composite schema indexes, and introduced robust payload validation to keep response times consistently fast and eliminate downtime."
       }
     ]
   },
@@ -78,8 +270,10 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
     slug: "ainos",
     name: "AINOS",
     desc: "AI-POWERED ECOMMERCE PLATFORM",
+    role: "Lead Full-Stack & AI Systems Engineer",
+    isContribution: false,
     tech: "NestJS / React / PostgreSQL / Prisma / Redis / JWT / Docker / AI APIs",
-    meta: "Secure Payments",
+    meta: "Automated SEO & AI Image Pipelines",
     icon: "◈",
     longDescription: "AINOS is an AI-powered eCommerce platform designed for modern digital businesses that want intelligent automation with a clean and minimalist user experience. The platform combines AI-driven product management, automated content generation, and smart SEO optimization within a scalable full-stack architecture. AINOS provides an advanced AI-enabled control panel where administrators can automatically generate product descriptions, optimize SEO metadata, and edit product images using AI-powered workflows. The system focuses on performance, automation, and seamless user experience for both customers and store managers.",
     github: {
@@ -119,54 +313,12 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
       {
         title: "AI Image Editing & Asset Management",
         description: "Processing AI-generated image edits and managing optimized media delivery introduced storage and performance challenges.",
-        solution: "Developed optimized media processing workflows with asynchronous image handling, compression strategies, and CDN-ready asset delivery architecture."
+        solution: "Integrated optimized media handling pipelines with Cloudinary, background asset transformations, and CDN caching to reduce load times and maintain visual quality."
       },
       {
-        title: "Production Deployment & DevOps Stability",
-        description: "Managing environment consistency, AI service integrations, and deployment reliability across production environments created operational complexity.",
-        solution: "Containerized services using Docker, implemented environment-based configuration management, optimized CI/CD deployment workflows, and improved runtime monitoring for stable production releases."
-      }
-    ]
-  },
-  toygalaxy: {
-    slug: "toygalaxy",
-    name: "TOYGALAXY",
-    desc: "E-COMMERCE PLATFORM",
-    tech: "Django / JavaScript / PostgreSQL / Redis / TailwindCSS / Docker",
-    meta: "2,000+ daily users",
-    icon: "◫",
-    longDescription: "ToyGalaxy is a modern e-commerce ecosystem designed for hobbyists, collectors, and toy enthusiasts. The platform supports large-scale product collections, dynamic inventory management, and optimized customer purchasing workflows.",
-    github: "https://github.com/shakib5560/ToyGalaxy",
-    live: "https://www.toygalaxy.com.au/",
-    client: {
-      name: "ToyGalaxy Retail Ltd.",
-      industry: "E-Commerce & Consumer Products",
-      duration: "4 Months",
-      deliverables: [
-        "Advanced product catalog system",
-        "Dynamic filtering & fuzzy search",
-        "Inventory synchronization dashboard",
-        "Customer account & order management",
-        "Optimized Django backend architecture",
-        "High-traffic performance optimization",
-        "Production deployment & debugging support"
-      ]
-    },
-    problems: [
-      {
-        title: "Dynamic Search & Filtering Performance",
-        description: "Large product collections caused slow database joins and delayed category filtering responses.",
-        solution: "Optimized Django ORM queries with select_related and prefetch_related, introduced indexed fields, and implemented Redis caching to improve filtering speed."
-      },
-      {
-        title: "Cart Persistence & Session Synchronization",
-        description: "Users frequently lost cart data during authentication transitions or encountered duplicated session states.",
-        solution: "Developed custom session synchronization middleware that dynamically merged guest and authenticated cart states while maintaining transactional consistency."
-      },
-      {
-        title: "Production Debugging & Server Optimization",
-        description: "High traffic occasionally caused memory spikes and slower response times during peak usage periods.",
-        solution: "Optimized server-side query execution, reduced redundant API requests, improved static asset delivery, and introduced monitoring strategies for production debugging."
+        title: "Admin Workflow Automation & High-Concurrency Scalability",
+        description: "Managing environment consistency, high concurrency during bulk catalog updates, and deployment reliability across production environments created operational complexity.",
+        solution: "Decoupled administrative workloads using asynchronous jobs, transaction isolation in Prisma/PostgreSQL, Docker containerization, and rate-limiting safeguards."
       }
     ]
   },
@@ -209,82 +361,6 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
         title: "Deployment Pipeline & Build Stability",
         description: "Production deployments occasionally failed due to TypeScript build mismatches and environment configuration issues.",
         solution: "Improved deployment workflows with strict environment validation, production build testing, and optimized CI/CD deployment handling."
-      }
-    ]
-  },
-  rinors: {
-    slug: "rinors",
-    name: "RINORS",
-    desc: "MULTI-VENDOR E-COMMERCE",
-    tech: "Next.js / T3 Stack / TypeScript / Prisma / PostgreSQL / TailwindCSS",
-    meta: "10,000+ monthly users",
-    icon: "❖",
-    longDescription: "Rinors is a scalable multi-vendor e-commerce marketplace designed to support independent sellers, storefront management, and high-volume customer transactions with modern full-stack architecture.",
-    github: "https://github.com/shakib5560",
-    live: "https://www.rinors.com/",
-    client: {
-      name: "Rinors Marketplace",
-      industry: "Multi-Vendor E-Commerce",
-      duration: "7 Months",
-      deliverables: [
-        "Multi-vendor marketplace architecture",
-        "Vendor dashboard & inventory management",
-        "Secure payment & order workflows",
-        "Type-safe T3 Stack implementation",
-        "Scalable Prisma database architecture",
-        "Performance optimization & caching",
-        "Production deployment & monitoring"
-      ]
-    },
-    problems: [
-      {
-        title: "Multi-Vendor Data Isolation",
-        description: "Managing vendor-specific inventory, orders, and analytics while maintaining secure tenant separation increased backend complexity.",
-        solution: "Designed a modular T3 Stack architecture with Prisma relational modeling and vendor-scoped authorization systems."
-      },
-      {
-        title: "High Concurrent Traffic Optimization",
-        description: "The marketplace needed stable performance while handling thousands of monthly active users.",
-        solution: "Implemented query optimization, lazy-loading strategies, caching mechanisms, and frontend rendering improvements to reduce server overhead."
-      },
-      {
-        title: "Deployment & Runtime Debugging",
-        description: "Production builds occasionally introduced runtime inconsistencies caused by server-side rendering and API synchronization issues.",
-        solution: "Improved deployment validation workflows, optimized API error handling, and implemented centralized debugging strategies for production monitoring."
-      }
-    ]
-  },
-  gitrabbit: {
-    slug: "gitrabbit",
-    name: "GITRABBIT",
-    desc: "AI-POWERED CODE REVIEW PLATFORM",
-    tech: "Next.js / TypeScript / OpenAI / GitHub APIs / Tailwind CSS",
-    meta: "Auto Pull-Request Reviews",
-    icon: "🐇",
-    longDescription: "GitRabbit is an advanced AI-powered code review assistant that integrates directly into GitHub repository workflows. It automatically reviews pull requests, analyzes code changes for potential bugs, checks styling and security issues, and provides line-by-line recommendations to speed up the review cycle.",
-    github: "https://github.com/shakib5560/gitrabbit2.0",
-    live: "https://www.gitrabbit.co/",
-    client: {
-      name: "GitRabbit Open Source / DevTools Inc.",
-      industry: "Developer Productivity & AI Code Review Tools",
-      duration: "2 Months (Contract)",
-      deliverables: [
-        "GitHub Webhooks handler endpoint evaluating diff files",
-        "OpenAI API integration for context-aware code review suggestions",
-        "Interactive dashboard displaying review metrics and PR timelines",
-        "Security scanning modules targeting exposed secrets and vulnerability patterns"
-      ]
-    },
-    problems: [
-      {
-        title: "Handling Extremely Large Git Diff Files within API Payload Limits",
-        description: "Parsing and sending extremely large git diff files from massive pull requests directly to OpenAI APIs regularly exceeded payload size limits and context window token constraints.",
-        solution: "Developed a diff chunking and filtering algorithm in Node.js. It excludes binary files, locks files, and generated files (like package-lock.json), then splits large files into logical hunks. The system summarizes non-critical files and only sends high-impact code blocks for deep AI review."
-      },
-      {
-        title: "Real-time Rate Limits and GitHub API Throttling",
-        description: "During high concurrent review runs, the platform repeatedly hit GitHub's REST API rate limits, failing to post reviews or fetch repo metadata.",
-        solution: "Implemented a token-bucket rate limiter and migrated key operations to GitHub's GraphQL API to request data more efficiently. Setup a Redis caching layer for repository structure details, reducing REST API requests by 75%."
       }
     ]
   },

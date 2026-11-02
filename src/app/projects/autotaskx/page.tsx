@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import TransitionLink from "@/components/TransitionLink";
 import ThemeToggle from "@/components/ThemeToggle";
+import PrivateRepoModal from "@/components/PrivateRepoModal";
 
 // ─── Variants ────────────────────────────────────────────────────────────────
 
@@ -46,6 +47,9 @@ function Badge({ children, color = "var(--accent)" }: { children: React.ReactNod
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function AutoTaskXPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [backendHovered, setBackendHovered] = useState(false);
+
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative", overflowX: "hidden" }}>
       <div className="grid-bg" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />
@@ -80,10 +84,10 @@ export default function AutoTaskXPage() {
                 <span style={{ color: "var(--accent)", textShadow: "0 0 45px rgba(253,203,110,0.25)" }}>TASKX</span>
               </motion.h1>
               <motion.p variants={fadeUp} custom={2} style={{ fontSize: "14px", letterSpacing: "0.12em", color: "var(--text-secondary)", marginBottom: "20px" }}>
-                AI-POWERED INDUSTRIAL TEXTILE OPERATING SYSTEM
+                INDUSTRIAL IOT & FORMULATION PLATFORM
               </motion.p>
               <motion.p variants={fadeUp} custom={3} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "20px" }}>
-                Architected and built AutoTaskX, an AI-powered industrial operating system that digitizes textile dyehouses by unifying Kubelka-Munk spectral color formulation, 8K automated fabric defect grading (ASTM D5430), and sub-second machine telemetry using Next.js 16, FastAPI, TimescaleDB, and Redis.
+                Architected an industrial IoT platform unifying dye-formulation, defect grading, and machine telemetry using algorithmic recipe engines and Redis Pub/Sub. Achieved sub-25ms real-time broadcasting and reduced lab dye trials by 60% with Next.js, FastAPI, TimescaleDB, and AWS.
               </motion.p>
               <motion.div variants={fadeUp} custom={4} style={{ display: "flex", flexWrap: "wrap" as const, gap: "8px", marginBottom: "24px" }}>
                 <Badge color="var(--accent)">PRODUCTION DEPLOYED</Badge>
@@ -101,11 +105,47 @@ export default function AutoTaskXPage() {
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
                 >⌥ FRONTEND REPO</a>
-                <a href="https://github.com/shakib5560/autotaskx-api" target="_blank" rel="noopener noreferrer"
-                  style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
-                >⌥ BACKEND REPO</a>
+                <button
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  onMouseEnter={() => setBackendHovered(true)}
+                  onMouseLeave={() => setBackendHovered(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "10px 20px",
+                    border: `1px solid ${backendHovered ? "var(--yellow)" : "var(--border)"}`,
+                    background: backendHovered ? "var(--yellow-dim)" : "transparent",
+                    color: backendHovered ? "var(--yellow)" : "var(--text-muted)",
+                    fontSize: "12px",
+                    letterSpacing: "0.12em",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                    fontFamily: "inherit",
+                  }}
+                >
+                  <span style={{ color: backendHovered ? "var(--yellow)" : "var(--text-muted)" }}>
+                    {backendHovered ? "🔒" : "⌥"}
+                  </span>
+                  <span>{backendHovered ? "Private repo" : "BACKEND REPO"}</span>
+                  {backendHovered && (
+                    <span
+                      style={{
+                        fontSize: "9px",
+                        letterSpacing: "0.1em",
+                        padding: "1px 6px",
+                        background: "var(--yellow)",
+                        color: "#121214",
+                        fontWeight: 700,
+                        borderRadius: "2px",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      REQUEST ACCESS
+                    </span>
+                  )}
+                </button>
               </motion.div>
 
               <motion.div variants={fadeUp} custom={6} style={{ marginTop: "24px", padding: "16px", border: "1px dashed var(--yellow)", background: "rgba(253, 203, 110, 0.05)", borderRadius: "4px" }}>
@@ -303,6 +343,14 @@ export default function AutoTaskXPage() {
 
         <Footer />
       </div>
+
+      {/* Private Repository Request Modal */}
+      <PrivateRepoModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        projectName="AutoTaskX (Backend API & Telemetry Engine)"
+        clientOrOrg="Industrial IoT Platform"
+      />
     </div>
   );
 }
