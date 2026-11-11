@@ -1491,207 +1491,145 @@ function Projects() {
                 onHoverEnd={() => setHovered(null)}
                 style={{
                   width: "100%",
-                  background: "var(--project-card-surface)",
+                  background: hovered === i ? "var(--surface)" : "var(--project-card-surface)",
                   border: `1px solid ${hovered === i ? "var(--accent)" : "var(--border)"}`,
-                  borderRadius: "3px",
                   display: "flex",
                   flexDirection: "column",
                   position: "relative",
                   overflow: "hidden",
                   cursor: "pointer",
-                  transition: "all 0.25s ease",
-                  transform: hovered === i ? "translateY(-3px)" : "translateY(0)",
-                  boxShadow: hovered === i ? "0 12px 32px rgba(0, 0, 0, 0.18)" : "none",
+                  transition: "border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease",
+                  boxShadow: hovered === i ? "0 0 0 1px var(--accent), 0 16px 40px rgba(0,0,0,0.22)" : "none",
                 }}
               >
-                {/* Card Top Window Bar */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "9px 16px",
-                    background: "var(--surface-2)",
-                    borderBottom: "1px solid var(--border)",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#ff5f56", display: "inline-block" }} />
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#ffbd2e", display: "inline-block" }} />
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#27c93f", display: "inline-block" }} />
-                    <span style={{ marginLeft: "6px", fontSize: "11px", color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
-                      ~/projects/{proj.slug}
-                    </span>
-                  </div>
+                {/* Accent top line on hover */}
+                <div style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "2px",
+                  background: hovered === i ? "var(--accent)" : "transparent",
+                  transition: "background 0.22s ease",
+                }} />
 
-                  <span
-                    style={{
+                {/* Card Content */}
+                <div style={{ padding: "28px 28px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
+
+                  {/* Header Row: index + status badge */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px" }}>
+                    <span style={{
+                      fontSize: "11px",
+                      letterSpacing: "0.2em",
+                      color: "var(--text-muted)",
+                      fontWeight: 400,
+                    }}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span style={{
                       fontSize: "9px",
-                      letterSpacing: "0.12em",
-                      padding: "2px 7px",
+                      letterSpacing: "0.14em",
+                      padding: "3px 8px",
                       border: `1px solid ${proj.isContribution ? "var(--yellow)" : "var(--accent)"}`,
                       color: proj.isContribution ? "var(--yellow)" : "var(--accent)",
-                      background: proj.isContribution ? "var(--yellow-dim)" : "var(--accent-dim)",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {proj.isContribution ? "CONTRIBUTION" : "CORE SYSTEM"}
-                  </span>
-                </div>
-
-                {/* Card Content Body */}
-                <div style={{ padding: "22px 24px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
-                  {/* Title & Icon Header */}
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginBottom: "14px" }}>
-                    <div
-                      style={{
-                        width: "44px",
-                        height: "44px",
-                        flexShrink: 0,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "22px",
-                        background: "var(--bg)",
-                        border: "1px solid var(--border)",
-                        borderRadius: "2px",
-                      }}
-                    >
-                      {proj.icon}
-                    </div>
-
-                    <div style={{ minWidth: 0, flex: 1 }}>
-                      <h3
-                        style={{
-                          fontSize: "16px",
-                          fontWeight: 700,
-                          letterSpacing: "0.06em",
-                          color: "var(--text-primary)",
-                          marginBottom: "4px",
-                          lineHeight: 1.2,
-                        }}
-                      >
-                        {proj.name}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "12px",
-                          color: "var(--accent)",
-                          fontWeight: 500,
-                          letterSpacing: "0.02em",
-                          lineHeight: 1.4,
-                          margin: 0,
-                        }}
-                      >
-                        {proj.title}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Role Specification Badge */}
-                  <div
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      marginBottom: "14px",
-                      padding: "4px 10px",
-                      background: "var(--bg)",
-                      border: "1px solid var(--border)",
-                      width: "fit-content",
-                    }}
-                  >
-                    <span style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.08em", fontWeight: 600 }}>ROLE:</span>
-                    <span style={{ fontSize: "11px", color: proj.isContribution ? "var(--yellow)" : "var(--text-primary)", fontWeight: 500 }}>
-                      {proj.role}
+                      fontWeight: 600,
+                      textTransform: "uppercase" as const,
+                    }}>
+                      {proj.isContribution ? "CONTRIBUTION" : "CORE SYSTEM"}
                     </span>
                   </div>
 
-                  {/* Concise Description */}
-                  <p
-                    style={{
-                      fontSize: "12.5px",
-                      color: "var(--text-secondary)",
-                      lineHeight: 1.7,
-                      marginBottom: "16px",
-                      flex: 1,
-                    }}
-                  >
+                  {/* Project Name + Title */}
+                  <div style={{ marginBottom: "16px" }}>
+                    <h3 style={{
+                      fontSize: "18px",
+                      fontWeight: 700,
+                      letterSpacing: "0.04em",
+                      color: "var(--text-primary)",
+                      marginBottom: "6px",
+                      lineHeight: 1.15,
+                    }}>
+                      {proj.name}
+                    </h3>
+                    <p style={{
+                      fontSize: "11.5px",
+                      color: hovered === i ? "var(--accent)" : "var(--text-muted)",
+                      letterSpacing: "0.08em",
+                      lineHeight: 1.4,
+                      transition: "color 0.22s ease",
+                    }}>
+                      {proj.title}
+                    </p>
+                  </div>
+
+                  {/* Thin divider */}
+                  <div style={{ height: "1px", background: "var(--border)", marginBottom: "16px" }} />
+
+                  {/* Description */}
+                  <p style={{
+                    fontSize: "12.5px",
+                    color: "var(--text-secondary)",
+                    lineHeight: 1.75,
+                    marginBottom: "20px",
+                    flex: 1,
+                  }}>
                     {proj.desc}
                   </p>
 
-                  {/* Highlight Metric / Meta Badge */}
+                  {/* Meta metric */}
                   {proj.meta && (
-                    <div style={{ marginBottom: "16px" }}>
-                      <span
-                        style={{
-                          fontSize: "10.5px",
-                          letterSpacing: "0.08em",
-                          padding: "3px 9px",
-                          border: "1px solid var(--border)",
-                          background: "var(--bg)",
-                          color: "var(--yellow)",
-                          fontWeight: 500,
-                          display: "inline-block",
-                        }}
-                      >
-                        {proj.meta}
+                    <div style={{ marginBottom: "18px" }}>
+                      <span style={{
+                        fontSize: "10px",
+                        letterSpacing: "0.1em",
+                        color: "var(--yellow)",
+                        fontWeight: 500,
+                      }}>
+                        ◆ {proj.meta}
                       </span>
                     </div>
                   )}
 
-                  {/* Technology Stack Pills */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "18px" }}>
+                  {/* Tech stack */}
+                  <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px", marginBottom: "24px" }}>
                     {proj.tech.map((t, ti) => (
-                      <span
-                        key={ti}
-                        style={{
-                          fontSize: "10px",
-                          letterSpacing: "0.06em",
-                          padding: "3px 8px",
-                          background: "var(--bg)",
-                          border: "1px solid var(--border)",
-                          color: "var(--text-muted)",
-                          borderRadius: "2px",
-                        }}
-                      >
+                      <span key={ti} style={{
+                        fontSize: "9.5px",
+                        letterSpacing: "0.08em",
+                        padding: "3px 8px",
+                        border: "1px solid var(--border)",
+                        color: "var(--text-muted)",
+                      }}>
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  {/* Action Link Footer */}
-                  <div
-                    style={{
-                      marginTop: "auto",
-                      paddingTop: "14px",
-                      borderTop: "1px solid var(--border)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "11px",
-                        letterSpacing: "0.14em",
-                        color: hovered === i ? "var(--accent)" : "var(--text-secondary)",
-                        fontWeight: 600,
-                        transition: "color 0.2s ease",
-                      }}
-                    >
+                  {/* Footer CTA */}
+                  <div style={{
+                    paddingTop: "16px",
+                    borderTop: "1px solid var(--border)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}>
+                    <span style={{
+                      fontSize: "10px",
+                      letterSpacing: "0.18em",
+                      color: hovered === i ? "var(--accent)" : "var(--text-muted)",
+                      fontWeight: 600,
+                      transition: "color 0.22s ease",
+                    }}>
                       VIEW CASE STUDY
                     </span>
-                    <span
-                      style={{
-                        color: hovered === i ? "var(--accent)" : "var(--text-muted)",
-                        fontSize: "13px",
-                        transform: hovered === i ? "translateX(3px)" : "translateX(0)",
-                        transition: "all 0.2s ease",
-                      }}
-                    >
-                      →
+                    <span style={{
+                      color: hovered === i ? "var(--accent)" : "var(--text-muted)",
+                      fontSize: "14px",
+                      display: "inline-block",
+                      transform: hovered === i ? "translate(4px, -2px)" : "translate(0, 0)",
+                      transition: "all 0.22s ease",
+                    }}>
+                      ↗
                     </span>
                   </div>
                 </div>

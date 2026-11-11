@@ -88,7 +88,7 @@ export default function GitRabbitPage() {
                   style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "var(--accent)")}
                   onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}
-                >LIVE DEMO</a>
+                >LIVE PLATFORM</a>
                 <ThemeToggle />
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function GitRabbitPage() {
                   style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", background: "var(--accent-dim)", border: "1px solid var(--accent)", color: "var(--accent)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--bg)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent-dim)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
-                >↗ LIVE DEMO</a>
+                >↗ LIVE PLATFORM</a>
                 <a href="https://github.com/shakib5560/gitrabbit2.0" target="_blank" rel="noopener noreferrer"
                   style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
@@ -738,7 +738,7 @@ export default function GitRabbitPage() {
                 style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", background: "var(--accent-dim)", border: "1px solid var(--accent)", color: "var(--accent)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--bg)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--accent-dim)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
-              >↗ VIEW LIVE DEMO</a>
+              >↗ VISIT LIVE PLATFORM</a>
               <a href="https://github.com/shakib5560/gitrabbit2.0" target="_blank" rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "12px", letterSpacing: "0.12em", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
