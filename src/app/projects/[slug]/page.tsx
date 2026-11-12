@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return Object.keys(PROJECTS_DATA)
-    .filter((slug) => slug !== "autotaskx" && slug !== "gitrabbit" && slug !== "off-white")
+    .filter((slug) => slug !== "autotaskx" && slug !== "gitrabbit" && slug !== "off-white" && slug !== "ainos")
     .map((slug) => ({ slug }));
 }
 

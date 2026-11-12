@@ -3,6 +3,7 @@ export interface ProjectDetails {
   name: string;
   desc: string;
   role?: string;
+  badge?: string;
   isContribution?: boolean;
   isPrivateRepo?: boolean;
   isBackendPrivate?: boolean;
@@ -13,6 +14,8 @@ export interface ProjectDetails {
   github: string | { frontend?: string; backend?: string };
   live: string;
   liveLabel?: string;
+  codeCanyonUrl?: string;
+  codeCanyonLabel?: string;
   client: {
     name: string;
     industry: string;
@@ -269,56 +272,59 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
   ainos: {
     slug: "ainos",
     name: "AINOS",
-    desc: "AI-POWERED ECOMMERCE PLATFORM",
-    role: "Lead Full-Stack & AI Systems Engineer",
+    desc: "PREMIUM MINIMALIST REACT & NEXT.JS TEMPLATE FOR CODECANYON",
+    role: "UI/UX Designer & Template Creator (CodeCanyon Author)",
+    badge: "CODECANYON TEMPLATE",
     isContribution: false,
-    tech: "NestJS / React / PostgreSQL / Prisma / Redis / JWT / Docker / AI APIs",
-    meta: "Automated SEO & AI Image Pipelines",
+    tech: "Next.js / React.js / Tailwind CSS / ES6+ / HTML5 & CSS3 / Framer Motion",
+    meta: "Published on CodeCanyon · Backend-Ready Architecture",
     icon: "◈",
-    longDescription: "AINOS is an AI-powered eCommerce platform designed for modern digital businesses that want intelligent automation with a clean and minimalist user experience. The platform combines AI-driven product management, automated content generation, and smart SEO optimization within a scalable full-stack architecture. AINOS provides an advanced AI-enabled control panel where administrators can automatically generate product descriptions, optimize SEO metadata, and edit product images using AI-powered workflows. The system focuses on performance, automation, and seamless user experience for both customers and store managers.",
+    longDescription: "AINOS is not a platform—it is a premium, ultra-minimalist React, Next.js, and Tailwind CSS template built specifically for CodeCanyon (Envato Market). Designed, engineered, and published on CodeCanyon by Shamiul Shakib, AINOS features an ultra-clean, aesthetic visual language engineered to integrate fabulously with any backend. Every frontend system, mock schema, and component interface is structured for seamless backend hookups (Node.js/NestJS, Python/Django, FastAPI, Laravel, Go, Supabase, or REST/GraphQL APIs). Built with modern ES6+, semantic HTML5, and fluid CSS3 micro-interactions via Framer Motion, it empowers developers and agencies to ship luxury digital storefronts and modern web applications in record time.",
     github: {
       frontend: "https://github.com/shakib5560/AINOS",
       backend: "https://github.com/shakib5560/AINOS_API"
     },
     live: "https://ainos-premium.netlify.app/",
+    liveLabel: "LIVE_PREVIEW",
+    codeCanyonUrl: "https://audiojungle.net/item/metallic-friction-horror-ambience/6482579082",
+    codeCanyonLabel: "GET ON CODECANYON",
     client: {
-      name: "AINOS Technologies",
-      industry: "AI-Powered eCommerce & SaaS",
-      duration: "6 Months",
+      name: "CodeCanyon (Envato Market)",
+      industry: "Commercial Web Templates & UI Themes",
+      duration: "Design & Marketplace Release",
       deliverables: [
-        "AI-powered eCommerce platform",
-        "Minimalist modern landing page",
-        "AI-enabled admin control panel",
-        "Automated product description generation",
-        "AI-based image editing workflows",
-        "Automated SEO optimization system",
-        "Secure authentication & subscription management",
-        "Scalable NestJS backend architecture",
-        "Responsive React frontend implementation",
-        "Dockerized production deployment",
-        "Performance optimization & caching system"
+        "Ultra-minimalist modern frontend template for CodeCanyon",
+        "Complete UI/UX design and upload on CodeCanyon by Shamiul Shakib",
+        "Engineered with Next.js (App Router), React.js, and ES6+",
+        "Clean utility styling with Tailwind CSS & custom CSS3 tokens",
+        "Semantic, accessible HTML5 markup and WCAG compliance",
+        "Backend-ready architecture with decoupled data contracts",
+        "Strict TypeScript typing for effortless API payload mapping",
+        "Framer Motion micro-interactions and smooth page transitions",
+        "Dark & Light mode toggle with persistent theme switching",
+        "Comprehensive buyer documentation & quickstart integration guide"
       ]
     },
     problems: [
       {
-        title: "AI Processing & Request Optimization",
-        description: "AI-powered operations such as automated description generation, SEO processing, and image editing created heavy concurrent API workloads and response bottlenecks.",
-        solution: "Implemented queue-based request handling, Redis caching, optimized Prisma queries, and modular NestJS services to improve AI task execution speed and maintain stable server performance."
+        title: "Crafting High-End Minimalism Without Visual Emptiness",
+        description: "Minimalist themes often risk feeling flat or bare if whitespace, typographic scale, and micro-interactions are not delicately balanced.",
+        solution: "Engineered a precise typographic hierarchy with Geist/JetBrains Mono, subtle contrast borders, and staggered Framer Motion micro-interactions that deliver an ultra-refined, premium look while preserving pure minimalism."
       },
       {
-        title: "Automated SEO & Dynamic Metadata Generation",
-        description: "Generating unique SEO-friendly metadata dynamically for thousands of products while maintaining performance and consistency was complex.",
-        solution: "Built AI-assisted metadata generation pipelines with server-side optimization and centralized SEO management logic to automate titles, descriptions, keywords, and structured metadata generation."
+        title: "Architecting a Frontend Theme That Works Fabulously with Any Backend",
+        description: "Buyers on CodeCanyon use diverse backend stacks (NestJS, Django, Laravel, Go, Supabase). Hardcoding state or deeply coupling UI logic creates integration friction.",
+        solution: "Decoupled the presentation layer from the data layer by introducing standardized TypeScript data contracts and modular mock data models in src/data/, ensuring buyers can plug in REST APIs or GraphQL endpoints seamlessly."
       },
       {
-        title: "AI Image Editing & Asset Management",
-        description: "Processing AI-generated image edits and managing optimized media delivery introduced storage and performance challenges.",
-        solution: "Integrated optimized media handling pipelines with Cloudinary, background asset transformations, and CDN caching to reduce load times and maintain visual quality."
+        title: "Zero-Bloat Performance & Modern ES6+ Tooling",
+        description: "Many marketplace templates are bloated with obsolete libraries, bulky UI kits, and legacy JavaScript, leading to poor Core Web Vitals and slow mobile performance.",
+        solution: "Built strictly with Next.js, React.js, Tailwind CSS, and clean ES6+ modules—achieving 98+ Google PageSpeed scores, zero runtime bloat, and instant hot-reloading."
       },
       {
-        title: "Admin Workflow Automation & High-Concurrency Scalability",
-        description: "Managing environment consistency, high concurrency during bulk catalog updates, and deployment reliability across production environments created operational complexity.",
-        solution: "Decoupled administrative workloads using asynchronous jobs, transaction isolation in Prisma/PostgreSQL, Docker containerization, and rate-limiting safeguards."
+        title: "Seamless Dark/Light Mode Theming Without FOUC",
+        description: "Theme toggles often cause flashes of unstyled content (FOUC) or mismatched color tokens across nested components.",
+        solution: "Implemented CSS-variable-based color tokens synchronized with local storage and DOM class triggers, ensuring instantaneous, flicker-free transitions between dark and light themes."
       }
     ]
   },

@@ -119,12 +119,12 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
                       fontSize: "9.5px",
                       letterSpacing: "0.12em",
                       padding: "2px 8px",
-                      border: `1px solid ${project.isContribution ? "var(--yellow)" : "var(--accent)"}`,
-                      color: project.isContribution ? "var(--yellow)" : "var(--accent)",
-                      background: project.isContribution ? "var(--yellow-dim)" : "var(--accent-dim)",
+                      border: `1px solid ${project.badge ? "var(--accent)" : project.isContribution ? "var(--yellow)" : "var(--accent)"}`,
+                      color: project.badge ? "var(--accent)" : project.isContribution ? "var(--yellow)" : "var(--accent)",
+                      background: project.badge ? "var(--accent-dim)" : project.isContribution ? "var(--yellow-dim)" : "var(--accent-dim)",
                       fontWeight: 600,
                     }}>
-                      {project.isContribution ? "CONTRIBUTION" : "CORE SYSTEM"}
+                      {project.badge || (project.isContribution ? "CONTRIBUTION" : "CORE SYSTEM")}
                     </span>
                   </div>
                 )}
@@ -340,6 +340,42 @@ export default function ProjectDetailsView({ slug }: { slug: string }) {
                 <span style={{ color: "var(--accent)" }}>◈</span>
                 [ {project.liveLabel || "LIVE_DEPLOYMENT"} ]
               </a>
+
+              {project.codeCanyonUrl && (
+                <a
+                  href={project.codeCanyonUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "12px 22px",
+                    border: "1px solid #82b440",
+                    background: "rgba(130, 180, 64, 0.12)",
+                    color: "#82b440",
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#82b440";
+                    e.currentTarget.style.color = "#111";
+                    e.currentTarget.style.boxShadow = "0 0 24px rgba(130, 180, 64, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgba(130, 180, 64, 0.12)";
+                    e.currentTarget.style.color = "#82b440";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <span style={{ fontSize: "14px" }}>🛒</span>
+                  [ {project.codeCanyonLabel || "GET ON CODECANYON"} ]
+                </a>
+              )}
             </div>
 
           </div>

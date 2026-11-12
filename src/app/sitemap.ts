@@ -33,10 +33,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/projects/ainos`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 
   const projectRoutes: MetadataRoute.Sitemap = Object.keys(PROJECTS_DATA)
-    .filter((slug) => slug !== "autotaskx" && slug !== "gitrabbit" && slug !== "off-white")
+    .filter((slug) => slug !== "autotaskx" && slug !== "gitrabbit" && slug !== "off-white" && slug !== "ainos")
     .map((slug) => ({
       url: `${baseUrl}/projects/${slug}`,
       lastModified: new Date(),

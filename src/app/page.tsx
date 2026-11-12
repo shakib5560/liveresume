@@ -143,6 +143,7 @@ interface ProjectSummary {
   title: string;
   role: string;
   isContribution?: boolean;
+  badge?: string;
   desc: string;
   tech: string[];
   meta: string;
@@ -333,12 +334,13 @@ const DATA = {
     {
       slug: "ainos",
       name: "AINOS",
-      title: "AI-Powered eCommerce Platform",
-      role: "Lead Full-Stack & AI Systems Engineer",
+      title: "Minimalist React & Next.js Theme (CodeCanyon)",
+      role: "UI/UX Designer & Template Creator (CodeCanyon Author)",
+      badge: "CODECANYON THEME",
       isContribution: false,
-      desc: "Full-stack AI eCommerce platform featuring automated product descriptions, dynamic SEO metadata generation, and AI-enabled admin control workflows.",
-      tech: ["NestJS", "React", "PostgreSQL", "Prisma", "Redis", "Docker", "AI APIs"],
-      meta: "Automated SEO & AI Image Pipelines",
+      desc: "Ultra-minimalist React, Next.js, and Tailwind CSS template published on CodeCanyon. Designed from scratch with ES6+, HTML5 & CSS3, and an engineered backend-ready architecture.",
+      tech: ["Next.js", "React.js", "Tailwind CSS", "ES6+", "HTML5 & CSS3"],
+      meta: "CodeCanyon Marketplace · Backend-Ready System",
       icon: "◈",
     },
   ] as ProjectSummary[],
@@ -1530,12 +1532,13 @@ function Projects() {
                       fontSize: "9px",
                       letterSpacing: "0.14em",
                       padding: "3px 8px",
-                      border: `1px solid ${proj.isContribution ? "var(--yellow)" : "var(--accent)"}`,
-                      color: proj.isContribution ? "var(--yellow)" : "var(--accent)",
+                      border: `1px solid ${proj.badge ? "var(--accent)" : proj.isContribution ? "var(--yellow)" : "var(--accent)"}`,
+                      color: proj.badge ? "var(--accent)" : proj.isContribution ? "var(--yellow)" : "var(--accent)",
+                      background: proj.badge ? "var(--accent-dim)" : "transparent",
                       fontWeight: 600,
                       textTransform: "uppercase" as const,
                     }}>
-                      {proj.isContribution ? "CONTRIBUTION" : "CORE SYSTEM"}
+                      {proj.badge || (proj.isContribution ? "CONTRIBUTION" : "CORE SYSTEM")}
                     </span>
                   </div>
 
