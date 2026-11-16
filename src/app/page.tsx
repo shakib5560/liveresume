@@ -279,12 +279,12 @@ const DATA = {
     {
       slug: "autotaskx",
       name: "AUTOTASKX",
-      title: "Industrial IoT & Formulation Platform",
+      title: "Industrial Textile OS & Enterprise ERP Gateway",
       role: "Lead Systems Architect & Full-Stack",
       isContribution: false,
-      desc: "Architected an industrial IoT platform unifying dye-formulation, defect grading, and machine telemetry using algorithmic recipe engines and Redis Pub/Sub.",
-      tech: ["Next.js", "FastAPI", "TimescaleDB", "Redis", "AWS"],
-      meta: "Sub-25ms Real-Time · 60% Dye Trial Reduction",
+      desc: "Architected an industrial IoT platform and web-based Textile OS unifying dye formulation, defect grading, machine telemetry, and bi-directional ERP integration (SAP/Datatex) via high-throughput FastAPI microservices.",
+      tech: ["Next.js 16", "React 19", "FastAPI (Python 3.12)", "PostgreSQL 16", "TimescaleDB", "Redis 7.2", "SAP / Datatex ERP"],
+      meta: "Sub-25ms Real-Time · Zero Clipboard Re-entry · 60% Dye Trial Reduction",
       icon: "🏭",
     },
     {

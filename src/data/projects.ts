@@ -71,29 +71,32 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
   autotaskx: {
     slug: "autotaskx",
     name: "AUTOTASKX",
-    desc: "INDUSTRIAL IOT & FORMULATION PLATFORM",
+    desc: "INDUSTRIAL TEXTILE OS & ENTERPRISE ERP GATEWAY",
     role: "Lead Systems Architect & Full-Stack",
     isContribution: false,
     isBackendPrivate: true,
-    tech: "Next.js / FastAPI / TimescaleDB / Redis / AWS",
-    meta: "Sub-25ms Real-Time · 60% Dye Trial Reduction",
+    tech: "Next.js 16 / React 19 / FastAPI (Python 3.12) / TimescaleDB / Redis 7.2 / SAP & Datatex ERP",
+    meta: "Sub-25ms Real-Time · Zero Clipboard Re-entry · 60% Dye Trial Reduction",
     icon: "🏭",
-    longDescription: "Architected an industrial IoT platform unifying dye-formulation, defect grading, and machine telemetry using algorithmic recipe engines and Redis Pub/Sub. Achieved sub-25ms real-time broadcasting and reduced lab dye trials by 60% with Next.js, FastAPI, TimescaleDB, and AWS.",
+    longDescription: "Architected an industrial IoT platform and web-based Textile OS unifying dye-formulation, defect grading, machine telemetry, and bi-directional enterprise ERP interoperability (SAP S/4HANA, Datatex NOW MES, Infor ION) via high-throughput FastAPI (Python 3.12, AsyncIO) microservices and Redis 7.2 Pub/Sub. Achieved sub-25ms real-time broadcasting, eliminated manual clipboard re-entry, and reduced lab dye trials by 60% with Next.js 16, React 19, FastAPI, PostgreSQL 16, TimescaleDB hypertables, and AWS.",
     github: {
       frontend: "https://github.com/shakib5560/AutoTaskX",
       backend: "https://github.com/shakib5560/autotaskx-api"
     },
     live: "https://autotaskx.online/",
     client: {
-      name: "Industrial Dyehouse Automation",
-      industry: "Industrial IoT & Smart Manufacturing",
+      name: "Industrial Dyehouse Automation & Vertical Mills",
+      industry: "Industrial IoT, Textile Manufacturing & Enterprise ERP",
       duration: "Production Deployment",
       deliverables: [
         "Industrial IoT platform unifying dye formulation & defect grading",
+        "Web-based Industrial Textile OS with multi-window desktop management",
+        "Bi-directional FastAPI ERP Gateway for SAP S/4HANA, Datatex NOW MES, and Infor ION",
         "Algorithmic recipe engines reducing lab dye trials by 60%",
         "Sub-25ms real-time telemetry broadcasting with Redis Pub/Sub",
-        "Time-series database persistence with TimescaleDB",
-        "FastAPI backend microservices & Next.js frontend on AWS"
+        "Time-series database persistence with TimescaleDB hypertables",
+        "Statutory compliance engine for Bangladesh export mills (BTMA, BGMEA, BKMEA, DIFE)",
+        "FastAPI backend microservices & Next.js 16 frontend on AWS"
       ]
     },
     problems: [
@@ -106,6 +109,16 @@ export const PROJECTS_DATA: Record<string, ProjectDetails> = {
         title: "Real-Time Machine Telemetry Synchronization",
         description: "Burst telemetry events from production machines at high line speeds risked desyncing user dashboards and overwhelming the database.",
         solution: "Implemented an async WebSocket manager backed by Redis Pub/Sub broadcasting telemetry under 25ms, persisting historical time-series data to TimescaleDB."
+      },
+      {
+        title: "Control Room Hardware & Software Fragmentation",
+        description: "Operators had to toggle between disconnected spectrophotometer software, physical clipboards, inspection perches, and vessel gauges.",
+        solution: "Architected Textile OS in Next.js 16 and React 19—a high-density multi-window desktop environment with dynamic Z-stacking, Unix VFS, and unified industrial app suites."
+      },
+      {
+        title: "Shopfloor Dispenser to ERP Ledger Disconnect",
+        description: "Manual end-of-day clipboard transcription between dyehouse dispensers and enterprise ERPs caused severe stock drift and delayed production accounting.",
+        solution: "Engineered an asynchronous FastAPI integration gateway that auto-debits chemical stocks (SAP MM/Datatex Dyes) and posts ASTM D5430 inspection passports (SAP QM) in sub-25ms."
       }
     ]
   },
